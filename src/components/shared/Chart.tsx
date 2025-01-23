@@ -35,7 +35,7 @@ const Chart = (props: ChartProps) => {
         series = [],
         width = '100%',
         height = 300,
-        xAxis,
+        xAxis = [],
         customOptions,
         type = 'line',
         direction,
