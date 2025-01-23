@@ -1,5 +1,15 @@
 import { AdaptiveCard, Chart } from '@/components/shared'
-import { Card, Button, Select, Calendar, Tabs, Avatar } from '@/components/ui'
+import {
+    Card,
+    Button,
+    Select,
+    Calendar,
+    Tabs,
+    Avatar,
+    Switcher,
+    Tag,
+    Segment,
+} from '@/components/ui'
 import { HiOutlineUser } from 'react-icons/hi'
 
 const Home = () => {
@@ -361,11 +371,11 @@ const Home = () => {
                                                         {task.date}
                                                     </p>
                                                 </div>
-                                                <p
-                                                    className={`text-xs font-semibold ml-auto p-1 rounded ${task.priority === 'Low' ? 'bg-success-light' : task.priority === 'Medium' ? 'bg-[#bafdfa]' : 'bg-red-300'}`}
+                                                <Tag
+                                                    className={`${task.priority === 'Low' ? 'bg-success-light' : task.priority === 'Medium' ? 'bg-[#bafdfa]' : 'bg-red-300'}`}
                                                 >
                                                     {task.priority}
-                                                </p>
+                                                </Tag>
                                             </div>
                                         </div>
                                     </Card>
@@ -375,10 +385,30 @@ const Home = () => {
                     </AdaptiveCard>
                 </div>
                 <div className="w-4/12 h-full">
-                    <AdaptiveCard></AdaptiveCard>
+                    <AdaptiveCard>
+                        <div className="flex flex-row w-full justify-between items-center pb-[20px]">
+                            <p className="text-xl font-bold">Current tasks</p>
+                            <Segment defaultValue="monthly">
+                                <Segment.Item value="monthly">
+                                    Monthly
+                                </Segment.Item>
+                                <Segment.Item value="weekly">
+                                    Weekly
+                                </Segment.Item>
+                            </Segment>
+                        </div>
+                        <div className="flex flex-row justify-between w-full items-center">
+                            <div>
+                                <p className="text-lg font-bold">213</p>
+                                <p className="text-sm font-medium">
+                                    Total Tasks
+                                </p>
+                            </div>
+                        </div>
+                    </AdaptiveCard>
                 </div>
                 <div className="w-4/12 h-full">
-                    <AdaptiveCard></AdaptiveCard>
+                    <AdaptiveCard defaultChecked={true}></AdaptiveCard>
                 </div>
             </section>
         </main>
