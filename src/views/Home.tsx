@@ -4,36 +4,71 @@ import {
     Button,
     Select,
     Calendar,
-    Tabs,
     Avatar,
-    Switcher,
     Tag,
     Segment,
+    Badge,
+    Timeline,
 } from '@/components/ui'
 import { HiOutlineUser } from 'react-icons/hi'
+import userPng from '@/assets/images/user.png'
+import { BsCameraVideoFill, BsTags } from 'react-icons/bs'
+import { FaCheck } from 'react-icons/fa'
+import { LuDownload, LuSquareCheckBig } from 'react-icons/lu'
+import { TbCalendarStar, TbCoffee } from 'react-icons/tb'
+import { BiSolidBoltCircle } from 'react-icons/bi'
+import { MdOutlineLibraryAddCheck } from 'react-icons/md'
+import { AiOutlineDollar } from 'react-icons/ai'
+import { IoBagCheckOutline } from 'react-icons/io5'
+import { IoMdEye } from 'react-icons/io'
 
 const Home = () => {
-    const series = [
-        {
-            name: 'Sales',
-            data: [240, 320, 280, 360, 340, 410, 370, 460, 390, 470, 360, 560],
-        },
-    ]
+    const areaData = {
+        series: [
+            {
+                name: 'Sales',
+                data: [
+                    240, 320, 280, 360, 340, 410, 370, 460, 390, 470, 360, 560,
+                ],
+            },
+        ],
+        xAxis: [
+            '01 Jun',
+            '02 Jun',
+            '03 Jun',
+            '04 Jun',
+            '05 Jun',
+            '06 Jun',
+            '07 Jun',
+            '08 Jun',
+            '09 Jun',
+            '10 Jun',
+            '11 Jun',
+            '12 Jun',
+        ],
+    }
 
-    const xAxis = [
-        '01 Jun',
-        '02 Jun',
-        '03 Jun',
-        '04 Jun',
-        '05 Jun',
-        '06 Jun',
-        '07 Jun',
-        '08 Jun',
-        '09 Jun',
-        '10 Jun',
-        '11 Jun',
-        '12 Jun',
-    ]
+    const doubleBarData = {
+        series: [
+            {
+                name: 'Finished',
+                data: [32, 35, 62, 62, 70, 80, 85],
+            },
+            {
+                name: 'On Going',
+                data: [40, 50, 70, 85, 100, 110, 130],
+            },
+        ],
+        xAxis: [
+            '21 Jan',
+            '22 Jan',
+            '23 Jan',
+            '24 Jan',
+            '25 Jan',
+            '26 Jan',
+            '27 Jan',
+        ],
+    }
 
     const events = [
         {
@@ -41,7 +76,7 @@ const Home = () => {
             title: 'Daily standup',
             type: 'Meeting',
             time: '10:00 AM',
-            icon: <HiOutlineUser />,
+            icon: <BsCameraVideoFill />,
             iconColor: 'bg-grape',
         },
         {
@@ -49,7 +84,7 @@ const Home = () => {
             title: 'Lunch break',
             type: 'Break',
             time: '12:00 PM',
-            icon: <HiOutlineUser />,
+            icon: <TbCoffee />,
             iconColor: 'bg-success-light',
         },
         {
@@ -57,7 +92,7 @@ const Home = () => {
             title: 'Townhall',
             type: 'Event',
             time: '03:00 PM',
-            icon: <HiOutlineUser />,
+            icon: <TbCalendarStar />,
             iconColor: 'bg-primary-light',
         },
         {
@@ -65,7 +100,7 @@ const Home = () => {
             title: 'Write daily report',
             type: 'Task',
             time: '05:00 PM',
-            icon: <HiOutlineUser />,
+            icon: <LuSquareCheckBig />,
             iconColor: 'bg-success-light',
         },
         {
@@ -73,7 +108,7 @@ const Home = () => {
             title: 'Townhall',
             type: 'Event',
             time: '03:00 PM',
-            icon: <HiOutlineUser />,
+            icon: <TbCalendarStar />,
             iconColor: 'bg-primary-light',
         },
         {
@@ -81,7 +116,7 @@ const Home = () => {
             title: 'Write daily report',
             type: 'Task',
             time: '05:00 PM',
-            icon: <HiOutlineUser />,
+            icon: <LuSquareCheckBig />,
             iconColor: 'bg-success-light',
         },
     ]
@@ -92,7 +127,7 @@ const Home = () => {
             title: 'Unable to upload file',
             priority: 'High',
             date: 'August 05',
-            icon: <HiOutlineUser />,
+            icon: <FaCheck />,
             completed: false,
         },
         {
@@ -100,7 +135,7 @@ const Home = () => {
             title: 'Error in database query',
             priority: 'Medium',
             date: 'July 15',
-            icon: <HiOutlineUser />,
+            icon: <FaCheck />,
             completed: true,
         },
         {
@@ -108,7 +143,7 @@ const Home = () => {
             title: 'Authentication problem',
             priority: 'High',
             date: 'September 20',
-            icon: <HiOutlineUser />,
+            icon: <FaCheck />,
             completed: false,
         },
         {
@@ -116,7 +151,7 @@ const Home = () => {
             title: 'Bug in search functionality',
             priority: 'High',
             date: 'September 05',
-            icon: <HiOutlineUser />,
+            icon: <FaCheck />,
             completed: false,
         },
         {
@@ -126,6 +161,33 @@ const Home = () => {
             date: 'July 25',
             icon: <HiOutlineUser />,
             completed: true,
+        },
+    ]
+
+    const activities = [
+        {
+            id: 1,
+            user: 'Angelina Gotelli',
+            action: 'Has changed PD-979 status to Completed',
+
+            time: '10:00 AM',
+            media: <Avatar className="bg-yellow-100">AG</Avatar>,
+        },
+        {
+            id: 2,
+            user: 'Max Alexander',
+            action: 'Commented on yout Post',
+            details:
+                "Fine, Java MIGHT be a good example of what a programming language should be like. But Java applications are good examples of what appliccations SHOULDN'T be like.",
+            time: '09:30 AM',
+            media: <Avatar src={userPng} />,
+        },
+        {
+            id: 3,
+            user: 'Jane Smith',
+            action: 'Created a new task',
+            time: '08:45 AM',
+            media: <Avatar className="bg-yellow-100" icon={<BsTags />} />,
         },
     ]
 
@@ -149,7 +211,7 @@ const Home = () => {
                                     </div>
                                     <Avatar
                                         className="bg-primary-light"
-                                        icon={<HiOutlineUser />}
+                                        icon={<BiSolidBoltCircle />}
                                     />
                                 </div>
                             </Card>
@@ -163,7 +225,7 @@ const Home = () => {
                                     </div>
                                     <Avatar
                                         className="bg-success-light"
-                                        icon={<HiOutlineUser />}
+                                        icon={<MdOutlineLibraryAddCheck />}
                                     />
                                 </div>
                             </Card>
@@ -175,7 +237,7 @@ const Home = () => {
                                     </div>
                                     <Avatar
                                         className="bg-grape"
-                                        icon={<HiOutlineUser />}
+                                        icon={<LuDownload />}
                                     />
                                 </div>
                             </Card>
@@ -199,7 +261,10 @@ const Home = () => {
                             </Select>
                         </div>
                         <div className="grid grid-cols-3 gap-4 w-full bg-gray-100 p-[8px] rounded-[20px]">
-                            <Card bordered={false} className="!shadow-none">
+                            <Card
+                                bordered={false}
+                                className="!shadow-none !shadow-gray-100"
+                            >
                                 <div className="flex flex-row justify-between items-start">
                                     <div className="flex flex-col gap-[10px]">
                                         <p className="text-sm font-semibold">
@@ -219,13 +284,13 @@ const Home = () => {
                                     </div>
                                     <Avatar
                                         className="bg-success-light"
-                                        icon={<HiOutlineUser />}
+                                        icon={<AiOutlineDollar />}
                                     />
                                 </div>
                             </Card>
                             <Card
                                 bordered={false}
-                                className="!shadow-none !bg-gray-100"
+                                className="!shadow-none !shadow-gray-100 !bg-gray-100"
                             >
                                 <div className="flex flex-row justify-between items-start">
                                     <div className="flex flex-col gap-[10px]">
@@ -246,13 +311,13 @@ const Home = () => {
                                     </div>
                                     <Avatar
                                         className="bg-grape"
-                                        icon={<HiOutlineUser />}
+                                        icon={<IoBagCheckOutline />}
                                     />
                                 </div>
                             </Card>
                             <Card
                                 bordered={false}
-                                className="!shadow-none !bg-gray-100"
+                                className="!shadow-none !shadow-gray-100 !bg-gray-100"
                             >
                                 <div className="flex flex-row justify-between items-start">
                                     <div className="flex flex-col gap-[10px]">
@@ -273,7 +338,7 @@ const Home = () => {
                                     </div>
                                     <Avatar
                                         className="bg-primary-light"
-                                        icon={<HiOutlineUser />}
+                                        icon={<IoMdEye />}
                                     />
                                 </div>
                             </Card>
@@ -281,8 +346,8 @@ const Home = () => {
                         <div>
                             <Chart
                                 type="area"
-                                series={series}
-                                xAxis={xAxis}
+                                series={areaData.series}
+                                xAxis={areaData.xAxis}
                                 height={350}
                             />
                         </div>
@@ -340,9 +405,9 @@ const Home = () => {
                             <p className="text-xl font-bold">Current tasks</p>
                             <Button variant="default">All tasks</Button>
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col gap-[10px]">
                             {tasks.map((task) => (
-                                <div key={task.id} className="mb-4">
+                                <div key={task.id} className="pb-2 border-b">
                                     <Card
                                         bordered={true}
                                         className="border-white"
@@ -404,11 +469,89 @@ const Home = () => {
                                     Total Tasks
                                 </p>
                             </div>
+                            <div className="flex flex-row items-center gap-[10px]">
+                                <div className="flex flex-col ">
+                                    <div className="flex flex-row items-center">
+                                        <Badge innerClass="bg-black" />
+                                        <p className="ml-1 text-lg font-bold">
+                                            126
+                                        </p>
+                                    </div>
+                                    <p className="ml-4 text-sm font-medium">
+                                        On Going
+                                    </p>
+                                </div>
+                                <div className="flex flex-col ">
+                                    <div className="flex flex-row items-center">
+                                        <Badge innerClass="bg-black" />
+                                        <p className="ml-1 text-lg font-bold">
+                                            87
+                                        </p>
+                                    </div>
+                                    <p className="ml-4 text-sm font-medium">
+                                        Finished
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="border">
+                            <Chart
+                                customOptions={{
+                                    plotOptions: {
+                                        bar: {
+                                            columnWidth: '55%',
+                                            borderRadius: 2,
+                                        },
+                                    },
+                                    colors: ['#00A3FF', '#6A2DE3'],
+                                    legend: {
+                                        show: false,
+                                    },
+                                }}
+                                type="bar"
+                                height={230}
+                                series={doubleBarData.series}
+                                xAxis={doubleBarData.xAxis}
+                            />
                         </div>
                     </AdaptiveCard>
                 </div>
                 <div className="w-4/12 h-full">
-                    <AdaptiveCard defaultChecked={true}></AdaptiveCard>
+                    <AdaptiveCard>
+                        <div className="flex flex-row w-full justify-between items-center pb-[20px]">
+                            <p className="text-xl font-bold">Recent activity</p>
+                            <Button variant="default">View all</Button>
+                        </div>
+                        <div className="h-[300px] overflow-auto">
+                            <Timeline className="pr-[10px]">
+                                {activities.map((activity) => (
+                                    <Timeline.Item
+                                        key={activity.id}
+                                        media={activity.media}
+                                    >
+                                        <div className="flex flex-col gap-[8px]">
+                                            <div className="flex flex-col gap-[0px]">
+                                                <p className="font-semibold text-sm">
+                                                    {activity.user}
+                                                </p>
+                                                <p className="text-xs font-semibold">
+                                                    {activity.time}
+                                                </p>
+                                            </div>
+                                            <p className="text-sm font-medium">
+                                                {activity.action}
+                                            </p>
+                                            {activity.details && (
+                                                <p className="text-sm bg-gray-100 rounded-lg py-[20px] px-[15px]">
+                                                    {activity.details}
+                                                </p>
+                                            )}
+                                        </div>
+                                    </Timeline.Item>
+                                ))}
+                            </Timeline>
+                        </div>
+                    </AdaptiveCard>
                 </div>
             </section>
         </main>
