@@ -7,6 +7,10 @@ import LayoutBase from '@/components//template/LayoutBase'
 import useResponsive from '@/utils/hooks/useResponsive'
 import { LAYOUT_COLLAPSIBLE_SIDE } from '@/constants/theme.constant'
 import type { CommonProps } from '@/@types/common'
+import Search from '@/components/template/Search'
+import LanguageSelector from '@/components/template/LanguageSelector'
+import NotificationAvatar from '@/components/template/Notification/NotificationAvatar'
+import { IoSettings } from 'react-icons/io5'
 
 const CollapsibleSide = ({ children }: CommonProps) => {
     const { larger, smaller } = useResponsive()
@@ -25,10 +29,13 @@ const CollapsibleSide = ({ children }: CommonProps) => {
                             <>
                                 {smaller.lg && <MobileNav />}
                                 {larger.lg && <SideNavToggle />}
+                                <Search />
                             </>
                         }
                         headerEnd={
                             <>
+                                <LanguageSelector />
+
                                 <UserProfileDropdown hoverable={false} />
                             </>
                         }
