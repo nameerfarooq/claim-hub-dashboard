@@ -11,7 +11,7 @@ import {
     Timeline,
 } from '@/components/ui'
 import { HiOutlineUser } from 'react-icons/hi'
-import userPng from '@/assets/images/user.png'
+import userPng from '@/assets/Images/user.png'
 import { BsCameraVideoFill, BsTags } from 'react-icons/bs'
 import { FaCheck } from 'react-icons/fa'
 import { LuDownload, LuSquareCheckBig } from 'react-icons/lu'
