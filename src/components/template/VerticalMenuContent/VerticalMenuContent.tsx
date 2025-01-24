@@ -68,6 +68,7 @@ const VerticalMenuContent = (props: VerticalMenuContentProps) => {
                         {nav.type === NAV_ITEM_TYPE_ITEM && (
                             <VerticalSingleMenuItem
                                 key={nav.key}
+                                className="border"
                                 currentKey={activedRoute?.key}
                                 parentKeys={defaulExpandKey}
                                 nav={nav}
@@ -109,7 +110,10 @@ const VerticalMenuContent = (props: VerticalMenuContentProps) => {
                             </VerticalCollapsedMenuItem>
                         )}
                         {nav.type === NAV_ITEM_TYPE_TITLE && (
-                            <AuthorityCheck userAuthority={userAuthority} authority={nav.authority}>
+                            <AuthorityCheck
+                                userAuthority={userAuthority}
+                                authority={nav.authority}
+                            >
                                 <MenuGroup
                                     key={nav.key}
                                     label={t(nav.translateKey) || nav.title}

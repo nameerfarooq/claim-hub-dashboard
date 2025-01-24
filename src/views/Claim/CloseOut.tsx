@@ -37,7 +37,7 @@ function IndeterminateCheckbox({
     return <Checkbox ref={ref} onChange={(_, e) => onChange(e)} {...rest} />
 }
 
-const Contact = () => {
+const CloseOut = () => {
     const tableData = [
         {
             id: 1,
@@ -46,11 +46,13 @@ const Contact = () => {
                 fullName: 'Angelina Gotelli',
             },
             city: 'New York',
-            phone: '(212) 555-7890',
-            type: 'Software Engineer',
-            company: 'TechCorp',
-            value: 1200.75,
-            dateCreated: '01/15/24-08:45:12',
+            phone: '(618) 474-9169',
+            source: 'Lorem',
+            category: 'Residential',
+            type: 'Repair',
+            insurance: 'Lorem',
+            priority: 'High',
+            lastTouched: '12/12/24 - 01:25:49', // Placeholder for action
         },
         {
             id: 2,
@@ -60,10 +62,12 @@ const Contact = () => {
             },
             city: 'Los Angeles',
             phone: '(310) 555-0123',
-            type: 'Product Manager',
-            company: 'Innovate Inc.',
-            value: 985.5,
-            dateCreated: '02/20/24-14:30:45',
+            source: 'Ipsum',
+            category: 'Commercial',
+            type: 'Maintenance',
+            insurance: 'Ipsum',
+            priority: 'Medium',
+            lastTouched: '11/11/24 - 02:15:30',
         },
         {
             id: 3,
@@ -73,10 +77,12 @@ const Contact = () => {
             },
             city: 'Chicago',
             phone: '(312) 555-4567',
-            type: 'UI/UX Designer',
-            company: 'DesignHub',
-            value: 765.0,
-            dateCreated: '03/10/24-11:15:30',
+            source: 'Dolor',
+            category: 'Residential',
+            type: 'Installation',
+            insurance: 'Dolor',
+            priority: 'Low',
+            lastTouched: '10/10/24 - 03:45:12',
         },
         {
             id: 4,
@@ -86,10 +92,12 @@ const Contact = () => {
             },
             city: 'Houston',
             phone: '(713) 555-6789',
-            type: 'Data Analyst',
-            company: 'DataPros',
-            value: 1450.25,
-            dateCreated: '04/25/24-09:20:10',
+            source: 'Sit',
+            category: 'Commercial',
+            type: 'Repair',
+            insurance: 'Sit',
+            priority: 'High',
+            lastTouched: '09/09/24 - 04:30:45',
         },
         {
             id: 5,
@@ -99,10 +107,12 @@ const Contact = () => {
             },
             city: 'San Francisco',
             phone: '(415) 555-0987',
-            type: 'DevOps Engineer',
-            company: 'Cloudify',
-            value: 1300.0,
-            dateCreated: '05/05/24-17:50:05',
+            source: 'Amet',
+            category: 'Residential',
+            type: 'Maintenance',
+            insurance: 'Amet',
+            priority: 'Medium',
+            lastTouched: '08/08/24 - 05:20:10',
         },
         {
             id: 6,
@@ -112,10 +122,12 @@ const Contact = () => {
             },
             city: 'Seattle',
             phone: '(206) 555-2468',
-            type: 'Frontend Developer',
-            company: 'Webify',
-            value: 1050.0,
-            dateCreated: '06/10/24-10:15:25',
+            source: 'Consectetur',
+            category: 'Commercial',
+            type: 'Installation',
+            insurance: 'Consectetur',
+            priority: 'Low',
+            lastTouched: '07/07/24 - 06:15:25',
         },
         {
             id: 7,
@@ -125,10 +137,12 @@ const Contact = () => {
             },
             city: 'Denver',
             phone: '(303) 555-7891',
-            type: 'Marketing Specialist',
-            company: 'BrandBoost',
-            value: 780.5,
-            dateCreated: '07/18/24-13:45:00',
+            source: 'Adipiscing',
+            category: 'Residential',
+            type: 'Repair',
+            insurance: 'Adipiscing',
+            priority: 'High',
+            lastTouched: '06/06/24 - 07:45:00',
         },
         {
             id: 8,
@@ -138,10 +152,12 @@ const Contact = () => {
             },
             city: 'Miami',
             phone: '(305) 555-3412',
-            type: 'Backend Developer',
-            company: 'CodeWorks',
-            value: 1120.3,
-            dateCreated: '08/05/24-09:00:18',
+            source: 'Elit',
+            category: 'Commercial',
+            type: 'Maintenance',
+            insurance: 'Elit',
+            priority: 'Medium',
+            lastTouched: '05/05/24 - 08:00:18',
         },
         {
             id: 9,
@@ -151,10 +167,12 @@ const Contact = () => {
             },
             city: 'Austin',
             phone: '(512) 555-6678',
-            type: 'Human Resources Manager',
-            company: 'PeopleFirst',
-            value: 890.25,
-            dateCreated: '09/12/24-16:25:35',
+            source: 'Sed',
+            category: 'Residential',
+            type: 'Installation',
+            insurance: 'Sed',
+            priority: 'Low',
+            lastTouched: '04/04/24 - 09:25:35',
         },
         {
             id: 10,
@@ -164,166 +182,12 @@ const Contact = () => {
             },
             city: 'Dallas',
             phone: '(972) 555-1234',
-            type: 'Business Analyst',
-            company: 'InsightPro',
-            value: 1325.75,
-            dateCreated: '10/01/24-12:10:00',
-        },
-        {
-            id: 11,
-            name: {
-                media: user,
-                fullName: 'Isabella Clark',
-            },
-            city: 'San Diego',
-            phone: '(619) 555-0987',
-            type: 'Project Manager',
-            company: 'PlanMaster',
-            value: 1475.5,
-            dateCreated: '11/08/24-14:50:10',
-        },
-        {
-            id: 12,
-            name: {
-                media: user,
-                fullName: 'Liam Anderson',
-            },
-            city: 'Boston',
-            phone: '(617) 555-6789',
-            type: 'Data Scientist',
-            company: 'DataMinds',
-            value: 1650.0,
-            dateCreated: '12/02/24-11:30:45',
-        },
-        {
-            id: 13,
-            name: {
-                media: user,
-                fullName: 'Mia Walker',
-            },
-            city: 'Atlanta',
-            phone: '(404) 555-1122',
-            type: 'Software Architect',
-            company: 'TechVision',
-            value: 1900.8,
-            dateCreated: '12/20/24-09:15:00',
-        },
-        {
-            id: 14,
-            name: {
-                media: user,
-                fullName: 'Benjamin Taylor',
-            },
-            city: 'Phoenix',
-            phone: '(602) 555-3322',
-            type: 'Cloud Engineer',
-            company: 'SkyNet Solutions',
-            value: 1350.2,
-            dateCreated: '01/05/25-15:25:50',
-        },
-        {
-            id: 15,
-            name: {
-                media: user,
-                fullName: 'Emma Carter',
-            },
-            city: 'Las Vegas',
-            phone: '(702) 555-2244',
-            type: 'AI Researcher',
-            company: 'FutureAI',
-            value: 2500.0,
-            dateCreated: '01/15/25-10:00:10',
-        },
-        {
-            id: 16,
-            name: {
-                media: user,
-                fullName: 'Noah White',
-            },
-            city: 'Detroit',
-            phone: '(313) 555-4455',
-            type: 'Machine Learning Engineer',
-            company: 'AutoLearn',
-            value: 1875.75,
-            dateCreated: '01/25/25-12:35:00',
-        },
-        {
-            id: 17,
-            name: {
-                media: user,
-                fullName: 'Ava Hall',
-            },
-            city: 'Charlotte',
-            phone: '(704) 555-9988',
-            type: 'SEO Specialist',
-            company: 'SearchBoost',
-            value: 950.0,
-            dateCreated: '02/05/25-14:40:00',
-        },
-        {
-            id: 18,
-            name: {
-                media: user,
-                fullName: 'Lucas Lewis',
-            },
-            city: 'Philadelphia',
-            phone: '(215) 555-7788',
-            type: 'Cybersecurity Analyst',
-            company: 'SecureTech',
-            value: 1580.5,
-            dateCreated: '02/15/25-16:20:15',
-        },
-        {
-            id: 19,
-            name: {
-                media: user,
-                fullName: 'Harper Young',
-            },
-            city: 'Portland',
-            phone: '(503) 555-6677',
-            type: 'Content Strategist',
-            company: 'CreativeCo',
-            value: 1125.0,
-            dateCreated: '03/01/25-09:45:10',
-        },
-        {
-            id: 20,
-            name: {
-                media: user,
-                fullName: 'Mason Scott',
-            },
-            city: 'San Antonio',
-            phone: '(210) 555-4466',
-            type: 'Full Stack Developer',
-            company: 'Buildify',
-            value: 1400.0,
-            dateCreated: '03/15/25-11:50:25',
-        },
-        {
-            id: 21,
-            name: {
-                media: user,
-                fullName: 'Ella Green',
-            },
-            city: 'Columbus',
-            phone: '(614) 555-8899',
-            type: 'Technical Writer',
-            company: 'DocuFlow',
-            value: 780.0,
-            dateCreated: '03/25/25-13:00:00',
-        },
-        {
-            id: 22,
-            name: {
-                media: user,
-                fullName: 'Logan Baker',
-            },
-            city: 'Orlando',
-            phone: '(407) 555-5599',
-            type: 'Network Administrator',
-            company: 'NetLink',
-            value: 1350.0,
-            dateCreated: '04/01/25-16:45:00',
+            source: 'Do',
+            category: 'Commercial',
+            type: 'Repair',
+            insurance: 'Do',
+            priority: 'High',
+            lastTouched: '03/03/24 - 10:10:00',
         },
     ]
 
@@ -377,23 +241,47 @@ const Contact = () => {
             enableSorting: true,
         },
         {
+            header: 'Source',
+            accessorKey: 'source',
+            enableSorting: true,
+        },
+        {
+            header: 'Category',
+            accessorKey: 'category',
+            enableSorting: true,
+        },
+        {
             header: 'Type',
             accessorKey: 'type',
             enableSorting: true,
         },
         {
-            header: 'Company',
-            accessorKey: 'company',
+            header: 'Insurance',
+            accessorKey: 'insurance',
             enableSorting: true,
         },
         {
-            header: 'Value',
-            accessorKey: 'value',
+            header: 'Priority',
+            accessorKey: 'priority',
             enableSorting: true,
+            cell: ({ row }) => (
+                <p
+                    className={`rounded-xl w-fit px-2 py-1 ${
+                        row.original.priority === 'High'
+                            ? 'bg-red-300'
+                            : row.original.priority === 'Medium'
+                              ? 'bg-primary-light'
+                              : 'bg-success-light'
+                    }`}
+                >
+                    {' '}
+                    {row.original.priority}{' '}
+                </p>
+            ),
         },
         {
-            header: 'Date Created',
-            accessorKey: 'dateCreated',
+            header: 'Last Touched',
+            accessorKey: 'lastTouched',
             enableSorting: true,
         },
         {
@@ -434,7 +322,7 @@ const Contact = () => {
     return (
         <main className="bg-white p-4 rounded-2xl border border-gray-200 h-full flex flex-col gap-[20px]">
             <div className="flex flex-row justify-between">
-                <h1 className="text-2xl font-bold">Contacts</h1>
+                <h1 className="text-2xl font-bold">Claims : CloseOut</h1>
                 <div className="flex flex-row gap-[10px]">
                     <Button variant="default" icon={<TbCloudDownload />}>
                         Download
@@ -455,4 +343,4 @@ const Contact = () => {
     )
 }
 
-export default Contact
+export default CloseOut

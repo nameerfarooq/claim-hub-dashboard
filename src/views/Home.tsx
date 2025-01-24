@@ -192,371 +192,392 @@ const Home = () => {
     ]
 
     return (
-        <main className="flex flex-col gap-4">
-            <section className="flex flex-row gap-4 h-full">
-                <div className="w-full flex flex-col gap-4">
-                    <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
-                        <div className="flex flex-row w-full justify-between items-center mb-[10px]">
-                            <p className="text-2xl font-bold">Overview</p>
-                            <Button variant="default">All Claims</Button>
-                        </div>
-                        <div className="grid grid-cols-3 gap-4 w-full bg-gray-100 p-[8px] rounded-[20px]">
-                            <Card bordered={false} className="!shadow-none">
-                                <div className="flex flex-row justify-between items-center">
-                                    <div className="flex flex-col gap-[10px]">
-                                        <p className="text-sm font-bold">
-                                            Sales
-                                        </p>
-                                        <p className="text-3xl font-bold">12</p>
-                                    </div>
-                                    <Avatar
-                                        className="bg-primary-light"
-                                        icon={<BiSolidBoltCircle />}
-                                    />
-                                </div>
-                            </Card>
-                            <Card bordered={false} className="!shadow-none">
-                                <div className="flex flex-row justify-between items-center">
-                                    <div className="flex flex-col gap-[10px]">
-                                        <p className="text-sm font-bold">
-                                            Processing
-                                        </p>
-                                        <p className="text-3xl font-bold">68</p>
-                                    </div>
-                                    <Avatar
-                                        className="bg-success-light"
-                                        icon={<MdOutlineLibraryAddCheck />}
-                                    />
-                                </div>
-                            </Card>
-                            <Card bordered={false} className="!shadow-none">
-                                <div className="flex flex-row justify-between items-center">
-                                    <div className="flex flex-col gap-[10px]">
-                                        <p className="text-sm font-bold">Job</p>
-                                        <p className="text-3xl font-bold">7</p>
-                                    </div>
-                                    <Avatar
-                                        className="bg-grape"
-                                        icon={<LuDownload />}
-                                    />
-                                </div>
-                            </Card>
-                        </div>
-                    </div>
-
-                    <div className="bg-white p-4 rounded-2xl border border-gray-200">
-                        <div className="flex flex-row w-full justify-between items-center mb-[10px]">
-                            <p className="text-2xl font-bold">Overview</p>
-                            <Select
-                                options={[
-                                    { label: 'Monthly', value: 'monthly' },
-                                    { label: 'Yearly', value: 'yearly' },
-                                ]}
-                                defaultValue={{
-                                    label: 'Monthly',
-                                    value: 'monthly',
-                                }}
-                            >
-                                All Claims
-                            </Select>
-                        </div>
-                        <div className="grid grid-cols-3 gap-4 w-full bg-gray-100 p-[8px] rounded-[20px]">
-                            <Card
-                                bordered={false}
-                                className="!shadow-none !shadow-gray-100"
-                            >
-                                <div className="flex flex-row justify-between items-start">
-                                    <div className="flex flex-col gap-[10px]">
-                                        <p className="text-sm font-semibold">
-                                            Total Revenue
-                                        </p>
-                                        <div>
-                                            <h5 className="text-3xl font-bold">
-                                                $82,373.21
-                                            </h5>
-                                            <p className="text-black text-sm font-semibold">
-                                                <span className="text-success font-bold">
-                                                    +3.4%{' '}
-                                                </span>
-                                                from last month
+        <>
+            <main className="flex flex-col gap-4">
+                <section className="flex flex-col lg:flex-row gap-4 h-full">
+                    <div className="w-full flex flex-col gap-4">
+                        <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
+                            <div className="flex flex-row w-full justify-between items-center mb-[10px]">
+                                <p className="text-2xl font-bold">Overview</p>
+                                <Button variant="default">All Claims</Button>
+                            </div>
+                            <div className="grid grid-cols-3 gap-4 w-full bg-gray-100 p-[8px] rounded-[20px]">
+                                <Card bordered={false} className="!shadow-none">
+                                    <div className="flex flex-row justify-between items-center">
+                                        <div className="flex flex-col gap-[10px]">
+                                            <p className="text-sm font-bold">
+                                                Sales
+                                            </p>
+                                            <p className="text-3xl font-bold">
+                                                12
                                             </p>
                                         </div>
-                                    </div>
-                                    <div className="overflow-visible">
                                         <Avatar
-                                            className="bg-success-light"
-                                            icon={<AiOutlineDollar />}
+                                            className="bg-primary-light"
+                                            icon={<BiSolidBoltCircle />}
                                         />
                                     </div>
-                                </div>
-                            </Card>
-                            <Card
-                                bordered={false}
-                                className="!shadow-none !shadow-gray-100 !bg-gray-100"
-                            >
-                                <div className="flex flex-row justify-between items-start">
-                                    <div className="flex flex-col gap-[10px]">
-                                        <p className="text-sm font-semibold">
-                                            Total Profit
-                                        </p>
-                                        <div>
-                                            <h5 className="text-3xl font-bold">
-                                                7,234
-                                            </h5>
-                                            <p className="text-black text-sm font-semibold">
-                                                <span className="text-error font-bold">
-                                                    -2.8%{' '}
-                                                </span>
-                                                from last month
+                                </Card>
+                                <Card bordered={false} className="!shadow-none">
+                                    <div className="flex flex-row justify-between items-center">
+                                        <div className="flex flex-col gap-[10px]">
+                                            <p className="text-sm font-bold">
+                                                Processing
+                                            </p>
+                                            <p className="text-3xl font-bold">
+                                                68
                                             </p>
                                         </div>
+                                        <Avatar
+                                            className="bg-success-light"
+                                            icon={<MdOutlineLibraryAddCheck />}
+                                        />
                                     </div>
-                                    <Avatar
-                                        className="bg-grape"
-                                        icon={<IoBagCheckOutline />}
-                                    />
-                                </div>
-                            </Card>
-                            <Card
-                                bordered={false}
-                                className="!shadow-none !shadow-gray-100 !bg-gray-100"
-                            >
-                                <div className="flex flex-row justify-between items-start">
-                                    <div className="flex flex-col gap-[10px]">
-                                        <p className="text-sm font-semibold">
-                                            Total Claims
-                                        </p>
-                                        <div>
-                                            <h5 className="text-3xl font-bold">
-                                                3.1M
-                                            </h5>
-                                            <p className="text-black text-sm font-semibold">
-                                                <span className="text-success font-bold">
-                                                    +4.6%{' '}
-                                                </span>
-                                                from last month
+                                </Card>
+                                <Card bordered={false} className="!shadow-none">
+                                    <div className="flex flex-row justify-between items-center">
+                                        <div className="flex flex-col gap-[10px]">
+                                            <p className="text-sm font-bold">
+                                                Job
+                                            </p>
+                                            <p className="text-3xl font-bold">
+                                                7
                                             </p>
                                         </div>
+                                        <Avatar
+                                            className="bg-grape"
+                                            icon={<LuDownload />}
+                                        />
                                     </div>
-                                    <Avatar
-                                        className="bg-primary-light"
-                                        icon={<IoMdEye />}
-                                    />
-                                </div>
-                            </Card>
+                                </Card>
+                            </div>
                         </div>
-                        <div>
-                            <Chart
-                                type="area"
-                                series={areaData.series}
-                                xAxis={areaData.xAxis}
-                                height={350}
-                            />
+
+                        <div className="bg-white p-4 rounded-2xl border border-gray-200">
+                            <div className="flex flex-row w-full justify-between items-center mb-[10px]">
+                                <p className="text-2xl font-bold">Overview</p>
+                                <Select
+                                    options={[
+                                        { label: 'Monthly', value: 'monthly' },
+                                        { label: 'Yearly', value: 'yearly' },
+                                    ]}
+                                    defaultValue={{
+                                        label: 'Monthly',
+                                        value: 'monthly',
+                                    }}
+                                >
+                                    All Claims
+                                </Select>
+                            </div>
+                            <div className="grid grid-cols-3 gap-4 w-full bg-gray-100 p-[8px] rounded-[20px]">
+                                <Card
+                                    bordered={false}
+                                    className="!shadow-none !shadow-gray-100"
+                                >
+                                    <div className="flex flex-row justify-between items-start">
+                                        <div className="flex flex-col gap-[10px]">
+                                            <p className="text-sm font-semibold">
+                                                Total Revenue
+                                            </p>
+                                            <div>
+                                                <h5 className="text-2xl font-bold">
+                                                    $82,373.21
+                                                </h5>
+                                                <p className="text-black text-sm font-semibold">
+                                                    <span className="text-success font-bold">
+                                                        +3.4%{' '}
+                                                    </span>
+                                                    from last month
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="overflow-visible">
+                                            <Avatar
+                                                className="bg-success-light"
+                                                icon={<AiOutlineDollar />}
+                                            />
+                                        </div>
+                                    </div>
+                                </Card>
+                                <Card
+                                    bordered={false}
+                                    className="!shadow-none !shadow-gray-100 !bg-gray-100"
+                                >
+                                    <div className="flex flex-row justify-between items-start">
+                                        <div className="flex flex-col gap-[10px]">
+                                            <p className="text-sm font-semibold">
+                                                Total Profit
+                                            </p>
+                                            <div>
+                                                <h5 className="text-2xl font-bold">
+                                                    7,234
+                                                </h5>
+                                                <p className="text-black text-sm font-semibold">
+                                                    <span className="text-error font-bold">
+                                                        -2.8%{' '}
+                                                    </span>
+                                                    from last month
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <Avatar
+                                            className="bg-grape"
+                                            icon={<IoBagCheckOutline />}
+                                        />
+                                    </div>
+                                </Card>
+                                <Card
+                                    bordered={false}
+                                    className="!shadow-none !shadow-gray-100 !bg-gray-100"
+                                >
+                                    <div className="flex flex-row justify-between items-start">
+                                        <div className="flex flex-col gap-[10px]">
+                                            <p className="text-sm font-semibold">
+                                                Total Claims
+                                            </p>
+                                            <div>
+                                                <h5 className="text-2xl font-bold">
+                                                    3.1M
+                                                </h5>
+                                                <p className="text-black text-sm font-semibold">
+                                                    <span className="text-success font-bold">
+                                                        +4.6%{' '}
+                                                    </span>
+                                                    from last month
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <Avatar
+                                            className="bg-primary-light"
+                                            icon={<IoMdEye />}
+                                        />
+                                    </div>
+                                </Card>
+                            </div>
+                            <div>
+                                <Chart
+                                    type="area"
+                                    series={areaData.series}
+                                    xAxis={areaData.xAxis}
+                                    height={350}
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="w-fit h-full">
-                    <div className="bg-white p-4 rounded-2xl border border-gray-200">
-                        <Calendar />
-                        <div className="mt-5 flex flex-col gap-[20px]">
-                            <p className="text-lg font-bold">Schedule Today</p>
-                            <div>
-                                {events.map((event) => (
-                                    <div key={event.id} className="mb-4">
+                    <div className="w-4/12 lg:w-fit h-full">
+                        <div className="bg-white p-4 rounded-2xl border border-gray-200">
+                            <Calendar />
+                            <div className="mt-5 flex flex-col gap-[20px]">
+                                <p className="text-lg font-bold">
+                                    Schedule Today
+                                </p>
+                                <div>
+                                    {events.map((event) => (
+                                        <div key={event.id} className="mb-4">
+                                            <Card
+                                                bordered={true}
+                                                className="border-white"
+                                                bodyClass="p-0"
+                                            >
+                                                <div className="flex flex-row justify-between items-center">
+                                                    <div className="w-2/12">
+                                                        <Avatar
+                                                            className={`${event.iconColor} rounded-lg`}
+                                                            icon={event.icon}
+                                                            shape="square"
+                                                        />
+                                                    </div>
+                                                    <div className="w-10/12 h-full flex flex-row justify-between items-center">
+                                                        <div className="flex flex-col">
+                                                            <p className="font-bold text-sm">
+                                                                {event.title}
+                                                            </p>
+                                                            <p className="text-sm">
+                                                                {event.type}
+                                                            </p>
+                                                        </div>
+                                                        <p className="text-sm font-semibold ml-auto">
+                                                            {event.time}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </Card>
+                                        </div>
+                                    ))}
+                                </div>
+                                <Button variant="default">Add Event</Button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="flex flex-col lg:flex-row gap-4 h-full">
+                    <div className="w-full lg:w-4/12 h-full">
+                        <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
+                            <div className="flex flex-row w-full justify-between items-center pb-[20px]">
+                                <p className="text-xl font-bold">
+                                    Current tasks
+                                </p>
+                                <Button variant="default">All tasks</Button>
+                            </div>
+                            <div className="flex flex-col gap-[10px] h-[270px] overflow-auto pr-2">
+                                {tasks.map((task) => (
+                                    <div
+                                        key={task.id}
+                                        className="pb-2 border-b"
+                                    >
                                         <Card
                                             bordered={true}
                                             className="border-white"
                                             bodyClass="p-0"
                                         >
-                                            <div className="flex flex-row justify-between items-center">
-                                                <div className="w-2/12">
-                                                    <Avatar
-                                                        className={`${event.iconColor} rounded-lg`}
-                                                        icon={event.icon}
-                                                        shape="square"
-                                                    />
+                                            <div className="flex flex-row justify-between items-center gap-[10px]">
+                                                <div className="w-fit">
+                                                    <Button
+                                                        className={`rounded-full size-[24px] p-1 ${task.completed ? 'bg-black text-white' : 'bg-white text-black'}`}
+                                                        icon={task.icon}
+                                                    ></Button>
                                                 </div>
-                                                <div className="w-10/12 h-full flex flex-row justify-between items-center">
+                                                <div className="w-full h-full flex flex-row justify-between items-center">
                                                     <div className="flex flex-col">
-                                                        <p className="font-bold text-sm">
-                                                            {event.title}
+                                                        <p
+                                                            className={`font-bold text-sm ${task.completed ? 'line-through text-gray-500' : ''}`}
+                                                        >
+                                                            {task.title}
                                                         </p>
-                                                        <p className="text-sm">
-                                                            {event.type}
+                                                        <p className="text-sm flex flex-row items-center">
+                                                            <span className="mr-[2px]">
+                                                                <HiOutlineUser
+                                                                    size={12}
+                                                                />{' '}
+                                                            </span>
+                                                            {task.date}
                                                         </p>
                                                     </div>
-                                                    <p className="text-sm font-semibold ml-auto">
-                                                        {event.time}
-                                                    </p>
+                                                    <Tag
+                                                        className={`${task.priority === 'Low' ? 'bg-success-light' : task.priority === 'Medium' ? 'bg-[#bafdfa]' : 'bg-red-300'}`}
+                                                    >
+                                                        {task.priority}
+                                                    </Tag>
                                                 </div>
                                             </div>
                                         </Card>
                                     </div>
                                 ))}
                             </div>
-                            <Button variant="default">Add Event</Button>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <section className="flex flex-row gap-4 h-full">
-                <div className="w-4/12 h-full">
-                    <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
-                        <div className="flex flex-row w-full justify-between items-center pb-[20px]">
-                            <p className="text-xl font-bold">Current tasks</p>
-                            <Button variant="default">All tasks</Button>
+                    <div className="w-full lg:w-4/12 h-full">
+                        <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
+                            <div className="flex flex-row w-full justify-between items-center pb-[20px]">
+                                <p className="text-xl font-bold">
+                                    Current tasks
+                                </p>
+                                <Segment defaultValue="monthly">
+                                    <Segment.Item value="monthly">
+                                        Monthly
+                                    </Segment.Item>
+                                    <Segment.Item value="weekly">
+                                        Weekly
+                                    </Segment.Item>
+                                </Segment>
+                            </div>
+                            <div className="flex flex-row justify-between w-full items-center">
+                                <div>
+                                    <p className="text-lg font-bold">213</p>
+                                    <p className="text-sm font-medium">
+                                        Total Tasks
+                                    </p>
+                                </div>
+                                <div className="flex flex-row items-center gap-[10px]">
+                                    <div className="flex flex-col ">
+                                        <div className="flex flex-row items-center">
+                                            <Badge innerClass="bg-black" />
+                                            <p className="ml-1 text-lg font-bold">
+                                                126
+                                            </p>
+                                        </div>
+                                        <p className="ml-4 text-sm font-medium">
+                                            On Going
+                                        </p>
+                                    </div>
+                                    <div className="flex flex-col ">
+                                        <div className="flex flex-row items-center">
+                                            <Badge innerClass="bg-black" />
+                                            <p className="ml-1 text-lg font-bold">
+                                                87
+                                            </p>
+                                        </div>
+                                        <p className="ml-4 text-sm font-medium">
+                                            Finished
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-full">
+                                <Chart
+                                    customOptions={{
+                                        plotOptions: {
+                                            bar: {
+                                                columnWidth: '55%',
+                                                borderRadius: 2,
+                                            },
+                                        },
+                                        colors: ['#00A3FF', '#6A2DE3'],
+                                        legend: {
+                                            show: false,
+                                        },
+                                    }}
+                                    type="bar"
+                                    height={230}
+                                    series={doubleBarData.series}
+                                    xAxis={doubleBarData.xAxis}
+                                />
+                            </div>
                         </div>
-                        <div className="flex flex-col gap-[10px]">
-                            {tasks.map((task) => (
-                                <div key={task.id} className="pb-2 border-b">
-                                    <Card
-                                        bordered={true}
-                                        className="border-white"
-                                        bodyClass="p-0"
-                                    >
-                                        <div className="flex flex-row justify-between items-center gap-[10px]">
-                                            <div className="w-fit">
-                                                <Button
-                                                    className={`rounded-full size-[24px] p-1 ${task.completed ? 'bg-black text-white' : 'bg-white text-black'}`}
-                                                    icon={task.icon}
-                                                ></Button>
-                                            </div>
-                                            <div className="w-full h-full flex flex-row justify-between items-center">
-                                                <div className="flex flex-col">
-                                                    <p
-                                                        className={`font-bold text-sm ${task.completed ? 'line-through text-gray-500' : ''}`}
-                                                    >
-                                                        {task.title}
+                    </div>
+                    <div className="w-full lg:w-4/12 h-full">
+                        <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
+                            <div className="flex flex-row w-full justify-between items-center pb-[20px]">
+                                <p className="text-xl font-bold">
+                                    Recent activity
+                                </p>
+                                <Button variant="default">View all</Button>
+                            </div>
+                            <div className="h-[270px] overflow-auto">
+                                <Timeline className="pr-[10px]">
+                                    {activities.map((activity) => (
+                                        <Timeline.Item
+                                            key={activity.id}
+                                            media={activity.media}
+                                        >
+                                            <div className="flex flex-col gap-[8px]">
+                                                <div className="flex flex-col gap-[0px]">
+                                                    <p className="font-semibold text-sm">
+                                                        {activity.user}
                                                     </p>
-                                                    <p className="text-sm flex flex-row items-center">
-                                                        <span className="mr-[2px]">
-                                                            <HiOutlineUser
-                                                                size={12}
-                                                            />{' '}
-                                                        </span>
-                                                        {task.date}
+                                                    <p className="text-xs font-semibold">
+                                                        {activity.time}
                                                     </p>
                                                 </div>
-                                                <Tag
-                                                    className={`${task.priority === 'Low' ? 'bg-success-light' : task.priority === 'Medium' ? 'bg-[#bafdfa]' : 'bg-red-300'}`}
-                                                >
-                                                    {task.priority}
-                                                </Tag>
+                                                <p className="text-sm font-medium">
+                                                    {activity.action}
+                                                </p>
+                                                {activity.details && (
+                                                    <p className="text-sm bg-gray-100 rounded-lg py-[20px] px-[15px]">
+                                                        {activity.details}
+                                                    </p>
+                                                )}
                                             </div>
-                                        </div>
-                                    </Card>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-                <div className="w-4/12 h-full">
-                    <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
-                        <div className="flex flex-row w-full justify-between items-center pb-[20px]">
-                            <p className="text-xl font-bold">Current tasks</p>
-                            <Segment defaultValue="monthly">
-                                <Segment.Item value="monthly">
-                                    Monthly
-                                </Segment.Item>
-                                <Segment.Item value="weekly">
-                                    Weekly
-                                </Segment.Item>
-                            </Segment>
-                        </div>
-                        <div className="flex flex-row justify-between w-full items-center">
-                            <div>
-                                <p className="text-lg font-bold">213</p>
-                                <p className="text-sm font-medium">
-                                    Total Tasks
-                                </p>
-                            </div>
-                            <div className="flex flex-row items-center gap-[10px]">
-                                <div className="flex flex-col ">
-                                    <div className="flex flex-row items-center">
-                                        <Badge innerClass="bg-black" />
-                                        <p className="ml-1 text-lg font-bold">
-                                            126
-                                        </p>
-                                    </div>
-                                    <p className="ml-4 text-sm font-medium">
-                                        On Going
-                                    </p>
-                                </div>
-                                <div className="flex flex-col ">
-                                    <div className="flex flex-row items-center">
-                                        <Badge innerClass="bg-black" />
-                                        <p className="ml-1 text-lg font-bold">
-                                            87
-                                        </p>
-                                    </div>
-                                    <p className="ml-4 text-sm font-medium">
-                                        Finished
-                                    </p>
-                                </div>
+                                        </Timeline.Item>
+                                    ))}
+                                </Timeline>
                             </div>
                         </div>
-                        <div className="w-full">
-                            <Chart
-                                customOptions={{
-                                    plotOptions: {
-                                        bar: {
-                                            columnWidth: '55%',
-                                            borderRadius: 2,
-                                        },
-                                    },
-                                    colors: ['#00A3FF', '#6A2DE3'],
-                                    legend: {
-                                        show: false,
-                                    },
-                                }}
-                                type="bar"
-                                height={230}
-                                series={doubleBarData.series}
-                                xAxis={doubleBarData.xAxis}
-                            />
-                        </div>
                     </div>
-                </div>
-                <div className="w-4/12 h-full">
-                    <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
-                        <div className="flex flex-row w-full justify-between items-center pb-[20px]">
-                            <p className="text-xl font-bold">Recent activity</p>
-                            <Button variant="default">View all</Button>
-                        </div>
-                        <div className="h-[300px] overflow-auto">
-                            <Timeline className="pr-[10px]">
-                                {activities.map((activity) => (
-                                    <Timeline.Item
-                                        key={activity.id}
-                                        media={activity.media}
-                                    >
-                                        <div className="flex flex-col gap-[8px]">
-                                            <div className="flex flex-col gap-[0px]">
-                                                <p className="font-semibold text-sm">
-                                                    {activity.user}
-                                                </p>
-                                                <p className="text-xs font-semibold">
-                                                    {activity.time}
-                                                </p>
-                                            </div>
-                                            <p className="text-sm font-medium">
-                                                {activity.action}
-                                            </p>
-                                            {activity.details && (
-                                                <p className="text-sm bg-gray-100 rounded-lg py-[20px] px-[15px]">
-                                                    {activity.details}
-                                                </p>
-                                            )}
-                                        </div>
-                                    </Timeline.Item>
-                                ))}
-                            </Timeline>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+                </section>
+            </main>
+        </>
     )
 }
 
