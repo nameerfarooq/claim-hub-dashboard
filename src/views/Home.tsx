@@ -194,10 +194,10 @@ const Home = () => {
     return (
         <main className="flex flex-col gap-4">
             <section className="flex flex-row gap-4 h-full">
-                <div className="w-9/12 flex flex-col gap-4">
-                    <AdaptiveCard>
+                <div className="w-full flex flex-col gap-4">
+                    <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
                         <div className="flex flex-row w-full justify-between items-center mb-[10px]">
-                            <p className="text-xl font-bold">Overview</p>
+                            <p className="text-2xl font-bold">Overview</p>
                             <Button variant="default">All Claims</Button>
                         </div>
                         <div className="grid grid-cols-3 gap-4 w-full bg-gray-100 p-[8px] rounded-[20px]">
@@ -207,7 +207,7 @@ const Home = () => {
                                         <p className="text-sm font-bold">
                                             Sales
                                         </p>
-                                        <p className="text-4xl font-bold">12</p>
+                                        <p className="text-3xl font-bold">12</p>
                                     </div>
                                     <Avatar
                                         className="bg-primary-light"
@@ -221,7 +221,7 @@ const Home = () => {
                                         <p className="text-sm font-bold">
                                             Processing
                                         </p>
-                                        <p className="text-4xl font-bold">68</p>
+                                        <p className="text-3xl font-bold">68</p>
                                     </div>
                                     <Avatar
                                         className="bg-success-light"
@@ -233,7 +233,7 @@ const Home = () => {
                                 <div className="flex flex-row justify-between items-center">
                                     <div className="flex flex-col gap-[10px]">
                                         <p className="text-sm font-bold">Job</p>
-                                        <p className="text-4xl font-bold">7</p>
+                                        <p className="text-3xl font-bold">7</p>
                                     </div>
                                     <Avatar
                                         className="bg-grape"
@@ -242,9 +242,9 @@ const Home = () => {
                                 </div>
                             </Card>
                         </div>
-                    </AdaptiveCard>
+                    </div>
 
-                    <AdaptiveCard>
+                    <div className="bg-white p-4 rounded-2xl border border-gray-200">
                         <div className="flex flex-row w-full justify-between items-center mb-[10px]">
                             <p className="text-2xl font-bold">Overview</p>
                             <Select
@@ -271,7 +271,7 @@ const Home = () => {
                                             Total Revenue
                                         </p>
                                         <div>
-                                            <h5 className="text-4xl font-bold">
+                                            <h5 className="text-3xl font-bold">
                                                 $82,373.21
                                             </h5>
                                             <p className="text-black text-sm font-semibold">
@@ -282,10 +282,12 @@ const Home = () => {
                                             </p>
                                         </div>
                                     </div>
-                                    <Avatar
-                                        className="bg-success-light"
-                                        icon={<AiOutlineDollar />}
-                                    />
+                                    <div className="overflow-visible">
+                                        <Avatar
+                                            className="bg-success-light"
+                                            icon={<AiOutlineDollar />}
+                                        />
+                                    </div>
                                 </div>
                             </Card>
                             <Card
@@ -298,7 +300,7 @@ const Home = () => {
                                             Total Profit
                                         </p>
                                         <div>
-                                            <h5 className="text-4xl font-bold">
+                                            <h5 className="text-3xl font-bold">
                                                 7,234
                                             </h5>
                                             <p className="text-black text-sm font-semibold">
@@ -325,7 +327,7 @@ const Home = () => {
                                             Total Claims
                                         </p>
                                         <div>
-                                            <h5 className="text-4xl font-bold">
+                                            <h5 className="text-3xl font-bold">
                                                 3.1M
                                             </h5>
                                             <p className="text-black text-sm font-semibold">
@@ -351,10 +353,10 @@ const Home = () => {
                                 height={350}
                             />
                         </div>
-                    </AdaptiveCard>
+                    </div>
                 </div>
-                <div className="w-3/12 h-full">
-                    <AdaptiveCard>
+                <div className="w-fit h-full">
+                    <div className="bg-white p-4 rounded-2xl border border-gray-200">
                         <Calendar />
                         <div className="mt-5 flex flex-col gap-[20px]">
                             <p className="text-lg font-bold">Schedule Today</p>
@@ -394,13 +396,13 @@ const Home = () => {
                             </div>
                             <Button variant="default">Add Event</Button>
                         </div>
-                    </AdaptiveCard>
+                    </div>
                 </div>
             </section>
 
-            <section className="flex flex-row gap-4 h-auto">
+            <section className="flex flex-row gap-4 h-full">
                 <div className="w-4/12 h-full">
-                    <AdaptiveCard>
+                    <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
                         <div className="flex flex-row w-full justify-between items-center pb-[20px]">
                             <p className="text-xl font-bold">Current tasks</p>
                             <Button variant="default">All tasks</Button>
@@ -447,10 +449,10 @@ const Home = () => {
                                 </div>
                             ))}
                         </div>
-                    </AdaptiveCard>
+                    </div>
                 </div>
                 <div className="w-4/12 h-full">
-                    <AdaptiveCard>
+                    <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
                         <div className="flex flex-row w-full justify-between items-center pb-[20px]">
                             <p className="text-xl font-bold">Current tasks</p>
                             <Segment defaultValue="monthly">
@@ -494,7 +496,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="border">
+                        <div className="w-full">
                             <Chart
                                 customOptions={{
                                     plotOptions: {
@@ -514,10 +516,10 @@ const Home = () => {
                                 xAxis={doubleBarData.xAxis}
                             />
                         </div>
-                    </AdaptiveCard>
+                    </div>
                 </div>
                 <div className="w-4/12 h-full">
-                    <AdaptiveCard>
+                    <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
                         <div className="flex flex-row w-full justify-between items-center pb-[20px]">
                             <p className="text-xl font-bold">Recent activity</p>
                             <Button variant="default">View all</Button>
@@ -551,7 +553,7 @@ const Home = () => {
                                 ))}
                             </Timeline>
                         </div>
-                    </AdaptiveCard>
+                    </div>
                 </div>
             </section>
         </main>
