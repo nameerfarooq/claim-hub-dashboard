@@ -12,7 +12,6 @@ export const protectedRoutes: Routes = [
         component: lazy(() => import('@/views/Home')),
         authority: [],
     },
-    /** Example purpose only, please remove */
     {
         key: 'Contacts',
         path: '/contacts',
@@ -20,15 +19,45 @@ export const protectedRoutes: Routes = [
         authority: [],
     },
     {
-        key: 'collapseMenu.item1',
-        path: '/collapse-menu-item-view-1',
-        component: lazy(() => import('@/views/demo/CollapseMenuItemView1')),
+        key: 'Leads',
+        path: '/leads',
+        component: lazy(() => import('@/views/Leads')),
         authority: [],
     },
     {
-        key: 'collapseMenu.item2',
-        path: '/collapse-menu-item-view-2',
-        component: lazy(() => import('@/views/demo/CollapseMenuItemView2')),
+        key: 'nav.claims.item1',
+        path: '/sales',
+        component: lazy(() => import('@/views/Claim/Sales')),
+        authority: [],
+    },
+    {
+        key: 'nav.claims.item2',
+        path: '/processing',
+        component: lazy(() => import('@/views/Claim/Processing')),
+        authority: [],
+    },
+    {
+        key: 'nav.claims.item3',
+        path: '/job',
+        component: lazy(() => import('@/views/Claim/Job')),
+        authority: [],
+    },
+    {
+        key: 'nav.claims.item4',
+        path: '/accounting',
+        component: lazy(() => import('@/views/Claim/Accounting')),
+        authority: [],
+    },
+    {
+        key: 'nav.claims.item5',
+        path: '/negotiations',
+        component: lazy(() => import('@/views/Claim/Negotiations')),
+        authority: [],
+    },
+    {
+        key: 'nav.claims.item6',
+        path: '/close-out',
+        component: lazy(() => import('@/views/Claim/CloseOut')),
         authority: [],
     },
     {
@@ -51,6 +80,12 @@ export const protectedRoutes: Routes = [
         component: lazy(
             () => import('@/views/demo/GroupCollapseMenuItemView2'),
         ),
+        authority: [],
+    },
+    {
+        key: 'overview',
+        path: '/overview',
+        component: lazy(() => import('@/views/Overview/Main')),
         authority: [],
     },
     ...othersRoute,
