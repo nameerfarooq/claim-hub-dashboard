@@ -327,13 +327,12 @@ const Processing = () => {
                     <Button variant="default" icon={<TbCloudDownload />}>
                         Download
                     </Button>
-                    <Button
-                        variant="solid"
-                        color="primary"
-                        icon={<AddUserIcon />}
-                    >
+                    <button className="flex items-center gap-2 border border-primary rounded-xl px-4 py-2 text-sm font-bold text-white bg-primary hover:bg-primary-deep">
+                        <span>
+                            <AddUserIcon />
+                        </span>
                         Add new
-                    </Button>
+                    </button>
                 </div>
             </div>
             <div>

@@ -21,7 +21,7 @@ import type {
 } from '@tanstack/react-table'
 import Sorter from '../ui/Table/Sorter'
 import { Button, Input, Pagination, Select } from '../ui'
-import { CiFilter } from 'react-icons/ci'
+import FilterDialog from './FilterDialog'
 
 interface DebouncedInputProps
     extends Omit<
@@ -160,13 +160,7 @@ function RowSelection<TData>({ data, columns }: RowSelectionProps<TData>) {
                     />
                 </div>
                 <div>
-                    <Button
-                        variant="default"
-                        icon={<CiFilter />}
-                        color="primary"
-                    >
-                        Filter
-                    </Button>
+                    <FilterDialog />
                 </div>
             </div>
             <div className="min-h-[60vh]">

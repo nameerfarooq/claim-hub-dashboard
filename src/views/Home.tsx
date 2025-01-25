@@ -269,13 +269,16 @@ const Home = () => {
                                     All Claims
                                 </Select>
                             </div>
-                            <div className="grid grid-cols-3 gap-4 w-full bg-gray-100 p-[8px] rounded-[20px]">
-                                <Card
-                                    bordered={false}
-                                    className="!shadow-none !shadow-gray-100"
-                                >
-                                    <div className="flex flex-row justify-between items-start">
-                                        <div className="flex flex-col gap-[10px]">
+                            <div className="grid grid-cols-3 xl:gap-4 w-full bg-gray-100 p-[8px] rounded-[20px]">
+                                <Card className="border-gray-100">
+                                    <div className="flex flex-col xl:flex-row-reverse justify-between items-start gap-[10px]">
+                                        <div className="">
+                                            <Avatar
+                                                className="bg-success-light"
+                                                icon={<AiOutlineDollar />}
+                                            />
+                                        </div>
+                                        <div className="flex flex-col">
                                             <p className="text-sm font-semibold">
                                                 Total Revenue
                                             </p>
@@ -291,20 +294,15 @@ const Home = () => {
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="overflow-visible">
-                                            <Avatar
-                                                className="bg-success-light"
-                                                icon={<AiOutlineDollar />}
-                                            />
-                                        </div>
                                     </div>
                                 </Card>
-                                <Card
-                                    bordered={false}
-                                    className="!shadow-none !shadow-gray-100 !bg-gray-100"
-                                >
-                                    <div className="flex flex-row justify-between items-start">
-                                        <div className="flex flex-col gap-[10px]">
+                                <Card className="border-gray-100 bg-gray-100">
+                                    <div className="flex flex-col xl:flex-row-reverse justify-between items-start gap-[10px]">
+                                        <Avatar
+                                            className="bg-grape"
+                                            icon={<IoBagCheckOutline />}
+                                        />
+                                        <div className="flex flex-col">
                                             <p className="text-sm font-semibold">
                                                 Total Profit
                                             </p>
@@ -320,18 +318,15 @@ const Home = () => {
                                                 </p>
                                             </div>
                                         </div>
-                                        <Avatar
-                                            className="bg-grape"
-                                            icon={<IoBagCheckOutline />}
-                                        />
                                     </div>
                                 </Card>
-                                <Card
-                                    bordered={false}
-                                    className="!shadow-none !shadow-gray-100 !bg-gray-100"
-                                >
-                                    <div className="flex flex-row justify-between items-start">
-                                        <div className="flex flex-col gap-[10px]">
+                                <Card className="border-gray-100 bg-gray-100">
+                                    <div className="flex flex-col xl:flex-row-reverse justify-between items-start  gap-[10px]">
+                                        <Avatar
+                                            className="bg-primary-light"
+                                            icon={<IoMdEye />}
+                                        />
+                                        <div className="flex flex-col">
                                             <p className="text-sm font-semibold">
                                                 Total Claims
                                             </p>
@@ -347,24 +342,20 @@ const Home = () => {
                                                 </p>
                                             </div>
                                         </div>
-                                        <Avatar
-                                            className="bg-primary-light"
-                                            icon={<IoMdEye />}
-                                        />
                                     </div>
                                 </Card>
                             </div>
                             <div>
-                                <Chart
+                                {/* <Chart
                                     type="area"
                                     series={areaData.series}
                                     xAxis={areaData.xAxis}
                                     height={350}
-                                />
+                                /> */}
                             </div>
                         </div>
                     </div>
-                    <div className="w-4/12 lg:w-fit h-full">
+                    <div className="w-full lg:w-fit h-full">
                         <div className="bg-white p-4 rounded-2xl border border-gray-200">
                             <Calendar />
                             <div className="mt-5 flex flex-col gap-[20px]">
@@ -515,7 +506,7 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className="w-full">
-                                <Chart
+                                {/* <Chart
                                     customOptions={{
                                         plotOptions: {
                                             bar: {
@@ -532,7 +523,7 @@ const Home = () => {
                                     height={230}
                                     series={doubleBarData.series}
                                     xAxis={doubleBarData.xAxis}
-                                />
+                                /> */}
                             </div>
                         </div>
                     </div>
