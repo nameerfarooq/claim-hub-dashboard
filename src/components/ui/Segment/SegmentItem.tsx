@@ -20,6 +20,8 @@ export interface SegmentItemProps
     disabled?: boolean
     size?: TypeAttributes.Size
     value?: string
+    activeClassName?: string
+    inactiveClassName?: string
 }
 
 const unwrapArray = (arg: (params: ChildrenParams) => ReactNode) =>
@@ -33,6 +35,8 @@ const SegmentItem = (props: SegmentItemProps) => {
         ref,
         value: valueProp,
         size,
+        activeClassName = '',
+        inactiveClassName = '',
         ...rest
     } = props
 
@@ -103,7 +107,7 @@ const SegmentItem = (props: SegmentItemProps) => {
             className={classNames(
                 'segment-item',
                 getSegmentSize(),
-                active && 'segment-item-active',
+                active ? activeClassName : inactiveClassName,
                 disabled && 'segment-item-disabled',
                 className,
             )}

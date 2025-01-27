@@ -48,6 +48,26 @@ const navigationConfig: NavigationTree[] = [
         authority: [],
         subMenu: [
             {
+                key: 'claims.item7',
+                path: '/claims',
+                title: 'Claims List',
+                translateKey: 'nav.claims.item7',
+                icon: '',
+                type: NAV_ITEM_TYPE_ITEM,
+                authority: [],
+                subMenu: [],
+            },
+            {
+                key: 'claims.item8',
+                path: '/claims-pipeline',
+                title: 'Pipeline',
+                translateKey: 'nav.claims.item8',
+                icon: '',
+                type: NAV_ITEM_TYPE_ITEM,
+                authority: [],
+                subMenu: [],
+            },
+            {
                 key: 'claims.item1',
                 path: '/sales',
                 title: 'Sales',

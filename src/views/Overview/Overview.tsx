@@ -11,20 +11,32 @@ import {
 } from '@/components/ui'
 import React, { useState } from 'react'
 import { IoMdAdd, IoMdMenu } from 'react-icons/io'
-import { GoTag } from 'react-icons/go'
-import { FaCheck, FaRegCircle, FaRegClock } from 'react-icons/fa'
 import user from '@/assets/Images/user.png'
-import { IoPersonOutline } from 'react-icons/io5'
 import { LuMessageSquareText, LuPhone, LuSquareCheckBig } from 'react-icons/lu'
-import EditPencilIcon from '@/assets/icons/EditPencil'
-import { CiMail } from 'react-icons/ci'
-import { HiOutlineUser } from 'react-icons/hi'
+import { CiMail, CiUser } from 'react-icons/ci'
+import { HiOutlineDocumentSearch, HiOutlineUser } from 'react-icons/hi'
 import { BsCameraVideoFill } from 'react-icons/bs'
-import { TbCalendarStar, TbCoffee } from 'react-icons/tb'
-import { STEPS_STATUS } from '@/components/ui/utils/constants'
+import {
+    TbCalendarStar,
+    TbCheck,
+    TbCircle,
+    TbClock,
+    TbCoffee,
+    TbFileDescription,
+    TbMessage,
+    TbPencil,
+    TbTag,
+    TbUser,
+} from 'react-icons/tb'
 import TabList from '@/components/ui/Tabs/TabList'
 import TabNav from '@/components/ui/Tabs/TabNav'
 import TabContent from '@/components/ui/Tabs/TabContent'
+import { BiListCheck } from 'react-icons/bi'
+import { CgSpinner } from 'react-icons/cg'
+import { MdOutlineTask } from 'react-icons/md'
+import { GoImage } from 'react-icons/go'
+import PillIcon from '@/assets/icons/PillIcon'
+import { IoPersonCircleSharp } from 'react-icons/io5'
 
 const Overview = () => {
     const tasks = [
@@ -33,7 +45,7 @@ const Overview = () => {
             title: 'Review contract for missing signatures',
             priority: 'High',
             date: 'August 04',
-            icon: <FaCheck />,
+            icon: <TbCheck />,
             completed: false,
         },
         {
@@ -41,7 +53,7 @@ const Overview = () => {
             title: 'Upload additional site photos',
             priority: 'Medium',
             date: 'July 14',
-            icon: <FaCheck />,
+            icon: <TbCheck />,
             completed: true,
         },
         {
@@ -49,7 +61,7 @@ const Overview = () => {
             title: 'Follow up with insurance adjuster',
             priority: 'High',
             date: 'September 19',
-            icon: <FaCheck />,
+            icon: <TbCheck />,
             completed: false,
         },
         {
@@ -57,7 +69,7 @@ const Overview = () => {
             title: 'Submit technician drylogs for approval',
             priority: 'High',
             date: 'September 04',
-            icon: <FaCheck />,
+            icon: <TbCheck />,
             completed: false,
         },
         {
@@ -65,7 +77,7 @@ const Overview = () => {
             title: 'Verify uploaded invoices for accuracy',
             priority: 'Medium',
             date: 'July 24',
-            icon: <FaCheck />,
+            icon: <TbCheck />,
             completed: true,
         },
     ]
@@ -168,78 +180,95 @@ const Overview = () => {
             date: '9-20-2023',
             tooltipData: [
                 {
-                    icon: <FaCheck />,
+                    icon: <TbCheck />,
                     value: 'Qualification',
                 },
             ],
             title: 'Lead',
             description: '3 Days',
-            icon: <BsCameraVideoFill />, // Use COMPLETE instead of 'complete'
+            icon: <CiUser className="text-white" />,
         },
         {
             timeSpan: '3 Days',
             date: '9-20-2023',
             tooltipData: [
                 {
-                    icon: <FaCheck />,
+                    icon: <TbCheck />,
                     value: 'Qualification',
                 },
             ],
             title: 'Scheduling',
             description: '26 Days',
-            icon: <BsCameraVideoFill />,
+            icon: <TbClock className="text-white" />,
         },
         {
             timeSpan: '3 Days',
             date: '9-20-2023',
             tooltipData: [
                 {
-                    icon: <FaCheck />,
+                    icon: <TbCheck />,
                     value: 'Qualification',
                 },
             ],
             title: 'Assessment',
             description: '8 Months',
-            icon: <BsCameraVideoFill />, // Use IN_PROGRESS instead of 'in_progress'
+            icon: <BiListCheck />, // Use IN_PROGRESS instead of 'in_progress'
         },
         {
             timeSpan: '3 Days',
             date: '9-20-2023',
             tooltipData: [
                 {
-                    icon: <FaCheck />,
+                    icon: <TbCheck />,
                     value: 'Qualification',
                 },
             ],
             title: 'Determination',
             description: '9-20-2023',
-            icon: <BsCameraVideoFill />, // Use PENDING instead of 'pending'
+            icon: <HiOutlineDocumentSearch />, // Use PENDING instead of 'pending'
         },
         {
             timeSpan: '3 Days',
             date: '9-20-2023',
             tooltipData: [
                 {
-                    icon: <FaCheck />,
+                    icon: <TbCheck />,
                     value: 'Qualification',
                 },
             ],
             title: 'Litigation',
             description: '9-23-2023',
-            icon: <BsCameraVideoFill />,
+            icon: <CgSpinner />,
         },
         {
             timeSpan: '3 Days',
             date: '9-20-2023',
             tooltipData: [
                 {
-                    icon: <FaCheck />,
+                    icon: <TbCheck />,
                     value: 'Qualification',
                 },
             ],
             title: 'Settlement',
             description: '10-19-2023',
-            icon: <BsCameraVideoFill />,
+            icon: <MdOutlineTask />,
+        },
+    ]
+
+    const commentContent = [
+        {
+            icon: <IoPersonCircleSharp size={50} />,
+            name: 'Arlene Pierce',
+            date: '20 May 2024',
+            message:
+                'Helvetica 8-bit photo booth tumblr food truck. Enamel pin wolf tousled sartorial, brunch shoreditch skateboard beard helvetica. Plaid typewriter gastropub bespoke.',
+        },
+        {
+            icon: <IoPersonCircleSharp size={50} />,
+            name: 'Arlene Pierce',
+            date: '20 May 2024',
+            message:
+                'Helvetica 8-bit photo booth tumblr food truck. Enamel pin wolf tousled sartorial, brunch shoreditch skateboard beard helvetica. Plaid typewriter gastropub bespoke.',
         },
     ]
 
@@ -264,7 +293,7 @@ const Overview = () => {
                     <p className="font-semibold text-black flex items-center gap-1">
                         {' '}
                         <span>
-                            <GoTag />
+                            <TbTag />
                         </span>{' '}
                         Label
                     </p>
@@ -277,7 +306,7 @@ const Overview = () => {
                     <p className="font-semibold text-black flex items-center gap-1">
                         {' '}
                         <span>
-                            <FaRegCircle />
+                            <TbCircle />
                         </span>{' '}
                         Stage
                     </p>
@@ -291,7 +320,7 @@ const Overview = () => {
                     <p className="font-semibold text-black flex items-center gap-1">
                         {' '}
                         <span>
-                            <IoPersonOutline />
+                            <TbUser />
                         </span>{' '}
                         Assigned to
                     </p>
@@ -304,7 +333,7 @@ const Overview = () => {
                     <p className="font-semibold text-black flex items-center gap-1">
                         {' '}
                         <span>
-                            <FaRegClock />
+                            <TbClock />
                         </span>{' '}
                         Due date
                     </p>
@@ -334,11 +363,11 @@ const Overview = () => {
             </section>
             <section className="flex flex-col gap-[10px]">
                 <p className="text-xl font-bold">Overview</p>
-                <div className="flex flex-row gap-4">
-                    <Card className="bg-white border border-dashed border-primary-mild w-3/12">
+                <div className="grid grid-cols-5 gap-2">
+                    <Card className="bg-white border border-dashed border-primary-mild">
                         <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-5">
                             <Avatar
-                                icon={<LuMessageSquareText />}
+                                icon={<TbMessage />}
                                 className="bg-success-light"
                             />
                             <div className="flex flex-col gap-[10px]">
@@ -347,10 +376,10 @@ const Overview = () => {
                             </div>
                         </div>
                     </Card>
-                    <Card className="bg-white border border-dashed border-primary-mild w-3/12">
+                    <Card className="bg-white border border-dashed border-primary-mild">
                         <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-5">
                             <Avatar
-                                icon={<LuMessageSquareText />}
+                                icon={<TbFileDescription />}
                                 className="bg-grape"
                             />
                             <div className="flex flex-col gap-[10px]">
@@ -359,10 +388,10 @@ const Overview = () => {
                             </div>
                         </div>
                     </Card>
-                    <Card className="bg-white border border-dashed border-primary-mild w-3/12">
+                    <Card className="bg-white border border-dashed border-primary-mild">
                         <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-5">
                             <Avatar
-                                icon={<LuMessageSquareText />}
+                                icon={<GoImage />}
                                 className="bg-primary-light"
                             />
                             <div className="flex flex-col gap-[10px]">
@@ -371,7 +400,7 @@ const Overview = () => {
                             </div>
                         </div>
                     </Card>
-                    <Card className="bg-white border border-dashed border-primary-mild w-3/12">
+                    <Card className="bg-white border border-dashed border-primary-mild">
                         <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-5">
                             <Avatar
                                 icon={<LuMessageSquareText />}
@@ -383,12 +412,9 @@ const Overview = () => {
                             </div>
                         </div>
                     </Card>
-                    <Card className="bg-white border border-dashed border-primary-mild w-3/12">
+                    <Card className="bg-white border border-dashed border-primary-mild">
                         <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-5">
-                            <Avatar
-                                icon={<LuMessageSquareText />}
-                                className="bg-grape"
-                            />
+                            <Avatar icon={<PillIcon />} className="bg-grape" />
                             <div className="flex flex-col gap-[10px]">
                                 <p className="font-bold">On-Site visit</p>
                                 <p className="text-4xl font-bold">7</p>
@@ -397,12 +423,12 @@ const Overview = () => {
                     </Card>
                 </div>
             </section>
-            <section className="flex flex-row gap-4">
-                <Card className="bg-white border border-primary-mild w-3/12">
+            <section className="grid grid-cols-2 xl:grid-cols-4 gap-2">
+                <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
                         <p className="font-bold text-xl">Client</p>
                         <button className="p-1 rounded-full bg-gray-200">
-                            <EditPencilIcon />
+                            <TbPencil />
                         </button>
                     </div>
                     <div className="flex flex-row items-center gap-[10px] py-[20px]">
@@ -442,11 +468,11 @@ const Overview = () => {
                         </div>
                     </div>
                 </Card>
-                <Card className="bg-white border border-primary-mild w-3/12 relative">
+                <Card className="bg-white border border-primary-mild relative">
                     <div className="flex flex-row items-center justify-between">
                         <p className="font-bold text-xl">Claim</p>
                         <button className="p-1 rounded-full bg-gray-200">
-                            <EditPencilIcon />
+                            <TbPencil />
                         </button>
                     </div>
                     <div className="py-[20px] border-b border-gray-200">
@@ -484,11 +510,11 @@ const Overview = () => {
                         See All (8 Total)
                     </p>
                 </Card>
-                <Card className="bg-white border border-primary-mild w-3/12">
+                <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
                         <p className="font-bold text-xl">Insurance</p>
                         <button className="p-1 rounded-full bg-gray-200">
-                            <EditPencilIcon />
+                            <TbPencil />
                         </button>
                     </div>
                     <div className="flex flex-col gap-[15px] py-[20px]">
@@ -520,11 +546,11 @@ const Overview = () => {
                         </div>
                     </div>
                 </Card>
-                <Card className="bg-white border border-primary-mild w-3/12">
+                <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
                         <p className="font-bold text-xl">Adjuster</p>
                         <button className="p-1 rounded-full bg-gray-200">
-                            <EditPencilIcon />
+                            <TbPencil />
                         </button>
                     </div>
                     <div className="flex flex-col gap-[15px] py-[20px]">
@@ -546,7 +572,7 @@ const Overview = () => {
                         </div>
                         <div className="flex flex-col">
                             <p>Adjuster Email</p>
-                            <p className="font-semibold">
+                            <p className="font-semibold truncate">
                                 CINDY.HERNANDEZ@LIB.COM
                             </p>
                         </div>
@@ -561,8 +587,8 @@ const Overview = () => {
                     </div>
                 </Card>
             </section>
-            <section className="flex flex-row gap-2">
-                <Card className="bg-white border border-primary-mild w-4/12">
+            <section className="grid grid-cols-3 gap-2">
+                <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
                         <p className="text-xl font-bold">Current tasks</p>
                         <div className="flex flex-row gap-1">
@@ -616,10 +642,10 @@ const Overview = () => {
                         ))}
                     </div>
                 </Card>
-                <div className="bg-white border border-primary-mild w-4/12 rounded-2xl py-4">
+                <div className="bg-white border border-primary-mild rounded-2xl py-4">
                     <div className="h-[350px] overflow-y-auto custom-scrollbar">
                         <div className="w-fit mx-auto">
-                            <Calendar />
+                            <Calendar className="p-4" />
                         </div>
                         <div className="mt-5 flex flex-col gap-[20px] px-4">
                             <p className="text-lg font-bold">Schedule Today</p>
@@ -665,7 +691,7 @@ const Overview = () => {
                         </Button>
                     </div>
                 </div>
-                <Card className="bg-white border border-primary-mild w-4/12">
+                <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
                         <p className="text-xl font-bold">Activities</p>
                         <Button>All Activities</Button>
@@ -716,7 +742,37 @@ const Overview = () => {
                             </TabNav>
                         </TabList>
                         <div className="p-4">
-                            <TabContent value="comments"></TabContent>
+                            <TabContent value="comments">
+                                <div className="flex flex-col gap-[30px]">
+                                    {commentContent.map((comment) => (
+                                        <div className="flex flex-row gap-4">
+                                            <div>{comment.icon}</div>
+                                            <div>
+                                                <p className="pb-2">
+                                                    <span className="font-semibold">
+                                                        {comment.name}{' '}
+                                                    </span>{' '}
+                                                    | {comment.date}{' '}
+                                                </p>
+                                                <p>{comment.message}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                    <div className="flex flex-row gap-4">
+                                        <IoPersonCircleSharp size={50} />
+                                        <div className="relative w-full">
+                                            <textarea
+                                                rows={4}
+                                                placeholder="Write a comment..."
+                                                className="bg-gray-200 w-full rounded-lg p-4"
+                                            />
+                                            <button className="absolute p-2 text-black right-[10px] bottom-[10px]">
+                                                Send
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </TabContent>
                             <TabContent value="attachments"></TabContent>
                         </div>
                     </Tabs>

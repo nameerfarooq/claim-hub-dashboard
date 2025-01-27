@@ -14,13 +14,18 @@ import { HiOutlineUser } from 'react-icons/hi'
 import userPng from '@/assets/Images/user.png'
 import { BsCameraVideoFill, BsTags } from 'react-icons/bs'
 import { FaCheck } from 'react-icons/fa'
-import { LuDownload, LuSquareCheckBig } from 'react-icons/lu'
-import { TbCalendarStar, TbCoffee } from 'react-icons/tb'
-import { BiSolidBoltCircle } from 'react-icons/bi'
-import { MdOutlineLibraryAddCheck } from 'react-icons/md'
-import { AiOutlineDollar } from 'react-icons/ai'
-import { IoBagCheckOutline } from 'react-icons/io5'
-import { IoMdEye } from 'react-icons/io'
+import {
+    TbArrowDownToArc,
+    TbCalendarStar,
+    TbCoffee,
+    TbCoin,
+    TbCopyCheck,
+    TbEye,
+    TbProgressBolt,
+    TbShoppingBagCheck,
+    TbVideo,
+} from 'react-icons/tb'
+import { LuSquareCheckBig } from 'react-icons/lu'
 
 const Home = () => {
     const areaData = {
@@ -76,7 +81,7 @@ const Home = () => {
             title: 'Daily standup',
             type: 'Meeting',
             time: '10:00 AM',
-            icon: <BsCameraVideoFill />,
+            icon: <TbVideo />,
             iconColor: 'bg-grape',
         },
         {
@@ -214,7 +219,7 @@ const Home = () => {
                                         </div>
                                         <Avatar
                                             className="bg-primary-light"
-                                            icon={<BiSolidBoltCircle />}
+                                            icon={<TbProgressBolt />}
                                         />
                                     </div>
                                 </Card>
@@ -230,7 +235,7 @@ const Home = () => {
                                         </div>
                                         <Avatar
                                             className="bg-success-light"
-                                            icon={<MdOutlineLibraryAddCheck />}
+                                            icon={<TbCopyCheck />}
                                         />
                                     </div>
                                 </Card>
@@ -246,7 +251,7 @@ const Home = () => {
                                         </div>
                                         <Avatar
                                             className="bg-grape"
-                                            icon={<LuDownload />}
+                                            icon={<TbArrowDownToArc />}
                                         />
                                     </div>
                                 </Card>
@@ -269,16 +274,13 @@ const Home = () => {
                                     All Claims
                                 </Select>
                             </div>
-                            <div className="grid grid-cols-3 xl:gap-4 w-full bg-gray-100 p-[8px] rounded-[20px]">
-                                <Card className="border-gray-100">
-                                    <div className="flex flex-col xl:flex-row-reverse justify-between items-start gap-[10px]">
-                                        <div className="">
-                                            <Avatar
-                                                className="bg-success-light"
-                                                icon={<AiOutlineDollar />}
-                                            />
-                                        </div>
-                                        <div className="flex flex-col">
+                            <div className="grid grid-cols-3 gap-4 w-full bg-gray-100 p-[8px] rounded-[20px]">
+                                <Card
+                                    bordered={false}
+                                    className="!shadow-none !shadow-gray-100"
+                                >
+                                    <div className="flex flex-row justify-between items-start">
+                                        <div className="flex flex-col gap-[10px]">
                                             <p className="text-sm font-semibold">
                                                 Total Revenue
                                             </p>
@@ -294,15 +296,20 @@ const Home = () => {
                                                 </p>
                                             </div>
                                         </div>
+                                        <div className="overflow-visible">
+                                            <Avatar
+                                                className="bg-success-light"
+                                                icon={<TbCoin />}
+                                            />
+                                        </div>
                                     </div>
                                 </Card>
-                                <Card className="border-gray-100 bg-gray-100">
-                                    <div className="flex flex-col xl:flex-row-reverse justify-between items-start gap-[10px]">
-                                        <Avatar
-                                            className="bg-grape"
-                                            icon={<IoBagCheckOutline />}
-                                        />
-                                        <div className="flex flex-col">
+                                <Card
+                                    bordered={false}
+                                    className="!shadow-none !shadow-gray-100 !bg-gray-100"
+                                >
+                                    <div className="flex flex-row justify-between items-start">
+                                        <div className="flex flex-col gap-[10px]">
                                             <p className="text-sm font-semibold">
                                                 Total Profit
                                             </p>
@@ -318,15 +325,18 @@ const Home = () => {
                                                 </p>
                                             </div>
                                         </div>
+                                        <Avatar
+                                            className="bg-grape"
+                                            icon={<TbShoppingBagCheck />}
+                                        />
                                     </div>
                                 </Card>
-                                <Card className="border-gray-100 bg-gray-100">
-                                    <div className="flex flex-col xl:flex-row-reverse justify-between items-start  gap-[10px]">
-                                        <Avatar
-                                            className="bg-primary-light"
-                                            icon={<IoMdEye />}
-                                        />
-                                        <div className="flex flex-col">
+                                <Card
+                                    bordered={false}
+                                    className="!shadow-none !shadow-gray-100 !bg-gray-100"
+                                >
+                                    <div className="flex flex-row justify-between items-start">
+                                        <div className="flex flex-col gap-[10px]">
                                             <p className="text-sm font-semibold">
                                                 Total Claims
                                             </p>
@@ -342,6 +352,10 @@ const Home = () => {
                                                 </p>
                                             </div>
                                         </div>
+                                        <Avatar
+                                            className="bg-primary-light"
+                                            icon={<TbEye />}
+                                        />
                                     </div>
                                 </Card>
                             </div>
@@ -355,7 +369,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full lg:w-fit h-full">
+                    <div className="w-4/12 lg:w-fit h-full">
                         <div className="bg-white p-4 rounded-2xl border border-gray-200">
                             <Calendar />
                             <div className="mt-5 flex flex-col gap-[20px]">
@@ -411,7 +425,7 @@ const Home = () => {
                                 </p>
                                 <Button variant="default">All tasks</Button>
                             </div>
-                            <div className="flex flex-col gap-[10px] h-[270px] overflow-auto pr-2">
+                            <div className="flex flex-col gap-[10px] h-[270px] overflow-auto custom-scrollbar pr-2">
                                 {tasks.map((task) => (
                                     <div
                                         key={task.id}
@@ -506,7 +520,7 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className="w-full">
-                                {/* <Chart
+                                <Chart
                                     customOptions={{
                                         plotOptions: {
                                             bar: {
@@ -523,7 +537,7 @@ const Home = () => {
                                     height={230}
                                     series={doubleBarData.series}
                                     xAxis={doubleBarData.xAxis}
-                                /> */}
+                                />
                             </div>
                         </div>
                     </div>
@@ -535,7 +549,7 @@ const Home = () => {
                                 </p>
                                 <Button variant="default">View all</Button>
                             </div>
-                            <div className="h-[270px] overflow-auto">
+                            <div className="h-[270px] overflow-auto custom-scrollbar">
                                 <Timeline className="pr-[10px]">
                                     {activities.map((activity) => (
                                         <Timeline.Item

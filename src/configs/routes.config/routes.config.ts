@@ -61,31 +61,63 @@ export const protectedRoutes: Routes = [
         authority: [],
     },
     {
-        key: 'groupMenu.single',
-        path: '/group-single-menu-item-view',
-        component: lazy(() => import('@/views/demo/GroupSingleMenuItemView')),
+        key: 'nav.claims.item8',
+        path: '/claims-pipeline',
+        component: lazy(() => import('@/views/Claim/ClaimBoard')),
         authority: [],
     },
     {
-        key: 'groupMenu.collapse.item1',
-        path: '/group-collapse-menu-item-view-1',
-        component: lazy(
-            () => import('@/views/demo/GroupCollapseMenuItemView1'),
-        ),
-        authority: [],
-    },
-    {
-        key: 'groupMenu.collapse.item2',
-        path: '/group-collapse-menu-item-view-2',
-        component: lazy(
-            () => import('@/views/demo/GroupCollapseMenuItemView2'),
-        ),
+        key: 'nav.claims.item7',
+        path: '/claims',
+        component: lazy(() => import('@/views/Claim/ClaimList')),
         authority: [],
     },
     {
         key: 'overview',
         path: '/overview',
         component: lazy(() => import('@/views/Overview/Main')),
+        authority: [],
+    },
+    {
+        key: 'create-estimate',
+        path: '/overview/create-estimate',
+        component: lazy(
+            () => import('@/views/Overview/EstimateViews/CreateEstimate'),
+        ),
+        authority: [],
+    },
+    {
+        key: 'create-order',
+        path: '/overview/create-order',
+        component: lazy(
+            () => import('@/views/Overview/OrderViews/CreateOrder'),
+        ),
+        authority: [],
+    },
+    {
+        key: 'create-job-order',
+        path: '/overview/create-job-order',
+        component: lazy(
+            () => import('@/views/Overview/OrderViews/CreateJobOrder'),
+        ),
+        authority: [],
+    },
+    {
+        key: 'pricing',
+        path: '/pricing',
+        component: lazy(() => import('@/views/Pricing')),
+        authority: [],
+    },
+    {
+        key: 'profile',
+        path: '/profile',
+        component: lazy(() => import('@/views/Profile/Profile')),
+        authority: [],
+    },
+    {
+        key: 'equipment',
+        path: '/equipment',
+        component: lazy(() => import('@/views/Equipment')),
         authority: [],
     },
     ...othersRoute,
