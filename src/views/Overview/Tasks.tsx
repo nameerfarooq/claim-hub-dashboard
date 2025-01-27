@@ -1,12 +1,13 @@
 import React from 'react'
-import user from '@/assets/Images/user.png'
+import userImg from '@/assets/Images/user.png'
 import Avatar from '@/components/ui/Avatar'
 import { Button } from '@/components/ui'
 import { BsPlus } from 'react-icons/bs'
-import { DataTable } from '@/components/shared'
 import { useMemo } from 'react'
 import { Tag } from '@/components/ui'
 import { HiCheckCircle, HiClock } from 'react-icons/hi'
+import DragAndDrop from '@/components/custom/DragAndDrop'
+import { MdDragIndicator } from 'react-icons/md'
 
 const Tasks = () => {
     const tasks = [
@@ -16,6 +17,24 @@ const Tasks = () => {
             status: 'In Progress',
             priority: 'High',
             dueDate: 'September 19',
+            userList: [
+                {
+                    id: 1,
+                    media: { userImg },
+                },
+                {
+                    id: 2,
+                    media: { userImg },
+                },
+                {
+                    id: 3,
+                    media: { userImg },
+                },
+                {
+                    id: 4,
+                    media: { userImg },
+                },
+            ],
         },
         {
             id: 2,
@@ -23,6 +42,20 @@ const Tasks = () => {
             status: 'Complete',
             priority: 'Medium',
             dueDate: 'July 14',
+            userList: [
+                {
+                    id: 1,
+                    media: { userImg },
+                },
+                {
+                    id: 2,
+                    media: { userImg },
+                },
+                {
+                    id: 3,
+                    media: { userImg },
+                },
+            ],
         },
         {
             id: 3,
@@ -30,6 +63,28 @@ const Tasks = () => {
             status: 'In Progress',
             priority: 'High',
             dueDate: 'September 19',
+            userList: [
+                {
+                    id: 1,
+                    media: { userImg },
+                },
+                {
+                    id: 2,
+                    media: { userImg },
+                },
+                {
+                    id: 3,
+                    media: { userImg },
+                },
+                {
+                    id: 4,
+                    media: { userImg },
+                },
+                {
+                    id: 5,
+                    media: { userImg },
+                },
+            ],
         },
         {
             id: 4,
@@ -37,6 +92,24 @@ const Tasks = () => {
             status: 'In Progress',
             priority: 'High',
             dueDate: 'September 04',
+            userList: [
+                {
+                    id: 1,
+                    media: { userImg },
+                },
+                {
+                    id: 2,
+                    media: { userImg },
+                },
+                {
+                    id: 3,
+                    media: { userImg },
+                },
+                {
+                    id: 4,
+                    media: { userImg },
+                },
+            ],
         },
         {
             id: 5,
@@ -44,34 +117,116 @@ const Tasks = () => {
             status: 'Complete',
             priority: 'Medium',
             dueDate: 'July 24',
+            userList: [
+                {
+                    id: 1,
+                    media: { userImg },
+                },
+                {
+                    id: 2,
+                    media: { userImg },
+                },
+            ],
         },
     ]
 
     const columns = useMemo(
         () => [
             {
-                header: 'Task',
-                accessorKey: 'task',
-            },
-            {
-                header: 'Status',
+                id: 'statusIcon',
+                header: '',
                 accessorKey: 'status',
                 cell: (props) => {
                     const status = props.getValue()
                     return (
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center rounded-full">
                             {status === 'Complete' ? (
-                                <HiCheckCircle className="text-green-500" />
+                                <HiCheckCircle
+                                    size={22}
+                                    className="bg-text-white text-primary-mild"
+                                />
                             ) : (
-                                <HiClock className="text-yellow-500" />
+                                <HiCheckCircle
+                                    size={18}
+                                    className="bg-black text-white rounded-full"
+                                />
                             )}
-                            <span>{status}</span>
                         </div>
                     )
                 },
             },
             {
-                header: 'Priority',
+                id: 'task',
+                header: '',
+                accessorKey: 'task',
+                cell: (props) => {
+                    const task = props.getValue()
+                    const status = props.row.original.status
+                    return (
+                        <span
+                            className={
+                                status === 'Complete'
+                                    ? 'line-through text-gray-400'
+                                    : ''
+                            }
+                        >
+                            {task}
+                        </span>
+                    )
+                },
+            },
+            {
+                id: 'userList',
+                header: '',
+                accessorKey: 'userList',
+                cell: (props) => {
+                    const userList = props.getValue()
+                    return (
+                        <div className="flex items-center gap-2">
+                            <Avatar.Group
+                                chained
+                                maxCount={3}
+                                omittedAvatarProps={{
+                                    shape: 'circle',
+                                    size: 'sm',
+                                }}
+                            >
+                                {userList.map((user) => (
+                                    <Avatar
+                                        size={'sm'}
+                                        key={user.id}
+                                        src={user.media}
+                                    />
+                                ))}
+                            </Avatar.Group>
+                        </div>
+                    )
+                },
+            },
+            {
+                id: 'status',
+                header: '',
+                accessorKey: 'status',
+                cell: (props) => {
+                    const status = props.getValue()
+                    return (
+                        <div className="flex items-center gap-2">
+                            <Tag
+                                className={
+                                    status === 'Complete'
+                                        ? 'bg-green-200'
+                                        : 'bg-red-200'
+                                }
+                            >
+                                {status}
+                            </Tag>
+                        </div>
+                    )
+                },
+            },
+            {
+                id: 'priority',
+                header: '',
                 accessorKey: 'priority',
                 cell: (props) => {
                     const priority = props.getValue()
@@ -79,8 +234,8 @@ const Tasks = () => {
                         <Tag
                             className={
                                 priority === 'High'
-                                    ? 'bg-red-100 text-red-600'
-                                    : 'bg-yellow-100 text-yellow-600'
+                                    ? 'bg-red-200'
+                                    : 'bg-yellow-200'
                             }
                         >
                             {priority}
@@ -89,7 +244,8 @@ const Tasks = () => {
                 },
             },
             {
-                header: 'Due Date',
+                id: 'dueDate',
+                header: '',
                 accessorKey: 'dueDate',
             },
         ],
@@ -106,17 +262,14 @@ const Tasks = () => {
                         maxCount={4}
                         omittedAvatarProps={{ shape: 'circle' }}
                         omittedAvatarTooltip
-                        onOmittedAvatarClick={() =>
-                            console.log('Omitted Avatar Clicked')
-                        }
                     >
-                        <Avatar src={user} />
-                        <Avatar src={user} />
-                        <Avatar src={user} />
-                        <Avatar src={user} />
-                        <Avatar src={user} />
-                        <Avatar src={user} />
-                        <Avatar src={user} />
+                        <Avatar src={userImg} />
+                        <Avatar src={userImg} />
+                        <Avatar src={userImg} />
+                        <Avatar src={userImg} />
+                        <Avatar src={userImg} />
+                        <Avatar src={userImg} />
+                        <Avatar src={userImg} />
                     </Avatar.Group>
                     <Button variant="default" icon={<BsPlus size={22} />}>
                         Add members
@@ -124,15 +277,17 @@ const Tasks = () => {
                 </div>
             </div>
             <div>
-                <DataTable
-                    columns={columns}
-                    data={tasks}
-                    pagingData={{
-                        total: tasks.length,
-                        pageIndex: 1,
-                        pageSize: 10,
-                    }}
-                />
+                <p className="text-xl font-bold flex flex-row items-center">
+                    <span>
+                        <MdDragIndicator />
+                    </span>{' '}
+                    Claim's Tasks
+                </p>
+                <DragAndDrop data={tasks} columns={columns} />
+                <button className="p-2 border-dashed border-2 rounded-xl bg-[#f5f5f5] font-bold w-full flex items-center justify-center text-center">
+                    <BsPlus size={22} />
+                    Add task
+                </button>
             </div>
         </main>
     )

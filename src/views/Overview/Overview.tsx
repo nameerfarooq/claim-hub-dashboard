@@ -334,8 +334,8 @@ const Overview = () => {
             </section>
             <section className="flex flex-col gap-[10px]">
                 <p className="text-xl font-bold">Overview</p>
-                <div className="flex flex-row gap-4">
-                    <Card className="bg-white border border-dashed border-primary-mild w-3/12">
+                <div className="grid grid-cols-5 gap-2">
+                    <Card className="bg-white border border-dashed border-primary-mild">
                         <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-5">
                             <Avatar
                                 icon={<LuMessageSquareText />}
@@ -347,7 +347,7 @@ const Overview = () => {
                             </div>
                         </div>
                     </Card>
-                    <Card className="bg-white border border-dashed border-primary-mild w-3/12">
+                    <Card className="bg-white border border-dashed border-primary-mild">
                         <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-5">
                             <Avatar
                                 icon={<LuMessageSquareText />}
@@ -359,7 +359,7 @@ const Overview = () => {
                             </div>
                         </div>
                     </Card>
-                    <Card className="bg-white border border-dashed border-primary-mild w-3/12">
+                    <Card className="bg-white border border-dashed border-primary-mild">
                         <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-5">
                             <Avatar
                                 icon={<LuMessageSquareText />}
@@ -371,7 +371,7 @@ const Overview = () => {
                             </div>
                         </div>
                     </Card>
-                    <Card className="bg-white border border-dashed border-primary-mild w-3/12">
+                    <Card className="bg-white border border-dashed border-primary-mild">
                         <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-5">
                             <Avatar
                                 icon={<LuMessageSquareText />}
@@ -383,7 +383,7 @@ const Overview = () => {
                             </div>
                         </div>
                     </Card>
-                    <Card className="bg-white border border-dashed border-primary-mild w-3/12">
+                    <Card className="bg-white border border-dashed border-primary-mild">
                         <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-5">
                             <Avatar
                                 icon={<LuMessageSquareText />}
@@ -397,8 +397,8 @@ const Overview = () => {
                     </Card>
                 </div>
             </section>
-            <section className="flex flex-row gap-4">
-                <Card className="bg-white border border-primary-mild w-3/12">
+            <section className="grid grid-cols-2 xl:grid-cols-4 gap-2">
+                <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
                         <p className="font-bold text-xl">Client</p>
                         <button className="p-1 rounded-full bg-gray-200">
@@ -442,7 +442,7 @@ const Overview = () => {
                         </div>
                     </div>
                 </Card>
-                <Card className="bg-white border border-primary-mild w-3/12 relative">
+                <Card className="bg-white border border-primary-mild relative">
                     <div className="flex flex-row items-center justify-between">
                         <p className="font-bold text-xl">Claim</p>
                         <button className="p-1 rounded-full bg-gray-200">
@@ -484,7 +484,7 @@ const Overview = () => {
                         See All (8 Total)
                     </p>
                 </Card>
-                <Card className="bg-white border border-primary-mild w-3/12">
+                <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
                         <p className="font-bold text-xl">Insurance</p>
                         <button className="p-1 rounded-full bg-gray-200">
@@ -520,7 +520,7 @@ const Overview = () => {
                         </div>
                     </div>
                 </Card>
-                <Card className="bg-white border border-primary-mild w-3/12">
+                <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
                         <p className="font-bold text-xl">Adjuster</p>
                         <button className="p-1 rounded-full bg-gray-200">
@@ -546,7 +546,7 @@ const Overview = () => {
                         </div>
                         <div className="flex flex-col">
                             <p>Adjuster Email</p>
-                            <p className="font-semibold">
+                            <p className="font-semibold truncate">
                                 CINDY.HERNANDEZ@LIB.COM
                             </p>
                         </div>
@@ -561,8 +561,8 @@ const Overview = () => {
                     </div>
                 </Card>
             </section>
-            <section className="flex flex-row gap-2">
-                <Card className="bg-white border border-primary-mild w-4/12">
+            <section className="grid grid-cols-3 gap-2">
+                <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
                         <p className="text-xl font-bold">Current tasks</p>
                         <div className="flex flex-row gap-1">
@@ -616,10 +616,10 @@ const Overview = () => {
                         ))}
                     </div>
                 </Card>
-                <div className="bg-white border border-primary-mild w-4/12 rounded-2xl py-4">
+                <div className="bg-white border border-primary-mild rounded-2xl py-4">
                     <div className="h-[350px] overflow-y-auto custom-scrollbar">
                         <div className="w-fit mx-auto">
-                            <Calendar />
+                            <Calendar className="p-4" />
                         </div>
                         <div className="mt-5 flex flex-col gap-[20px] px-4">
                             <p className="text-lg font-bold">Schedule Today</p>
@@ -665,7 +665,7 @@ const Overview = () => {
                         </Button>
                     </div>
                 </div>
-                <Card className="bg-white border border-primary-mild w-4/12">
+                <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
                         <p className="text-xl font-bold">Activities</p>
                         <Button>All Activities</Button>
