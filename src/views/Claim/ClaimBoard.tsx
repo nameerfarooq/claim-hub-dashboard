@@ -1,9 +1,10 @@
 import { Container } from '@/components/shared'
 import { Avatar, Button, Card } from '@/components/ui'
 import AvatarGroup from '@/components/ui/Avatar/AvatarGroup'
-import user from '@/assets/images/user.png'
+import user from '@/assets/Images/user.png'
 import { CiFilter } from 'react-icons/ci'
 import { TbSettings, TbUserPlus } from 'react-icons/tb'
+import ScrumBoard from '@/components/ui/ScrumBoard/ScrumBoard'
 
 const ClaimKanban = () => {
     return (
@@ -24,7 +25,9 @@ const ClaimKanban = () => {
                         <Button icon={<TbSettings />}></Button>
                     </div>
                 </div>
-                <div></div>
+                <div>
+                    <ScrumBoard />
+                </div>
             </Card>
         </Container>
     )
