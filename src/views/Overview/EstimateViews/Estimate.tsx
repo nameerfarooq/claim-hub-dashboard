@@ -12,6 +12,7 @@ import EditPencilIcon from '@/assets/icons/EditPencil'
 import ViewEyeIcon from '@/assets/icons/ViewEye'
 import { MdDeleteOutline } from 'react-icons/md'
 import Coin from '@/assets/icons/Coin'
+import { Link } from 'react-router-dom'
 
 type CheckBoxChangeEvent = ChangeEvent<HTMLInputElement>
 
@@ -38,7 +39,7 @@ function IndeterminateCheckbox({
     return <Checkbox ref={ref} onChange={(_, e) => onChange(e)} {...rest} />
 }
 
-const Orders = () => {
+const Estimate = () => {
     const tableData = [
         {
             id: '#95954',
@@ -183,14 +184,17 @@ const Orders = () => {
     return (
         <main className="bg-white p-4 rounded-2xl border border-gray-200 h-full flex flex-col gap-[20px]">
             <div className="flex flex-row justify-between">
-                <h1 className="text-2xl font-bold">Claims : Sales</h1>
+                <h1 className="text-2xl font-bold">Estimate Invoice List</h1>
                 <div className="flex flex-row gap-[10px]">
-                    <button className="flex items-center gap-2 border border-primary rounded-xl p-4 font-bold text-white bg-primary hover:bg-primary-deep">
+                    <Link
+                        to="/overview/create-estimate"
+                        className="flex items-center gap-2 border border-primary rounded-xl p-4 font-bold text-white bg-primary hover:bg-primary-deep"
+                    >
                         <span>
                             <AddUserIcon />
                         </span>
                         Create new
-                    </button>
+                    </Link>
                 </div>
             </div>
             <div>
@@ -200,4 +204,4 @@ const Orders = () => {
     )
 }
 
-export default Orders
+export default Estimate

@@ -11,7 +11,6 @@ import AddUserIcon from '@/assets/icons/AddUser'
 import EditPencilIcon from '@/assets/icons/EditPencil'
 import ViewEyeIcon from '@/assets/icons/ViewEye'
 import { MdDeleteOutline } from 'react-icons/md'
-import Coin from '@/assets/icons/Coin'
 
 type CheckBoxChangeEvent = ChangeEvent<HTMLInputElement>
 
@@ -38,55 +37,87 @@ function IndeterminateCheckbox({
     return <Checkbox ref={ref} onChange={(_, e) => onChange(e)} {...rest} />
 }
 
-const Estimate = () => {
+const Equipment = () => {
     const tableData = [
         {
-            id: '#95954',
-            date: '28-11-2024',
-            status: 'Draft',
-            total: '$4367.15',
+            id: 1,
+            name: 'Dehumidifier X100',
+            place: 'Warehouse A',
+            availability: ['Available', 'Clean'],
+            lastTech: 'John Smith',
+            whenAvailable: 'Now',
         },
         {
-            id: '#95423',
-            date: '27-11-2024',
-            status: 'Approved',
-            total: '$7823.42',
+            id: 2,
+            name: 'Air Scrubber Pro',
+            place: 'Jobsite #3045',
+            availability: ['In Use'],
+            lastTech: 'Maria Lopez',
+            whenAvailable: '01/12/2025',
         },
         {
-            id: '#95954',
-            date: '28-11-2024',
-            status: 'Draft',
-            total: '$4367.15',
+            id: 3,
+            name: 'Moisture Meter Z20',
+            place: 'Truck #3',
+            availability: ['Maintenance'],
+            lastTech: 'Chris Brown',
+            whenAvailable: '01/15/2025',
         },
         {
-            id: '#95423',
-            date: '27-11-2024',
-            status: 'Approved',
-            total: '$7823.42',
+            id: 4,
+            name: 'Thermal Camera T200',
+            place: 'Warehouse B',
+            availability: ['Available'],
+            lastTech: 'Emily Davis',
+            whenAvailable: 'Now',
         },
         {
-            id: '#95954',
-            date: '28-11-2024',
-            status: 'Draft',
-            total: '$4367.15',
+            id: 5,
+            name: 'Air Mover Max',
+            place: 'Jobsite #2010',
+            availability: ['In Use'],
+            lastTech: 'Michael Johnson',
+            whenAvailable: '02/01/2025',
         },
         {
-            id: '#95423',
-            date: '27-11-2024',
-            status: 'Approved',
-            total: '$7823.42',
+            id: 6,
+            name: 'Moisture Detector MD5',
+            place: 'Truck #5',
+            availability: ['Available', 'Clean'],
+            lastTech: 'Sarah Wilson',
+            whenAvailable: 'Now',
         },
         {
-            id: '#95954',
-            date: '28-11-2024',
-            status: 'Draft',
-            total: '$4367.15',
+            id: 7,
+            name: 'Dehumidifier X200',
+            place: 'Warehouse C',
+            availability: ['Maintenance'],
+            lastTech: 'David Martinez',
+            whenAvailable: '02/10/2025',
         },
         {
-            id: '#95423',
-            date: '27-11-2024',
-            status: 'Approved',
-            total: '$7823.42',
+            id: 8,
+            name: 'Air Scrubber Lite',
+            place: 'Jobsite #4050',
+            availability: ['In Use'],
+            lastTech: 'Laura Garcia',
+            whenAvailable: '01/20/2025',
+        },
+        {
+            id: 9,
+            name: 'Thermal Camera T100',
+            place: 'Truck #2',
+            availability: ['Available'],
+            lastTech: 'James Anderson',
+            whenAvailable: 'Now',
+        },
+        {
+            id: 10,
+            name: 'Air Mover Pro',
+            place: 'Warehouse D',
+            availability: ['Maintenance'],
+            lastTech: 'Jessica Lee',
+            whenAvailable: '02/05/2025',
         },
     ]
 
@@ -116,36 +147,56 @@ const Estimate = () => {
             ),
         },
         {
-            header: 'ID',
-            accessorKey: 'id',
+            header: 'Name',
+            accessorKey: 'name',
             enableSorting: true,
         },
         {
-            header: 'DATE',
-            accessorKey: 'date',
+            header: 'Place',
+            accessorKey: 'place',
             enableSorting: true,
         },
         {
-            header: 'TOTAL',
-            accessorKey: 'total',
-            enableSorting: true,
-        },
-        {
-            header: 'STATUS',
-            accessorKey: 'status',
+            header: 'Availability',
+            accessorKey: 'availability',
             enableSorting: true,
             cell: ({ row }) => (
-                <Tag
-                    className={`${row.original.status === 'Approved' ? 'bg-green-200' : 'bg-red-200'}`}
-                >
-                    {row.original.status}
-                </Tag>
+                <div className="flex items-center gap-1">
+                    {row.original.availability.map((item, index) => (
+                        <Tag
+                            key={index}
+                            className={`px-2 py-1 rounded-full ${
+                                item === 'Available'
+                                    ? 'bg-sky-200'
+                                    : item === 'In Use'
+                                      ? 'bg-red-200'
+                                      : item === 'Maintenance'
+                                        ? 'bg-yellow-200'
+                                        : item === 'Clean'
+                                          ? 'bg-green-200'
+                                          : ''
+                            }`}
+                        >
+                            {item}
+                        </Tag>
+                    ))}
+                </div>
             ),
+        },
+        {
+            header: 'Last Technician',
+            accessorKey: 'lastTech',
+            enableSorting: true,
+        },
+        {
+            header: 'When Available',
+            accessorKey: 'whenAvailable',
+            enableSorting: true,
         },
         {
             header: 'Actions',
             accessorKey: 'actions',
-            enableSorting: false,
+            enableSorting: false, // Disable sorting for the Actions column
             cell: ({ row }) => (
                 <div className="flex items-center gap-1">
                     <button onClick={() => handleView(row.original)}>
@@ -156,9 +207,6 @@ const Estimate = () => {
                     </button>
                     <button onClick={() => handleDelete(row.original)}>
                         <MdDeleteOutline size={20} className="text-black" />
-                    </button>
-                    <button onClick={() => handleDelete(row.original)}>
-                        <Coin />
                     </button>
                 </div>
             ),
@@ -183,13 +231,16 @@ const Estimate = () => {
     return (
         <main className="bg-white p-4 rounded-2xl border border-gray-200 h-full flex flex-col gap-[20px]">
             <div className="flex flex-row justify-between">
-                <h1 className="text-2xl font-bold">Claims : Sales</h1>
+                <h1 className="text-2xl font-bold">Equipment Lists</h1>
                 <div className="flex flex-row gap-[10px]">
-                    <button className="flex items-center gap-2 border border-primary rounded-xl p-4 font-bold text-white bg-primary hover:bg-primary-deep">
+                    <Button variant="default" icon={<TbCloudDownload />}>
+                        Download
+                    </Button>
+                    <button className="flex items-center gap-2 border border-primary rounded-xl px-4 py-2 text-sm font-bold text-white bg-primary hover:bg-primary-deep">
                         <span>
                             <AddUserIcon />
                         </span>
-                        Create new
+                        Add new
                     </button>
                 </div>
             </div>
@@ -200,4 +251,4 @@ const Estimate = () => {
     )
 }
 
-export default Estimate
+export default Equipment

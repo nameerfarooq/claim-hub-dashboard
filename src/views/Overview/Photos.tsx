@@ -1,6 +1,6 @@
 import UploadGradient from '@/assets/icons/UploadGradient'
 import FilterDialog from '@/components/custom/FilterDialog'
-import { DebouceInput, TableRowSkeleton } from '@/components/shared'
+import { DebouceInput } from '@/components/shared'
 import { Button, Card, Dropdown, Segment, Table, Upload } from '@/components/ui'
 import { HiDotsHorizontal, HiOutlineCloudUpload } from 'react-icons/hi'
 import { IoGridOutline, IoListOutline } from 'react-icons/io5'
