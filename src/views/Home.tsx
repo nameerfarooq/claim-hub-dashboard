@@ -14,13 +14,18 @@ import { HiOutlineUser } from 'react-icons/hi'
 import userPng from '@/assets/Images/user.png'
 import { BsCameraVideoFill, BsTags } from 'react-icons/bs'
 import { FaCheck } from 'react-icons/fa'
-import { LuDownload, LuSquareCheckBig } from 'react-icons/lu'
-import { TbCalendarStar, TbCoffee } from 'react-icons/tb'
-import { BiSolidBoltCircle } from 'react-icons/bi'
-import { MdOutlineLibraryAddCheck } from 'react-icons/md'
-import { AiOutlineDollar } from 'react-icons/ai'
-import { IoBagCheckOutline } from 'react-icons/io5'
-import { IoMdEye } from 'react-icons/io'
+import {
+    TbArrowDownToArc,
+    TbCalendarStar,
+    TbCoffee,
+    TbCoin,
+    TbCopyCheck,
+    TbEye,
+    TbProgressBolt,
+    TbShoppingBagCheck,
+    TbVideo,
+} from 'react-icons/tb'
+import { LuSquareCheckBig } from 'react-icons/lu'
 
 const Home = () => {
     const areaData = {
@@ -76,7 +81,7 @@ const Home = () => {
             title: 'Daily standup',
             type: 'Meeting',
             time: '10:00 AM',
-            icon: <BsCameraVideoFill />,
+            icon: <TbVideo />,
             iconColor: 'bg-grape',
         },
         {
@@ -214,7 +219,7 @@ const Home = () => {
                                         </div>
                                         <Avatar
                                             className="bg-primary-light"
-                                            icon={<BiSolidBoltCircle />}
+                                            icon={<TbProgressBolt />}
                                         />
                                     </div>
                                 </Card>
@@ -230,7 +235,7 @@ const Home = () => {
                                         </div>
                                         <Avatar
                                             className="bg-success-light"
-                                            icon={<MdOutlineLibraryAddCheck />}
+                                            icon={<TbCopyCheck />}
                                         />
                                     </div>
                                 </Card>
@@ -246,7 +251,7 @@ const Home = () => {
                                         </div>
                                         <Avatar
                                             className="bg-grape"
-                                            icon={<LuDownload />}
+                                            icon={<TbArrowDownToArc />}
                                         />
                                     </div>
                                 </Card>
@@ -294,7 +299,7 @@ const Home = () => {
                                         <div className="overflow-visible">
                                             <Avatar
                                                 className="bg-success-light"
-                                                icon={<AiOutlineDollar />}
+                                                icon={<TbCoin />}
                                             />
                                         </div>
                                     </div>
@@ -322,7 +327,7 @@ const Home = () => {
                                         </div>
                                         <Avatar
                                             className="bg-grape"
-                                            icon={<IoBagCheckOutline />}
+                                            icon={<TbShoppingBagCheck />}
                                         />
                                     </div>
                                 </Card>
@@ -349,7 +354,7 @@ const Home = () => {
                                         </div>
                                         <Avatar
                                             className="bg-primary-light"
-                                            icon={<IoMdEye />}
+                                            icon={<TbEye />}
                                         />
                                     </div>
                                 </Card>
@@ -420,7 +425,7 @@ const Home = () => {
                                 </p>
                                 <Button variant="default">All tasks</Button>
                             </div>
-                            <div className="flex flex-col gap-[10px] h-[270px] overflow-auto pr-2">
+                            <div className="flex flex-col gap-[10px] h-[270px] overflow-auto custom-scrollbar pr-2">
                                 {tasks.map((task) => (
                                     <div
                                         key={task.id}
@@ -544,7 +549,7 @@ const Home = () => {
                                 </p>
                                 <Button variant="default">View all</Button>
                             </div>
-                            <div className="h-[270px] overflow-auto">
+                            <div className="h-[270px] overflow-auto custom-scrollbar">
                                 <Timeline className="pr-[10px]">
                                     {activities.map((activity) => (
                                         <Timeline.Item

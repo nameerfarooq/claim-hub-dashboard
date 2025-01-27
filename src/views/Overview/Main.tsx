@@ -9,9 +9,17 @@ import Tasks from './Tasks'
 import Communication from './Communication'
 import Scheduler from './Scheduler'
 import Photos from './Photos'
-import Estimate from './Estimate'
+import Estimate from './EstimateViews/Estimate'
 import Documents from './Documents'
-import Orders from './Orders'
+import Orders from './OrderViews/Orders'
+import {
+    TbCalendar,
+    TbFile,
+    TbFileDescription,
+    TbHome,
+    TbMail,
+} from 'react-icons/tb'
+import { GoImage } from 'react-icons/go'
 
 const Main = () => {
     const [currentTab, setCurrentTab] = useState('overview')
@@ -40,48 +48,56 @@ const Main = () => {
             <Tabs value={currentTab} onChange={(val) => setCurrentTab(val)}>
                 <TabList className="border-b border-primary">
                     <TabNav
+                        icon={<TbHome />}
                         className={`border border-primary-mild rounded-t-lg mx-1 ${currentTab === 'overview' ? 'bg-primary-mild text-white' : ''}`}
                         value="overview"
                     >
                         Overview
                     </TabNav>
                     <TabNav
+                        icon={<TbMail />}
                         className={`border border-primary-mild rounded-t-lg mx-1 ${currentTab === 'tasks' ? 'bg-primary-mild text-white' : ''}`}
                         value="tasks"
                     >
                         Tasks
                     </TabNav>
                     <TabNav
+                        icon={<TbMail />}
                         className={`border border-primary-mild rounded-t-lg mx-1 ${currentTab === 'communication' ? 'bg-primary-mild text-white' : ''}`}
                         value="communication"
                     >
                         Communication
                     </TabNav>
                     <TabNav
+                        icon={<TbCalendar />}
                         className={`border border-primary-mild rounded-t-lg mx-1 ${currentTab === 'scheduler' ? 'bg-primary-mild text-white' : ''}`}
                         value="scheduler"
                     >
                         Scheduler
                     </TabNav>
                     <TabNav
+                        icon={<GoImage />}
                         className={`border border-primary-mild rounded-t-lg mx-1 ${currentTab === 'photos' ? 'bg-primary-mild text-white' : ''}`}
                         value="photos"
                     >
                         Photos
                     </TabNav>
                     <TabNav
+                        icon={<TbFile />}
                         className={`border border-primary-mild rounded-t-lg mx-1 ${currentTab === 'estimate' ? 'bg-primary-mild text-white' : ''}`}
                         value="estimate"
                     >
                         Estimate
                     </TabNav>
                     <TabNav
+                        icon={<TbFileDescription />}
                         className={`border border-primary-mild rounded-t-lg mx-1 ${currentTab === 'documents' ? 'bg-primary-mild text-white' : ''}`}
                         value="documents"
                     >
                         Documents
                     </TabNav>
                     <TabNav
+                        icon={<TbFileDescription />}
                         className={`border border-primary-mild rounded-t-lg mx-1 ${currentTab === 'orders' ? 'bg-primary-mild text-white' : ''}`}
                         value="orders"
                     >

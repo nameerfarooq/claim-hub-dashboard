@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui'
 import React from 'react'
-import { TbCloudDownload, TbDots } from 'react-icons/tb'
+import { TbCloudDownload } from 'react-icons/tb'
 import user from '@/assets/Images/user.png'
 import RowSelection from '@/components/custom/AdvancedTable'
 import Checkbox from '@/components/ui/Checkbox'
