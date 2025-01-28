@@ -52,7 +52,7 @@ const ChatBox = (props: ChatBoxProps) => {
             {showMessageList && (
                 <MessageList
                     ref={ref}
-                    list={messageList}
+                    list={messageList || []}
                     showAvatar={showAvatar}
                     avatarGap={avatarGap}
                     customRenderer={customRenderer}

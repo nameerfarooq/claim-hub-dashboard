@@ -3,7 +3,7 @@ import FilterDialog from '@/components/custom/FilterDialog'
 import { DebouceInput, TableRowSkeleton } from '@/components/shared'
 import { Button, Card, Dropdown, Segment, Table, Upload } from '@/components/ui'
 import { HiDotsHorizontal, HiOutlineCloudUpload } from 'react-icons/hi'
-import { IoGridOutline, IoListOutline } from 'react-icons/io5'
+import { IoCodeSlash, IoGridOutline, IoListOutline } from 'react-icons/io5'
 import { TbSearch } from 'react-icons/tb'
 import TabContent from '@/components/ui/Tabs/TabContent'
 import TabList from '@/components/ui/Tabs/TabList'
@@ -18,6 +18,7 @@ import Tr from '@/components/ui/Table/Tr'
 import Td from '@/components/ui/Table/Td'
 import UploadPhoto from '@/assets/icons/UploadPhoto'
 import FolderIcon from '@/assets/icons/FolderIcon'
+import { RiFileCopy2Line } from 'react-icons/ri'
 
 const Documents = () => {
     const [currentTab, setCurrentTab] = useState('all')
@@ -196,8 +197,17 @@ const Documents = () => {
             </div>
             <Card
                 footer={{
-                    content: 'some text',
-                    className: 'bg-gray-100 text-gray-100 rounded-b-2xl',
+                    content: (
+                        <div className="flex flex-row w-fit ml-auto">
+                            <button className="px-2 py-1 text-black">
+                                <RiFileCopy2Line size={16} />
+                            </button>
+                            <button className="px-2 py-1 text-black">
+                                <IoCodeSlash size={16} />
+                            </button>
+                        </div>
+                    ),
+                    className: 'bg-gray-100 flex items-end  rounded-b-2xl',
                     bordered: true,
                 }}
             >

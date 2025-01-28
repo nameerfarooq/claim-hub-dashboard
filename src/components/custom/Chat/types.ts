@@ -35,6 +35,7 @@ export type Message = {
 export type SelectedChat = {
     id?: string
     user?: {
+        image: string
         id: string
         name: string
         avatarImageUrl: string

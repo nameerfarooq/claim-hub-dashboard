@@ -24,6 +24,9 @@ import Th from '@/components/ui/Table/Th'
 import Tr from '@/components/ui/Table/Tr'
 import TBody from '@/components/ui/Table/TBody'
 import Td from '@/components/ui/Table/Td'
+import visa from '@/assets/Images/visa.png'
+import debit from '@/assets/Images/debit.png'
+import { TbPlus } from 'react-icons/tb'
 
 type Option = {
     value: string
@@ -102,13 +105,13 @@ const Main = () => {
     ]
     const paymentData = [
         {
-            img: '',
+            img: visa,
             name: 'Carolyn Perkins •••• 0392',
             expiry: 'Dec 2025',
             primary: true,
         },
         {
-            img: '',
+            img: debit,
             name: 'Carolyn Perkins •••• 8461',
             expiry: 'Jun 2025',
             primary: false,
@@ -305,7 +308,7 @@ const Main = () => {
                                                     <img
                                                         src={item.img}
                                                         alt={'Visa'}
-                                                        className="border size-[50px]"
+                                                        className="h-auto"
                                                     />
                                                     <div>
                                                         <p className="font-bold">
@@ -328,6 +331,11 @@ const Main = () => {
                                                 <Button>Edit</Button>
                                             </div>
                                         ))}
+                                        <button className="flex flex-row items-center w-fit font-bold gap-1 text-black">
+                                            {' '}
+                                            <TbPlus size={20} /> Add payment
+                                            method{' '}
+                                        </button>
                                     </div>
                                 </div>
                                 <div>

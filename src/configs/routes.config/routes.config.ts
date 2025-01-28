@@ -63,7 +63,7 @@ export const protectedRoutes: Routes = [
     {
         key: 'nav.claims.item8',
         path: '/claims-pipeline',
-        component: lazy(() => import('@/views/Claim/ClaimBoard')),
+        component: lazy(() => import('@/views/Claim/ClaimBoard/Main')),
         authority: [],
     },
     {
@@ -87,10 +87,10 @@ export const protectedRoutes: Routes = [
         authority: [],
     },
     {
-        key: 'create-order',
-        path: '/overview/create-order',
+        key: 'order-details',
+        path: '/overview/order-details',
         component: lazy(
-            () => import('@/views/Overview/OrderViews/CreateOrder'),
+            () => import('@/views/Overview/OrderViews/OrderDetails'),
         ),
         authority: [],
     },

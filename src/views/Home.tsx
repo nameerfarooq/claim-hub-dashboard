@@ -359,14 +359,12 @@ const Home = () => {
                                     </div>
                                 </Card>
                             </div>
-                            <div>
-                                {/* <Chart
-                                    type="area"
-                                    series={areaData.series}
-                                    xAxis={areaData.xAxis}
-                                    height={350}
-                                /> */}
-                            </div>
+                            <Chart
+                                type="area"
+                                series={areaData.series}
+                                xAxis={areaData.xAxis}
+                                height={350}
+                            />
                         </div>
                     </div>
                     <div className="w-4/12 lg:w-fit h-full">

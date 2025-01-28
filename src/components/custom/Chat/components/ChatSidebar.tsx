@@ -8,7 +8,7 @@ const ChatSidebar = () => {
     return (
         <div
             className={classNames(
-                'w-full md:w-[300px] md:block',
+                'w-full md:w-[300px] md:block min-h-[70vh]',
                 selectedChat.id && 'hidden',
             )}
         >

@@ -68,7 +68,6 @@ const VerticalMenuContent = (props: VerticalMenuContentProps) => {
                         {nav.type === NAV_ITEM_TYPE_ITEM && (
                             <VerticalSingleMenuItem
                                 key={nav.key}
-                                className="border"
                                 currentKey={activedRoute?.key}
                                 parentKeys={defaulExpandKey}
                                 nav={nav}

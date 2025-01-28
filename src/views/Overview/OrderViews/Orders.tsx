@@ -127,11 +127,6 @@ const Orders = () => {
             enableSorting: true,
         },
         {
-            header: 'TOTAL',
-            accessorKey: 'total',
-            enableSorting: true,
-        },
-        {
             header: 'STATUS',
             accessorKey: 'status',
             enableSorting: true,
@@ -144,14 +139,22 @@ const Orders = () => {
             ),
         },
         {
+            header: 'TOTAL',
+            accessorKey: 'total',
+            enableSorting: true,
+        },
+        {
             header: 'Actions',
             accessorKey: 'actions',
             enableSorting: false,
             cell: ({ row }) => (
                 <div className="flex items-center gap-1">
-                    <button onClick={() => handleView(row.original)}>
+                    <Link
+                        to={'/overview/order-details'}
+                        onClick={() => handleView(row.original)}
+                    >
                         <EditPencilIcon />
-                    </button>
+                    </Link>
                     <button onClick={() => handleEdit(row.original)}>
                         <ViewEyeIcon />
                     </button>
@@ -187,7 +190,7 @@ const Orders = () => {
                 <h1 className="text-2xl font-bold">Orders List</h1>
                 <div className="flex flex-row gap-[10px]">
                     <Link
-                        to="/overview/create-order"
+                        to="/overview/create-job-order"
                         className="flex items-center gap-2 border border-primary rounded-xl p-4 font-bold text-white bg-primary hover:bg-primary-deep"
                     >
                         <span>

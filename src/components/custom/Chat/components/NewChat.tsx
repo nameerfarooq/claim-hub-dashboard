@@ -88,6 +88,7 @@ const NewChat = () => {
                 isOpen={contactListDialog}
                 onClose={handleDialogClose}
                 onRequestClose={handleDialogClose}
+                className={classNames('min-h-[70vh]')}
             >
                 {contacts && (
                     <div>

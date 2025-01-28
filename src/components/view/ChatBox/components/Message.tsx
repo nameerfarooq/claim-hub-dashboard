@@ -39,7 +39,7 @@ const Message = (props: MessageProps) => {
         customAction,
         bubbleClass,
     } = props
-
+    console.log(isMyMessage, content, sender, bubbleClass, type)
     return (
         <>
             {type === 'divider' ? (
@@ -75,12 +75,12 @@ const Message = (props: MessageProps) => {
                                     customRenderer()
                                 ) : (
                                     <>
-                                        {attachments &&
+                                        {/* {attachments &&
                                             attachments?.length > 0 && (
                                                 <Attachment
                                                     attachments={attachments}
                                                 />
-                                            )}
+                                            )} */}
                                         {content}
                                     </>
                                 )}
