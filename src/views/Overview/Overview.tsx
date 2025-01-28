@@ -8,6 +8,7 @@ import {
     Timeline,
     Steps,
     Tabs,
+    Dropdown,
 } from '@/components/ui'
 import React, { useState } from 'react'
 import { IoMdAdd, IoMdMenu } from 'react-icons/io'
@@ -274,6 +275,15 @@ const Overview = () => {
 
     const [currentTab, setCurrentTab] = useState('comments')
 
+    const Toggle = (
+        <button className="text-lg font-bold px-2 py-3 bg-primary-subtle text-black rounded-lg flex flex-row items-center gap-1">
+            <span>
+                <IoMdMenu />
+            </span>{' '}
+            Claim Menu
+        </button>
+    )
+
     return (
         <main className="flex flex-col gap-[40px]">
             <section className="flex flex-row justify-between items-center">
@@ -281,12 +291,18 @@ const Overview = () => {
                     <Tag className="bg-red-300 w-fit">Dryout and Tarp</Tag>
                     <p className="text-2xl font-bold">Samuel Andrew Hall</p>
                 </div>
-                <button className="text-lg font-bold px-2 py-3 bg-primary-subtle text-black rounded-lg flex flex-row items-center gap-1">
-                    <span>
-                        <IoMdMenu />
-                    </span>{' '}
-                    Claim Menu
-                </button>
+                <Dropdown renderTitle={Toggle}>
+                    <Dropdown.Item>Measurements</Dropdown.Item>
+                    <Dropdown.Item>Labor Tickets</Dropdown.Item>
+                    <Dropdown.Item>Permits</Dropdown.Item>
+                    <Dropdown.Item>Progress</Dropdown.Item>
+                    <Dropdown.Item>Payment</Dropdown.Item>
+                    <Dropdown.Item>Payment Processing</Dropdown.Item>
+                    <Dropdown.Item>Commissions</Dropdown.Item>
+                    <Dropdown.Item>Mortgage Checks</Dropdown.Item>
+                    <Dropdown.Item>History</Dropdown.Item>
+                    <Dropdown.Item>Settings</Dropdown.Item>
+                </Dropdown>
             </section>
             <section className="flex flex-row justify-between items-center">
                 <div className="flex flex-row items-center gap-4">

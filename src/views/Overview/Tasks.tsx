@@ -1,6 +1,6 @@
 import userImg from '@/assets/Images/user.png'
 import Avatar from '@/components/ui/Avatar'
-import { Button , Tag } from '@/components/ui'
+import { Button, Tag } from '@/components/ui'
 import { BsPlus } from 'react-icons/bs'
 // eslint-disable-next-line import/no-duplicates
 import { useMemo } from 'react'
@@ -195,7 +195,7 @@ const Tasks = () => {
                                     <Avatar
                                         size={'sm'}
                                         key={user.id}
-                                        src={user.media}
+                                        src={user.media.userImg}
                                     />
                                 ))}
                             </Avatar.Group>

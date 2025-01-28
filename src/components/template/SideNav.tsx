@@ -56,7 +56,7 @@ const SideNav = ({
         <div
             style={sideNavCollapse ? sideNavCollapseStyle : sideNavStyle}
             className={classNames(
-                'side-nav',
+                'side-nav ',
                 background && 'side-nav-bg',
                 !sideNavCollapse && 'side-nav-expand',
                 className,
@@ -64,7 +64,7 @@ const SideNav = ({
         >
             <Link
                 to={appConfig.authenticatedEntryPath}
-                className="side-nav-header flex flex-col justify-center"
+                className="side-nav-header flex flex-col justify-center "
                 style={{ height: HEADER_HEIGHT }}
             >
                 <Logo
@@ -79,7 +79,7 @@ const SideNav = ({
                     )}
                 />
             </Link>
-            <div className={classNames('side-nav-content', contentClass)}>
+            <div className={classNames('side-nav-content ', contentClass)}>
                 <ScrollBar style={{ height: '100%' }} direction={direction}>
                     <VerticalMenuContent
                         collapsed={sideNavCollapse}

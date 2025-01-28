@@ -15,6 +15,8 @@ import { Link } from 'react-scroll'
 import Select, { Option as DefaultOption } from '@/components/ui/Select'
 import { components } from 'react-select'
 import type { ControlProps, OptionProps } from 'react-select'
+import BottomStickyBar from '@/components/template/BottomStickyBar'
+import { TbTrash } from 'react-icons/tb'
 
 type Option = {
     value: string
@@ -388,6 +390,12 @@ const CreateEstimate = () => {
                     </div>
                 </div>
             </div>
+            <BottomStickyBar>
+                <div className="flex flex-row ml-auto justify-end gap-2 px-[30px]">
+                    <Button icon={<TbTrash />}>Delete</Button>
+                    <Button variant="solid">Update</Button>
+                </div>
+            </BottomStickyBar>
         </main>
     )
 }

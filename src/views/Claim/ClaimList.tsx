@@ -254,7 +254,7 @@ const ClaimList = () => {
                     {row.original.label.map((item, index) => (
                         <Tag
                             key={index}
-                            className={`px-2 py-1 rounded-full ${
+                            className={` ${
                                 item === 'Water'
                                     ? 'bg-sky-200'
                                     : item === 'Hurricane'

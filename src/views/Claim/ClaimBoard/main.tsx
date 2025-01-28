@@ -4,9 +4,9 @@ import AvatarGroup from '@/components/ui/Avatar/AvatarGroup'
 import user from '@/assets/Images/user.png'
 import { CiFilter } from 'react-icons/ci'
 import { TbSettings, TbUserPlus } from 'react-icons/tb'
-import ScrumBoard from '@/components/ui/ScrumBoard/ScrumBoard'
+import ClaimBoard from './ClaimBoard'
 
-const ClaimKanban = () => {
+const main = () => {
     return (
         <Container>
             <Card>
@@ -26,11 +26,11 @@ const ClaimKanban = () => {
                     </div>
                 </div>
                 <div>
-                    <ScrumBoard />
+                    <ClaimBoard />
                 </div>
             </Card>
         </Container>
     )
 }
 
-export default ClaimKanban
+export default main

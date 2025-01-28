@@ -127,11 +127,6 @@ const Estimate = () => {
             enableSorting: true,
         },
         {
-            header: 'TOTAL',
-            accessorKey: 'total',
-            enableSorting: true,
-        },
-        {
             header: 'STATUS',
             accessorKey: 'status',
             enableSorting: true,
@@ -142,6 +137,11 @@ const Estimate = () => {
                     {row.original.status}
                 </Tag>
             ),
+        },
+        {
+            header: 'TOTAL',
+            accessorKey: 'total',
+            enableSorting: true,
         },
         {
             header: 'Actions',

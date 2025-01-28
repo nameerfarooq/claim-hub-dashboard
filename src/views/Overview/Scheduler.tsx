@@ -1,4 +1,13 @@
-import { Card, Segment } from '@/components/ui'
+import {
+    Button,
+    Card,
+    Dialog,
+    FormItem,
+    Input,
+    Segment,
+    Select,
+    Switcher,
+} from '@/components/ui'
 import React, { useState } from 'react'
 import {
     MdOutlineKeyboardArrowLeft,
@@ -21,6 +30,7 @@ const colorsMap = {
 }
 
 const Scheduler = ({ data = [] }: ScheduleProps) => {
+    console.log('data', data)
     const [activeValue, setActiveValue] = useState('month')
 
     const segmentValues = ['month', 'week', 'day']
@@ -71,15 +81,173 @@ const Scheduler = ({ data = [] }: ScheduleProps) => {
         setTasks(tasks.map((t) => (t.id === task.id ? task : t)))
     }
 
+    const [dialogIsOpen, setIsOpen] = useState(false)
+
+    const openDialog = () => {
+        setIsOpen(true)
+    }
+
+    const onDialogClose = (e: MouseEvent) => {
+        console.log('onDialogClose', e)
+        setIsOpen(false)
+    }
+
+    const onDialogOk = (e: MouseEvent) => {
+        console.log('onDialogOk', e)
+        setIsOpen(false)
+    }
+
     return (
         <main className="flex flex-col gap-[30px]">
             <div className="flex flex-row items-center justify-between">
                 <p className="text-2xl font-bold">Jobs Scheduler</p>
                 <div className="flex flex-row items-center gap-[10px]">
-                    <button className="px-3 p-2 bg-primary-mild text-white flex flex-row items-center rounded-xl gap-[10px] font-bold">
+                    <button
+                        onClick={() => openDialog()}
+                        className="p-3 bg-primary-mild text-white flex flex-row items-center rounded-xl gap-[10px] font-bold"
+                    >
                         <MdPersonAddAlt size={20} />
                         Schedule Claim Job
                     </button>
+                    <Dialog isOpen={dialogIsOpen} closable={false}>
+                        <h5 className="mb-4">Schedule Claim Job</h5>
+                        <div className="flex flex-col gap-4">
+                            <div className="max-h-96 overflow-y-auto custom-scrollbar p-4">
+                                <FormItem label="Task Name">
+                                    <Input type="text" />
+                                </FormItem>
+                                <FormItem label="Task Type">
+                                    <Select
+                                        options={[
+                                            {
+                                                label: 'Inspection',
+                                                value: 'inspection',
+                                            },
+                                            {
+                                                label: 'Evaluation',
+                                                value: 'evaluation',
+                                            },
+                                        ]}
+                                    />
+                                </FormItem>
+                                <FormItem label="Claim Details">
+                                    <Select
+                                        options={[
+                                            {
+                                                label: 'Claim#123455, Client: John Smith',
+                                                value: 'claim#123455',
+                                            },
+                                            {
+                                                label: 'Claim#123456, Client: John Wick',
+                                                value: 'Claim#123456',
+                                            },
+                                        ]}
+                                    />
+                                </FormItem>
+                                <FormItem label="Start Date & Time">
+                                    <Select
+                                        options={[
+                                            {
+                                                label: '12-03-2024, 10:00 AM',
+                                                value: '1',
+                                            },
+                                            {
+                                                label: '12-05-2024, 12:00 AM',
+                                                value: '2',
+                                            },
+                                        ]}
+                                    />
+                                </FormItem>
+                                <FormItem label="End Date & Time">
+                                    <Select
+                                        options={[
+                                            {
+                                                label: '12-03-2024, 10:00 AM',
+                                                value: '1',
+                                            },
+                                            {
+                                                label: '12-05-2024, 12:00 AM',
+                                                value: '2',
+                                            },
+                                        ]}
+                                    />
+                                </FormItem>
+                                <FormItem label="Estimated Duration">
+                                    <Select
+                                        options={[
+                                            {
+                                                label: '2 Hours',
+                                                value: '1',
+                                            },
+                                            {
+                                                label: '4 Hours',
+                                                value: '2',
+                                            },
+                                        ]}
+                                    />
+                                </FormItem>
+                                <FormItem label="Assign To">
+                                    <Select
+                                        options={[
+                                            {
+                                                label: 'Sarah Lee',
+                                                value: '1',
+                                            },
+                                            {
+                                                label: 'Stan Lee',
+                                                value: '2',
+                                            },
+                                        ]}
+                                    />
+                                </FormItem>
+                                <FormItem label="Add Followers">
+                                    <Select
+                                        isMulti
+                                        options={[
+                                            {
+                                                label: 'John Doe',
+                                                value: '1',
+                                            },
+                                            {
+                                                label: 'Barry Allen',
+                                                value: '2',
+                                            },
+                                        ]}
+                                    />
+                                </FormItem>
+                                <FormItem label="Special Instructions">
+                                    <Select
+                                        isMulti
+                                        options={[
+                                            {
+                                                label: 'Check the crawl space for mold growth',
+                                                value: '1',
+                                            },
+                                            {
+                                                label: 'Beware of the Dog. He Bites!',
+                                                value: '2',
+                                            },
+                                        ]}
+                                    />
+                                </FormItem>
+                                <FormItem label="Notification">
+                                    <Switcher />
+                                </FormItem>
+                            </div>
+                        </div>
+                        <div className="text-right mt-6">
+                            <Button
+                                className="ltr:mr-2 rtl:ml-2"
+                                variant="plain"
+                                onClick={onDialogClose}
+                            >
+                                Reset
+                            </Button>
+                            <Button variant="solid" onClick={onDialogOk}>
+                                Submit
+                            </Button>
+                        </div>
+                    </Dialog>
                     <Segment
                         className="bg-white border"
                         value={activeValue}
@@ -131,7 +299,7 @@ const Scheduler = ({ data = [] }: ScheduleProps) => {
                 <div>
                     <h4>Schedule</h4>
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 ">
                     <GanttChart
                         tasks={tasks}
                         colorsMap={colorsMap}

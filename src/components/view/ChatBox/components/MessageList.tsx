@@ -37,7 +37,6 @@ const MessageList = (props: MessageListProps) => {
         bubbleClass,
         ref,
     } = props
-
     return (
         <div className={classNames('relative', messageListClass)}>
             <div className="absolute top-0 left-0 h-full w-full py-4">
@@ -47,27 +46,37 @@ const MessageList = (props: MessageListProps) => {
                     scrollableNodeProps={{ ref }}
                 >
                     <div className="flex flex-col gap-4 px-4">
-                        {list.map((message, index) => (
-                            <Message
-                                key={message.id}
-                                showAvatar={showAvatar}
-                                avatarGap={avatarGap}
-                                bubbleClass={bubbleClass}
-                                {...message}
-                                {...(customRenderer
-                                    ? {
-                                          customRenderer: () =>
-                                              customRenderer(message, index),
-                                      }
-                                    : {})}
-                                {...(customAction
-                                    ? {
-                                          customAction: () =>
-                                              customAction(message, index),
-                                      }
-                                    : {})}
-                            />
-                        ))}
+                        {list.length > 0 &&
+                            list.map((message, index) => {
+                                console.log(message)
+                                return (
+                                    <Message
+                                        key={message.id}
+                                        showAvatar={showAvatar}
+                                        avatarGap={avatarGap}
+                                        bubbleClass={bubbleClass}
+                                        {...message}
+                                        {...(customRenderer
+                                            ? {
+                                                  customRenderer: () =>
+                                                      customRenderer(
+                                                          message,
+                                                          index,
+                                                      ),
+                                              }
+                                            : {})}
+                                        {...(customAction
+                                            ? {
+                                                  customAction: () =>
+                                                      customAction(
+                                                          message,
+                                                          index,
+                                                      ),
+                                              }
+                                            : {})}
+                                    />
+                                )
+                            })}
                         {typing && (
                             <Message
                                 id={typing.name + 'typing'}

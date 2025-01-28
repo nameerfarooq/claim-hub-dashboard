@@ -36,8 +36,6 @@ interface DefaultItemProps {
     userAuthority: string[]
     showIcon?: boolean
     showTitle?: boolean
-    currentKey?: string
-    parentKeys?: string[]
 }
 
 interface VerticalMenuItemProps extends CollapsedItemProps, DefaultItemProps {}
@@ -58,7 +56,6 @@ const CollapsedItem = ({
                 <Tooltip
                     title={t(nav.translateKey, nav.title)}
                     placement={direction === 'rtl' ? 'left' : 'right'}
-                    className="bg-white shadow-xl p-4 font-semibold"
                 >
                     {children}
                 </Tooltip>
@@ -77,22 +74,10 @@ const CollapsedItem = ({
                                 })
                             }
                         >
-                            <span
-                                className={
-                                    currentKey === nav.key ? 'text-primary' : ''
-                                }
-                            >
-                                {t(nav.translateKey, nav.title)}
-                            </span>
+                            <span>{t(nav.translateKey, nav.title)}</span>
                         </Link>
                     ) : (
-                        <span
-                            className={
-                                currentKey === nav.key ? 'text-primary' : ''
-                            }
-                        >
-                            {t(nav.translateKey, nav.title)}
-                        </span>
+                        <span>{t(nav.translateKey, nav.title)}</span>
                     )}
                 </Dropdown.Item>
             )}
@@ -109,7 +94,6 @@ const DefaultItem = (props: DefaultItemProps) => {
         showIcon = true,
         userAuthority,
         t,
-        currentKey,
     } = props
 
     return (
@@ -117,7 +101,7 @@ const DefaultItem = (props: DefaultItemProps) => {
             <MenuItem key={nav.key} eventKey={nav.key} dotIndent={indent}>
                 <Link
                     to={nav.path}
-                    className={`flex items-center gap-2 h-full w-full`}
+                    className="flex items-center gap-2 h-full w-full"
                     target={nav.isExternalLink ? '_blank' : ''}
                     onClick={() =>
                         onLinkClick?.({
@@ -128,15 +112,7 @@ const DefaultItem = (props: DefaultItemProps) => {
                     }
                 >
                     {showIcon && <VerticalMenuIcon icon={nav.icon} />}
-                    {showTitle && (
-                        <span
-                            className={
-                                currentKey === nav.key ? 'text-primary' : ''
-                            }
-                        >
-                            {t(nav.translateKey, nav.title)}
-                        </span>
-                    )}
+                    {showTitle && <span>{t(nav.translateKey, nav.title)}</span>}
                 </Link>
             </MenuItem>
         </AuthorityCheck>
