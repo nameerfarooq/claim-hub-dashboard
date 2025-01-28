@@ -1,8 +1,8 @@
-// import Chat from '@/components/custom/Chat'
+import Chat from '@/components/custom/Chat'
 import React from 'react'
 
 const Communication = () => {
-    return <div>{/* <Chat /> */}</div>
+    return <div><Chat /> </div>
 }
 
 export default Communication

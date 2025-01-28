@@ -12,37 +12,37 @@ const ServicesIcon = () => {
             <path
                 d="M10.0026 2.5L16.6693 6.25V13.75L10.0026 17.5L3.33594 13.75V6.25L10.0026 2.5Z"
                 stroke="#171717"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M10 10L16.6667 6.25"
                 stroke="#171717"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M10 10V17.5"
                 stroke="#171717"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M10.0026 10L3.33594 6.25"
                 stroke="#171717"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M13.3307 4.375L6.66406 8.125"
                 stroke="#171717"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
         </svg>
     )

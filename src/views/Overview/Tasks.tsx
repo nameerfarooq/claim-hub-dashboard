@@ -1,11 +1,11 @@
-import React from 'react'
 import userImg from '@/assets/Images/user.png'
 import Avatar from '@/components/ui/Avatar'
-import { Button } from '@/components/ui'
+import { Button , Tag } from '@/components/ui'
 import { BsPlus } from 'react-icons/bs'
+// eslint-disable-next-line import/no-duplicates
 import { useMemo } from 'react'
-import { Tag } from '@/components/ui'
-import { HiCheckCircle, HiClock } from 'react-icons/hi'
+
+import { HiCheckCircle } from 'react-icons/hi'
 import DragAndDrop from '@/components/custom/DragAndDrop'
 import { MdDragIndicator } from 'react-icons/md'
 
@@ -281,7 +281,7 @@ const Tasks = () => {
                     <span>
                         <MdDragIndicator />
                     </span>{' '}
-                    Claim's Tasks
+                    Claim&apos;s Tasks
                 </p>
                 <DragAndDrop data={tasks} columns={columns} />
                 <button className="p-2 border-dashed border-2 rounded-xl bg-[#f5f5f5] font-bold w-full flex items-center justify-center text-center">
