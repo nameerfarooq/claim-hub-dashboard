@@ -115,7 +115,7 @@ const SignInForm = (props: SignInFormProps) => {
                 <Button
                     block
                     loading={isSubmitting}
-                    variant="solid"
+                    variant="gradient"
                     type="submit"
                 >
                     {isSubmitting ? 'Signing in...' : 'Sign In'}
