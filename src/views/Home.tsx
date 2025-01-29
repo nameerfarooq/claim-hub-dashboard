@@ -27,34 +27,11 @@ import {
 } from 'react-icons/tb'
 import { LuSquareCheckBig } from 'react-icons/lu'
 import { useThemeStore } from '@/store/themeStore'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Overview from './HomeViews/Overview'
+import StatisticData from './HomeViews/statisticData'
 
 const Home = () => {
-    const areaData = {
-        series: [
-            {
-                name: 'Sales',
-                data: [
-                    240, 320, 280, 360, 340, 410, 370, 460, 390, 470, 360, 560,
-                ],
-            },
-        ],
-        xAxis: [
-            '01 Jun',
-            '02 Jun',
-            '03 Jun',
-            '04 Jun',
-            '05 Jun',
-            '06 Jun',
-            '07 Jun',
-            '08 Jun',
-            '09 Jun',
-            '10 Jun',
-            '11 Jun',
-            '12 Jun',
-        ],
-    }
-
     const doubleBarData = {
         series: [
             {
@@ -201,8 +178,8 @@ const Home = () => {
     const sideNavCollapse = useThemeStore(
         (state) => state.layout.sideNavCollapse,
     )
-
     const isFirstRender = useRef(true)
+    const [chartKey, setChartKey] = useState(0)
 
     useEffect(() => {
         if (!sideNavCollapse && isFirstRender.current) {
@@ -211,16 +188,22 @@ const Home = () => {
         }
 
         if (!isFirstRender.current) {
+            // Dispatch a resize event to trigger chart resizing
             window.dispatchEvent(new Event('resize'))
+
+            // Force re-render charts by updating the key
+            setChartKey((prevKey) => prevKey + 1)
         }
     }, [sideNavCollapse])
 
+    const data = StatisticData
+
     return (
         <>
-            <main className="flex flex-col gap-4">
+            <main className="flex flex-col gap-4 max-w-full">
                 <section className="flex flex-col lg:flex-row gap-4 h-full">
                     <div className="w-full flex flex-col gap-4">
-                        <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
+                        <Card>
                             <div className="flex flex-row w-full justify-between items-center mb-[10px]">
                                 <p className="text-2xl font-bold">Overview</p>
                                 <Button variant="default">All Claims</Button>
@@ -275,9 +258,9 @@ const Home = () => {
                                     </div>
                                 </Card>
                             </div>
-                        </div>
-
-                        <div className="bg-white p-4 rounded-2xl border border-gray-200">
+                        </Card>
+                        <Overview data={data} />
+                        {/* <div className="bg-white p-4 rounded-2xl border border-gray-200">
                             <div className="flex flex-row w-full justify-between items-center mb-[10px]">
                                 <p className="text-2xl font-bold">Overview</p>
                                 <Select
@@ -315,7 +298,7 @@ const Home = () => {
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="overflow-visible">
+                                        <div className="">
                                             <Avatar
                                                 className="bg-success-light"
                                                 icon={<TbCoin />}
@@ -379,14 +362,15 @@ const Home = () => {
                                 </Card>
                             </div>
                             <Chart
+                                key={chartKey}
                                 type="area"
                                 series={areaData.series}
                                 xAxis={areaData.xAxis}
                                 height={350}
                             />
-                        </div>
+                        </div> */}
                     </div>
-                    <div className="w-4/12 lg:w-fit h-full">
+                    <div className="h-full">
                         <div className="bg-white p-4 rounded-2xl border border-gray-200">
                             <Calendar />
                             <div className="mt-5 flex flex-col gap-[20px]">
@@ -401,15 +385,15 @@ const Home = () => {
                                                 className="border-white"
                                                 bodyClass="p-0"
                                             >
-                                                <div className="flex flex-row justify-between items-center">
-                                                    <div className="w-2/12">
+                                                <div className="flex flex-row w-full gap-2 justify-start items-center">
+                                                    <div className="">
                                                         <Avatar
                                                             className={`${event.iconColor} rounded-lg`}
                                                             icon={event.icon}
                                                             shape="square"
                                                         />
                                                     </div>
-                                                    <div className="w-10/12 h-full flex flex-row justify-between items-center">
+                                                    <div className="h-full flex flex-row justify-between w-full items-center">
                                                         <div className="flex flex-col">
                                                             <p className="font-bold text-sm">
                                                                 {event.title}
@@ -493,17 +477,19 @@ const Home = () => {
                         <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
                             <div className="flex flex-row w-full justify-between items-center pb-[20px]">
                                 <p className="text-xl font-bold">
-                                Task overview
+                                    Task overview
                                 </p>
                                 <Segment defaultValue="daily">
-                                    <Segment.Item 
-                                    activeClassName='bg-white text-black shadow'
-                                    value="daily">
+                                    <Segment.Item
+                                        activeClassName="bg-white text-black shadow"
+                                        value="daily"
+                                    >
                                         Daily
                                     </Segment.Item>
-                                    <Segment.Item 
-                                    activeClassName='bg-white text-black shadow'
-                                    value="weekly">
+                                    <Segment.Item
+                                        activeClassName="bg-white text-black shadow"
+                                        value="weekly"
+                                    >
                                         Weekly
                                     </Segment.Item>
                                 </Segment>
@@ -541,7 +527,8 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className="w-full">
-                                <Chart
+                                {/* <Chart
+                                    key={chartKey}
                                     customOptions={{
                                         plotOptions: {
                                             bar: {
@@ -558,7 +545,7 @@ const Home = () => {
                                     height={230}
                                     series={doubleBarData.series}
                                     xAxis={doubleBarData.xAxis}
-                                />
+                                /> */}
                             </div>
                         </div>
                     </div>
