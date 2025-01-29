@@ -5,6 +5,7 @@ import { Avatar, Tag } from '@/components/ui'
 import AvatarGroup from '@/components/ui/Avatar/AvatarGroup'
 import { IoAttach } from 'react-icons/io5'
 import { FaRegComment } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 interface BoardCardProps {
     task: Ticket
@@ -18,6 +19,7 @@ const BoardCard: React.FC<BoardCardProps> = ({ task, index }) => {
         const randomIndex = Math.floor(Math.random() * colors.length)
         return `#${colors[randomIndex]}`
     }
+    const nav = useNavigate()
     return (
         <Draggable draggableId={task.id} index={index}>
             {(provided) => (
@@ -26,6 +28,7 @@ const BoardCard: React.FC<BoardCardProps> = ({ task, index }) => {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     className="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-primary-deep"
+                    onClick={() => nav('/overview')}
                 >
                     <div className="text-lg font-bold text-black">
                         {task.name}
