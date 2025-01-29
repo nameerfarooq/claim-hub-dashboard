@@ -9,6 +9,7 @@ import {
     Steps,
     Tabs,
     Dropdown,
+    Tooltip,
 } from '@/components/ui'
 import React, { useState } from 'react'
 import { IoMdAdd, IoMdMenu } from 'react-icons/io'
@@ -144,19 +145,19 @@ const Overview = () => {
                     title: 'Photos uploaded by Technician Mike',
                     details: 'Recipient: Steve Sutton',
                     time: '03:13 AM',
-                    avatar: false
+                    avatar: false,
                 },
                 {
                     id: 2,
                     title: 'Contract signed by the client',
                     time: '10:32 PM',
-                    avatar: true
+                    avatar: true,
                 },
                 {
                     id: 3,
                     title: 'Claim approved by insurance adjuster',
                     time: '08:15 PM',
-                    avatar: true
+                    avatar: true,
                 },
             ],
         },
@@ -168,13 +169,13 @@ const Overview = () => {
                     id: 1,
                     title: 'Payment invoice generated',
                     time: '01:43 AM',
-                    avatar: true
+                    avatar: true,
                 },
                 {
                     id: 2,
                     title: 'Drying equipment deployed at site',
                     time: '10:32 PM',
-                    avatar: true
+                    avatar: true,
                 },
             ],
         },
@@ -191,8 +192,9 @@ const Overview = () => {
                 },
             ],
             title: 'Lead',
+            completed: true,
             description: '3 Days',
-            icon: <CiUser className="text-white" />,
+            icon: <CiUser size={24} className="text-white" />,
         },
         {
             timeSpan: '3 Days',
@@ -204,8 +206,9 @@ const Overview = () => {
                 },
             ],
             title: 'Scheduling',
+            completed: true,
             description: '26 Days',
-            icon: <TbClock className="text-white" />,
+            icon: <TbClock size={24} className="text-white" />,
         },
         {
             timeSpan: '3 Days',
@@ -217,8 +220,9 @@ const Overview = () => {
                 },
             ],
             title: 'Assessment',
+            completed: false,
             description: '8 Months',
-            icon: <BiListCheck />, // Use IN_PROGRESS instead of 'in_progress'
+            icon: <BiListCheck size={24} />, // Use IN_PROGRESS instead of 'in_progress'
         },
         {
             timeSpan: '3 Days',
@@ -230,8 +234,9 @@ const Overview = () => {
                 },
             ],
             title: 'Determination',
+            completed: false,
             description: '9-20-2023',
-            icon: <HiOutlineDocumentSearch />, // Use PENDING instead of 'pending'
+            icon: <HiOutlineDocumentSearch size={24} />, // Use PENDING instead of 'pending'
         },
         {
             timeSpan: '3 Days',
@@ -243,8 +248,9 @@ const Overview = () => {
                 },
             ],
             title: 'Litigation',
+            completed: false,
             description: '9-23-2023',
-            icon: <CgSpinner />,
+            icon: <CgSpinner size={24} />,
         },
         {
             timeSpan: '3 Days',
@@ -256,8 +262,9 @@ const Overview = () => {
                 },
             ],
             title: 'Settlement',
+            completed: false,
             description: '10-19-2023',
-            icon: <MdOutlineTask />,
+            icon: <MdOutlineTask size={24} />,
         },
     ]
 
@@ -375,6 +382,17 @@ const Overview = () => {
                             />
                         ))}
                     </Steps>
+                    {/* <div className="w-full border p-2 flex flex-row justify-between">
+                        {stepsData.map((step, index) => (
+                            <Tooltip key={index}>
+                                <div
+                                    className={`h-10 w-10 rounded-full flex items-center justify-center ${step.completed ? 'bg-primary text-white' : 'bg-primary-subtle text-black'} `}
+                                >
+                                    {step.icon}
+                                </div>
+                            </Tooltip>
+                        ))}
+                    </div> */}
                 </div>
                 <div className="w-full mx-auto flex flex-row items-center justify-center mt-2">
                     <button className="py-2 px-3 rounded-lg text-lg font-bold bg-primary-mild text-white">
@@ -610,7 +628,9 @@ const Overview = () => {
             <section className="grid grid-cols-2 xl:grid-cols-3 gap-1">
                 <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
-                        <p className="text-xl font-bold text-wrap">Current tasks</p>
+                        <p className="text-xl font-bold text-wrap">
+                            Current tasks
+                        </p>
                         <div className="flex flex-row gap-1">
                             <button className="px-3 p-2 bg-primary-mild text-white flex flex-row items-center rounded-xl font-bold">
                                 <IoMdAdd />
@@ -723,7 +743,16 @@ const Overview = () => {
                                     <p className="font-bold">{group.date}</p>
 
                                     {group.activity.map((activity) => (
-                                        <Timeline.Item  media={<Avatar className={` ${activity.avatar ? 'bg-black' : 'bg-gray-400'} `} icon={''} size={14}/>} key={activity.id}>
+                                        <Timeline.Item
+                                            media={
+                                                <Avatar
+                                                    className={` ${activity.avatar ? 'bg-black' : 'bg-gray-400'} `}
+                                                    icon={''}
+                                                    size={14}
+                                                />
+                                            }
+                                            key={activity.id}
+                                        >
                                             <div>
                                                 <p className="font-bold">
                                                     {activity.title}

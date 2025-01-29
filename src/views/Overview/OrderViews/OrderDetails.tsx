@@ -25,7 +25,7 @@ const OrderDetails = () => {
         },
     ]
     return (
-        <main className="flex flex-col gap-[30px] w-8/12 mx-auto">
+        <main className="flex flex-col gap-[30px] w-full mx-auto">
             <div className="flex flex-row justify-between">
                 <p className="text-2xl font-bold">Order Details</p>
                 <Link
@@ -43,7 +43,7 @@ const OrderDetails = () => {
                     {tabledata.map((data) => (
                         <Tr className="border-none">
                             <Td>
-                                <p className="py-2 text-[16px] font-bold">
+                                <p className="py-2 text-[16px] font-bold text-nowrap">
                                     {data.name} :
                                 </p>
                             </Td>
