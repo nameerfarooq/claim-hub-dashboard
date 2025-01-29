@@ -17,6 +17,7 @@ const navigationConfig: NavigationTree[] = [
         authority: [],
         subMenu: [],
     },
+    /** Example purpose only, please remove */
     {
         key: 'contacts',
         path: '/contacts',
@@ -40,7 +41,6 @@ const navigationConfig: NavigationTree[] = [
     {
         key: 'claims',
         path: '/claims-pipeline',
-        isExternalLink: true,
         title: 'Claims',
         translateKey: 'nav.collapseMenu.collapseMenu',
         icon: 'navIcon',
@@ -52,6 +52,16 @@ const navigationConfig: NavigationTree[] = [
                 path: '/claims',
                 title: 'Claims List',
                 translateKey: 'nav.claims.item7',
+                icon: '',
+                type: NAV_ITEM_TYPE_ITEM,
+                authority: [],
+                subMenu: [],
+            },
+            {
+                key: 'claims.item8',
+                path: '/claims-pipeline',
+                title: 'Pipeline',
+                translateKey: 'nav.claims.item8',
                 icon: '',
                 type: NAV_ITEM_TYPE_ITEM,
                 authority: [],
