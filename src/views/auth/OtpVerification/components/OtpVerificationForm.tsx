@@ -81,6 +81,7 @@ const OtpVerificationForm = (props: OtpVerificationFormProps) => {
                     loading={isSubmitting}
                     variant="solid"
                     type="submit"
+                    className='bg-gradient-to-r from-[#2B84FF] to-[#692FE4]'
                 >
                     {isSubmitting ? 'Verifying...' : 'Verify OTP'}
                 </Button>

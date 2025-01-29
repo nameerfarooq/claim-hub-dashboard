@@ -71,6 +71,7 @@ const SignInForm = (props: SignInFormProps) => {
         <div className={className}>
             <Form onSubmit={handleSubmit(onSignIn)}>
                 <FormItem
+                    className='text-black'
                     label="Email"
                     invalid={Boolean(errors.email)}
                     errorMessage={errors.email?.message}
@@ -89,6 +90,7 @@ const SignInForm = (props: SignInFormProps) => {
                     />
                 </FormItem>
                 <FormItem
+                    className='text-black'
                     label="Password"
                     invalid={Boolean(errors.password)}
                     errorMessage={errors.password?.message}
@@ -117,6 +119,7 @@ const SignInForm = (props: SignInFormProps) => {
                     loading={isSubmitting}
                     variant="solid"
                     type="submit"
+                    className='bg-gradient-to-r from-[#2B84FF] to-[#692FE4]'
                 >
                     {isSubmitting ? 'Signing in...' : 'Sign In'}
                 </Button>
