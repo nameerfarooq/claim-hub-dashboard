@@ -175,34 +175,13 @@ const Home = () => {
         },
     ]
 
-    const sideNavCollapse = useThemeStore(
-        (state) => state.layout.sideNavCollapse,
-    )
-    const isFirstRender = useRef(true)
-    const [chartKey, setChartKey] = useState(0)
-
-    useEffect(() => {
-        if (!sideNavCollapse && isFirstRender.current) {
-            isFirstRender.current = false
-            return
-        }
-
-        if (!isFirstRender.current) {
-            // Dispatch a resize event to trigger chart resizing
-            window.dispatchEvent(new Event('resize'))
-
-            // Force re-render charts by updating the key
-            setChartKey((prevKey) => prevKey + 1)
-        }
-    }, [sideNavCollapse])
-
     const data = StatisticData
 
     return (
         <>
             <main className="flex flex-col gap-4 max-w-full">
                 <section className="flex flex-col lg:flex-row gap-4 h-full">
-                    <div className="w-full flex flex-col gap-4">
+                    <div className="flex flex-col gap-4">
                         <Card>
                             <div className="flex flex-row w-full justify-between items-center mb-[10px]">
                                 <p className="text-2xl font-bold">Overview</p>
@@ -527,8 +506,7 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className="w-full">
-                                {/* <Chart
-                                    key={chartKey}
+                                <Chart
                                     customOptions={{
                                         plotOptions: {
                                             bar: {
@@ -545,7 +523,7 @@ const Home = () => {
                                     height={230}
                                     series={doubleBarData.series}
                                     xAxis={doubleBarData.xAxis}
-                                /> */}
+                                />
                             </div>
                         </div>
                     </div>
