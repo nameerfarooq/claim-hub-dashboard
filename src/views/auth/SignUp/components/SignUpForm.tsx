@@ -87,6 +87,24 @@ const SignUpForm = (props: SignUpFormProps) => {
                     />
                 </FormItem>
                 <FormItem
+                    label="Company Name"
+                    invalid={Boolean(errors.userName)}
+                    errorMessage={errors.userName?.message}
+                >
+                    <Controller
+                        name="userName"
+                        control={control}
+                        render={({ field }) => (
+                            <Input
+                                type="text"
+                                placeholder="Company Name"
+                                autoComplete="off"
+                                {...field}
+                            />
+                        )}
+                    />
+                </FormItem>
+                <FormItem
                     label="Email"
                     invalid={Boolean(errors.email)}
                     errorMessage={errors.email?.message}
@@ -143,7 +161,7 @@ const SignUpForm = (props: SignUpFormProps) => {
                 <Button
                     block
                     loading={isSubmitting}
-                    variant="solid"
+                    variant="gradient"
                     type="submit"
                 >
                     {isSubmitting ? 'Creating Account...' : 'Sign Up'}

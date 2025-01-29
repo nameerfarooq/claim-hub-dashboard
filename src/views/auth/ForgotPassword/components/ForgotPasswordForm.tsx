@@ -80,10 +80,10 @@ const ForgotPasswordForm = (props: ForgotPasswordFormProps) => {
                     <Button
                         block
                         loading={isSubmitting}
-                        variant="solid"
+                        variant="gradient"
                         type="submit"
                     >
-                        {isSubmitting ? 'Submiting...' : 'Submit'}
+                        {isSubmitting ? 'Submiting...' : 'Next'}
                     </Button>
                 </Form>
             ) : (

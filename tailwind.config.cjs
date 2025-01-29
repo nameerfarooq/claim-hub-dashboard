@@ -53,8 +53,14 @@ module.exports = {
             '2xl': '1536px',
         },
         extend: {
+            backgroundImage: {
+                'custom-gradient': 'linear-gradient(90deg, #3DBCEF 0%, #1A80D1 100%)',
+                'custom-gradient2': 'linear-gradient(90deg, #2A85FF 0%, #6A2DE3 101.51%)',
+              },
             colors: {
+                primarygradient:'background: linear-gradient(90deg, #2A85FF 28.5%, #6A2DE3 78%)',
                 primary: 'var(--primary)',
+                primaryBlue: '#0078BD',
                 'primary-deep': 'var(--primary-deep)',
                 'primary-mild': 'var(--primary-mild)',
                 'primary-subtle': 'var(--primary-subtle)',

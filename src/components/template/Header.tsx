@@ -5,6 +5,9 @@ import type { CommonProps } from '@/@types/common'
 import { TbSettings } from 'react-icons/tb'
 import { Avatar, Badge } from '../ui'
 import { PiBellDuotone } from 'react-icons/pi'
+import user from '@/assets/Images/user.png'
+import { useNavigate } from 'react-router-dom'
+import LanguageSelector from './LanguageSelector'
 
 interface HeaderProps extends CommonProps {
     headerStart?: ReactNode
@@ -23,6 +26,8 @@ const Header = (props: HeaderProps) => {
         container,
         wrapperClass,
     } = props
+
+    const nav = useNavigate()
 
     return (
         <header className={classNames('header', className)}>
@@ -43,7 +48,8 @@ const Header = (props: HeaderProps) => {
                     </div>
                 )}
                 <div className="header-action header-action-end">
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row gap-2 items-center">
+                            <LanguageSelector/>
                         <div className="relative">
                             <Badge className="absolute top-0 right-0 z-10" />
                             <Avatar
@@ -55,8 +61,16 @@ const Header = (props: HeaderProps) => {
                         <button>
                             <TbSettings size={28} />
                         </button>
+                        <Avatar
+                            className="cursor-pointer"
+                            onClick={() => {
+                                nav('/profile')
+                            }}
+                            size="sm"
+                            src={user}
+                        />
                     </div>
-                    {headerEnd}
+                    {/* {headerEnd} */}
                 </div>
             </div>
         </header>

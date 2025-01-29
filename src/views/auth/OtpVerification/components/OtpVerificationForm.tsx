@@ -79,7 +79,7 @@ const OtpVerificationForm = (props: OtpVerificationFormProps) => {
                 <Button
                     block
                     loading={isSubmitting}
-                    variant="solid"
+                    variant="gradient"
                     type="submit"
                 >
                     {isSubmitting ? 'Verifying...' : 'Verify OTP'}
