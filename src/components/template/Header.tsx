@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 import type { CommonProps } from '@/@types/common'
 import { TbSettings } from 'react-icons/tb'
 import { Avatar, Badge } from '../ui'
-import { PiBellDuotone } from "react-icons/pi";
+import { PiBellDuotone } from 'react-icons/pi'
 
 interface HeaderProps extends CommonProps {
     headerStart?: ReactNode
@@ -44,8 +44,14 @@ const Header = (props: HeaderProps) => {
                 )}
                 <div className="header-action header-action-end">
                     <div className="flex flex-row gap-2">
-                        <Badge />
-                        <Avatar size={'sm'} className='bg-white' icon={<PiBellDuotone />} />
+                        <div className="relative">
+                            <Badge className="absolute top-0 right-0 z-10" />
+                            <Avatar
+                                size={'sm'}
+                                className="bg-white"
+                                icon={<PiBellDuotone size={24} />}
+                            />
+                        </div>
                         <button>
                             <TbSettings size={28} />
                         </button>
