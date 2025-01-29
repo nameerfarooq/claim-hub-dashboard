@@ -29,7 +29,7 @@ import { LuSquareCheckBig } from 'react-icons/lu'
 import { useThemeStore } from '@/store/themeStore'
 import { useEffect, useRef, useState } from 'react'
 import Overview from './HomeViews/Overview'
-import StatisticData from './HomeViews/statisticData'
+import StatisticData from './HomeViews/StatisticData'
 
 const Home = () => {
     const doubleBarData = {
