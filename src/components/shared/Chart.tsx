@@ -11,6 +11,7 @@ import { DIR_RTL } from '@/constants/theme.constant'
 import type { ApexOptions } from 'apexcharts'
 import type { Direction } from '@/@types/theme'
 import type { ReactNode } from 'react'
+import { isArray } from 'lodash'
 
 const notDonut = ['line', 'bar', 'area']
 
@@ -32,7 +33,7 @@ export interface ChartProps {
 
 const Chart = (props: ChartProps) => {
     const {
-        series = [],
+        series,
         width = '100%',
         height = 300,
         xAxis,
@@ -109,6 +110,10 @@ const Chart = (props: ChartProps) => {
         }
     }
 
+    console.log(series)
+
+    const chartSeries = Array.isArray(series) ? series : [series]
+
     return (
         <div
             ref={chartRef}
@@ -118,7 +123,7 @@ const Chart = (props: ChartProps) => {
             <ApexChart
                 options={options}
                 type={type}
-                series={series}
+                series={chartSeries || []}
                 width={width}
                 height={height}
                 className={className}

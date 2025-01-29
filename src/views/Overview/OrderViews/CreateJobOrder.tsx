@@ -27,6 +27,7 @@ import type { ControlProps, OptionProps } from 'react-select'
 import { useState } from 'react'
 import { HiOutlineCloudUpload } from 'react-icons/hi'
 import UploadPhoto from '@/assets/icons/UploadPhoto'
+import { useNavigate } from 'react-router-dom'
 
 type Option = {
     value: string
@@ -145,6 +146,9 @@ const CreateOrder = () => {
     }
 
     const total = services.reduce((acc, item) => acc + Number(item.price), 0)
+
+    const nav = useNavigate()
+
     return (
         <main>
             <h1 className="text-2xl font-bold">Create Job Order</h1>
@@ -192,7 +196,12 @@ const CreateOrder = () => {
                                         placeholder="Search Services"
                                         suffix={<MdOutlineSearch size={20} />}
                                     />
-                                    <Button variant="solid">
+                                    <Button
+                                        onClick={() => {
+                                            nav('/overview/order-details')
+                                        }}
+                                        variant="solid"
+                                    >
                                         Browse Services
                                     </Button>
                                 </div>

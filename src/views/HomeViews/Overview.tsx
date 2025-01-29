@@ -87,25 +87,56 @@ const StatisticCard = (props: StatisticCardProps) => {
 const Overview = ({ data }: StatisticGroupsProps) => {
     const [selectedCategory, setSelectedCategory] =
         useState<StatisticCategory>('totalProfit')
-
     const [selectedPeriod, setSelectedPeriod] = useState<Period>('thisMonth')
+    const [chartComponent, setChartComponent] = useState<ReactNode>(null)
 
     const sideNavCollapse = useThemeStore(
         (state) => state.layout.sideNavCollapse,
     )
-
     const isFirstRender = useRef(true)
 
     useEffect(() => {
-        if (!sideNavCollapse && isFirstRender.current) {
+        if (isFirstRender.current) {
             isFirstRender.current = false
             return
         }
+        window.dispatchEvent(new Event('resize'))
+    }, [])
 
-        if (!isFirstRender.current) {
-            window.dispatchEvent(new Event('resize'))
+    console.log(
+        selectedCategory,
+        data?.[selectedCategory]?.[selectedPeriod]?.chartData,
+    )
+
+    // Extract chart data safely
+    const chartData = data?.[selectedCategory]?.[selectedPeriod]?.chartData
+    const xAxis = chartData?.date ?? []
+    const series = Array.isArray(chartData?.series) ? chartData.series : []
+
+    useEffect(() => {
+        try {
+            if (series.length > 0 && xAxis.length > 0) {
+                setChartComponent(
+                    <Chart
+                        type="area"
+                        series={series}
+                        xAxis={xAxis}
+                        height="400px"
+                        customOptions={{
+                            legend: { show: false },
+                            colors: [chartColors[selectedCategory]],
+                        }}
+                    />,
+                )
+            } else {
+                console.warn('Chart data is empty or not ready')
+                setChartComponent(null)
+            }
+        } catch (error) {
+            console.error('Error rendering chart:', error)
+            setChartComponent(null)
         }
-    }, [sideNavCollapse])
+    }, [data, selectedCategory, selectedPeriod])
 
     return (
         <Card>
@@ -115,18 +146,17 @@ const Overview = ({ data }: StatisticGroupsProps) => {
                     className="w-[120px]"
                     size="sm"
                     placeholder="Select period"
-                    value={options.filter(
+                    value={options.find(
                         (option) => option.value === selectedPeriod,
                     )}
                     options={options}
                     isSearchable={false}
                     onChange={(option) => {
-                        if (option?.value) {
-                            setSelectedPeriod(option?.value)
-                        }
+                        if (option?.value) setSelectedPeriod(option.value)
                     }}
                 />
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl p-3 bg-gray-100 dark:bg-gray-700 mt-4">
                 <StatisticCard
                     title="Total Revenue"
@@ -146,6 +176,7 @@ const Overview = ({ data }: StatisticGroupsProps) => {
                     compareFrom={data.totalProfit[selectedPeriod].comparePeriod}
                     onClick={setSelectedCategory}
                 />
+
                 <StatisticCard
                     title="Total Profit"
                     value={
@@ -163,6 +194,7 @@ const Overview = ({ data }: StatisticGroupsProps) => {
                     compareFrom={data.totalProfit[selectedPeriod].comparePeriod}
                     onClick={setSelectedCategory}
                 />
+
                 <StatisticCard
                     title="Total Claim"
                     value={
@@ -179,16 +211,9 @@ const Overview = ({ data }: StatisticGroupsProps) => {
                     onClick={setSelectedCategory}
                 />
             </div>
-            <Chart
-                type="area"
-                series={data[selectedCategory][selectedPeriod].chartData.series}
-                xAxis={data[selectedCategory][selectedPeriod].chartData.date}
-                height="400px"
-                customOptions={{
-                    legend: { show: false },
-                    colors: [chartColors[selectedCategory]],
-                }}
-            />
+
+            {/* Render the chart only if data exists */}
+            {data && xAxis.length > 0 && series.length > 0 && chartComponent}
         </Card>
     )
 }
