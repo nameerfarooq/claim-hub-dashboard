@@ -247,7 +247,76 @@ const Main = () => {
     ]
 
     return (
-        <Card>
+        <Card
+            footer={{
+                content: (
+                    <Tabs
+                        value={currentTab}
+                        onChange={(val) => setCurrentTab(val)}
+                    >
+                        <TabList className="border-b border-primary mb-1 custom-scrollbar">
+                            <TabNav
+                                icon={<TbHome />}
+                                className={`${currentTab === 'overview' ? 'border-b border-primary font-bold text-black' : ''}`}
+                                value="overview"
+                            >
+                                Overview
+                            </TabNav>
+                            <TabNav
+                                icon={<TbMail />}
+                                className={`${currentTab === 'tasks' ? 'border-b border-primary font-bold text-black' : ''}`}
+                                value="tasks"
+                            >
+                                Tasks
+                            </TabNav>
+                            <TabNav
+                                icon={<TbMail />}
+                                className={`${currentTab === 'communication' ? 'border-b border-primary font-bold text-black' : ''}`}
+                                value="communication"
+                            >
+                                Communication
+                            </TabNav>
+                            <TabNav
+                                icon={<TbCalendar />}
+                                className={`${currentTab === 'scheduler' ? 'border-b border-primary font-bold text-black' : ''}`}
+                                value="scheduler"
+                            >
+                                Scheduler
+                            </TabNav>
+                            <TabNav
+                                icon={<GoImage />}
+                                className={`${currentTab === 'photos' ? 'border-b border-primary font-bold text-black' : ''}`}
+                                value="photos"
+                            >
+                                Photos
+                            </TabNav>
+                            <TabNav
+                                icon={<TbFile />}
+                                className={`${currentTab === 'estimate' ? 'border-b border-primary font-bold text-black' : ''}`}
+                                value="estimate"
+                            >
+                                Estimate
+                            </TabNav>
+                            <TabNav
+                                icon={<TbFileDescription />}
+                                className={`${currentTab === 'documents' ? 'border-b border-primary font-bold text-black' : ''}`}
+                                value="documents"
+                            >
+                                Documents
+                            </TabNav>
+                            <TabNav
+                                icon={<TbFileDescription />}
+                                className={`${currentTab === 'orders' ? 'border-b border-primary font-bold text-black' : ''}`}
+                                value="orders"
+                            >
+                                Order
+                            </TabNav>
+                        </TabList>
+                    </Tabs>
+                ),
+                className: 'p-0 bg-white',
+            }}
+        >
             <Tabs value={currentTab} onChange={(val) => setCurrentTab(val)}>
                 <TabList className="border-b border-primary mb-1 custom-scrollbar">
                     <TabNav

@@ -186,7 +186,7 @@ const CreateEstimate = () => {
                                     <Table>
                                         <THead>
                                             <Tr>
-                                                <Th className="w-8/12">
+                                                <Th className="w-7/12">
                                                     SERVICES
                                                 </Th>
                                                 <Th>PRICE</Th>
@@ -232,8 +232,8 @@ const CreateEstimate = () => {
                                                             >
                                                                 <FaMinus />
                                                             </Button>
-                                                            <div className="size-[40px] items-center flex justify-center">
-                                                                <p className="font-semibold">
+                                                            <div className="size-[40px] items-center flex justify-center col-span-1">
+                                                                <p className="font-semibold p-2 border">
                                                                     {
                                                                         service.qty
                                                                     }

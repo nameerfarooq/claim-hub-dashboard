@@ -144,16 +144,19 @@ const Overview = () => {
                     title: 'Photos uploaded by Technician Mike',
                     details: 'Recipient: Steve Sutton',
                     time: '03:13 AM',
+                    avatar: false
                 },
                 {
                     id: 2,
                     title: 'Contract signed by the client',
                     time: '10:32 PM',
+                    avatar: true
                 },
                 {
                     id: 3,
                     title: 'Claim approved by insurance adjuster',
                     time: '08:15 PM',
+                    avatar: true
                 },
             ],
         },
@@ -165,11 +168,13 @@ const Overview = () => {
                     id: 1,
                     title: 'Payment invoice generated',
                     time: '01:43 AM',
+                    avatar: true
                 },
                 {
                     id: 2,
                     title: 'Drying equipment deployed at site',
                     time: '10:32 PM',
+                    avatar: true
                 },
             ],
         },
@@ -258,14 +263,14 @@ const Overview = () => {
 
     const commentContent = [
         {
-            icon: <IoPersonCircleSharp size={50} />,
+            icon: user,
             name: 'Arlene Pierce',
             date: '20 May 2024',
             message:
                 'Helvetica 8-bit photo booth tumblr food truck. Enamel pin wolf tousled sartorial, brunch shoreditch skateboard beard helvetica. Plaid typewriter gastropub bespoke.',
         },
         {
-            icon: <IoPersonCircleSharp size={50} />,
+            icon: user,
             name: 'Arlene Pierce',
             date: '20 May 2024',
             message:
@@ -388,7 +393,7 @@ const Overview = () => {
                             />
                             <div className="flex flex-col gap-[10px]">
                                 <p className="font-bold">Messages</p>
-                                <p className="text-4xl font-bold">387</p>
+                                <p className="text-3xl font-bold">387</p>
                             </div>
                         </div>
                     </Card>
@@ -400,7 +405,7 @@ const Overview = () => {
                             />
                             <div className="flex flex-col gap-[10px]">
                                 <p className="font-bold">Documents</p>
-                                <p className="text-4xl font-bold">3</p>
+                                <p className="text-3xl font-bold">3</p>
                             </div>
                         </div>
                     </Card>
@@ -412,7 +417,7 @@ const Overview = () => {
                             />
                             <div className="flex flex-col gap-[10px]">
                                 <p className="font-bold">Photos</p>
-                                <p className="text-4xl font-bold">564</p>
+                                <p className="text-3xl font-bold">564</p>
                             </div>
                         </div>
                     </Card>
@@ -424,7 +429,7 @@ const Overview = () => {
                             />
                             <div className="flex flex-col gap-[10px]">
                                 <p className="font-bold">Invoice</p>
-                                <p className="text-4xl font-bold">2</p>
+                                <p className="text-3xl font-bold">2</p>
                             </div>
                         </div>
                     </Card>
@@ -433,7 +438,7 @@ const Overview = () => {
                             <Avatar icon={<PillIcon />} className="bg-grape" />
                             <div className="flex flex-col gap-[10px]">
                                 <p className="font-bold">On-Site visit</p>
-                                <p className="text-4xl font-bold">7</p>
+                                <p className="text-3xl font-bold">7</p>
                             </div>
                         </div>
                     </Card>
@@ -451,9 +456,8 @@ const Overview = () => {
                         <Avatar src={user} size={'sm'} />
                         <div className="flex flex-col">
                             <p className="font-bold">Samuel Andrew Hall</p>
-                            <p className="flex flex-row items-center">
-                                {' '}
-                                First contact :{' '}
+                            <p className="flex flex-col items-start">
+                                First contact:
                                 <span className="font-semibold">
                                     4th May
                                 </span>{' '}
@@ -603,12 +607,12 @@ const Overview = () => {
                     </div>
                 </Card>
             </section>
-            <section className="grid grid-cols-3 gap-2">
+            <section className="grid grid-cols-2 xl:grid-cols-3 gap-1">
                 <Card className="bg-white border border-primary-mild">
                     <div className="flex flex-row items-center justify-between">
-                        <p className="text-xl font-bold">Current tasks</p>
+                        <p className="text-xl font-bold text-wrap">Current tasks</p>
                         <div className="flex flex-row gap-1">
-                            <button className="px-3 p-2 bg-primary-mild text-white flex flex-row items-center rounded-xl  font-bold">
+                            <button className="px-3 p-2 bg-primary-mild text-white flex flex-row items-center rounded-xl font-bold">
                                 <IoMdAdd />
                                 Add
                             </button>
@@ -673,15 +677,15 @@ const Overview = () => {
                                             className="border-white"
                                             bodyClass="p-0"
                                         >
-                                            <div className="flex flex-row justify-between items-center">
-                                                <div className="w-2/12">
+                                            <div className="flex flex-row justify-start w-full items-center gap-1">
+                                                <div className="w-fit">
                                                     <Avatar
                                                         className={`${event.iconColor} rounded-lg`}
                                                         icon={event.icon}
                                                         shape="square"
                                                     />
                                                 </div>
-                                                <div className="w-10/12 h-full flex flex-row justify-between items-center">
+                                                <div className="w-full h-full flex flex-row gap-2 justify-start items-center">
                                                     <div className="flex flex-col">
                                                         <p className="font-bold text-sm">
                                                             {event.title}
@@ -719,7 +723,7 @@ const Overview = () => {
                                     <p className="font-bold">{group.date}</p>
 
                                     {group.activity.map((activity) => (
-                                        <Timeline.Item key={activity.id}>
+                                        <Timeline.Item  media={<Avatar className={` ${activity.avatar ? 'bg-black' : 'bg-gray-400'} `} icon={''} size={14}/>} key={activity.id}>
                                             <div>
                                                 <p className="font-bold">
                                                     {activity.title}
@@ -762,7 +766,13 @@ const Overview = () => {
                                 <div className="flex flex-col gap-[30px]">
                                     {commentContent.map((comment) => (
                                         <div className="flex flex-row gap-4">
-                                            <div>{comment.icon}</div>
+                                            <div className="size-[60px]">
+                                                <img
+                                                    src={comment.icon}
+                                                    alt=""
+                                                    className="rounded-full"
+                                                />
+                                            </div>
                                             <div>
                                                 <p className="pb-2">
                                                     <span className="font-semibold">
@@ -775,7 +785,13 @@ const Overview = () => {
                                         </div>
                                     ))}
                                     <div className="flex flex-row gap-4">
-                                        <IoPersonCircleSharp size={50} />
+                                        <div className="size-[60px]">
+                                            <img
+                                                src={user}
+                                                alt=""
+                                                className="rounded-full"
+                                            />
+                                        </div>
                                         <div className="relative w-full">
                                             <textarea
                                                 rows={4}

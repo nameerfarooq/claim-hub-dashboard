@@ -2,6 +2,9 @@ import classNames from '@/utils/classNames'
 import { HEADER_HEIGHT } from '@/constants/theme.constant'
 import type { ReactNode } from 'react'
 import type { CommonProps } from '@/@types/common'
+import { TbSettings } from 'react-icons/tb'
+import { Avatar, Badge } from '../ui'
+import { PiBellDuotone } from "react-icons/pi";
 
 interface HeaderProps extends CommonProps {
     headerStart?: ReactNode
@@ -40,6 +43,13 @@ const Header = (props: HeaderProps) => {
                     </div>
                 )}
                 <div className="header-action header-action-end">
+                    <div className="flex flex-row gap-2">
+                        <Badge />
+                        <Avatar size={'sm'} className='bg-white' icon={<PiBellDuotone />} />
+                        <button>
+                            <TbSettings size={28} />
+                        </button>
+                    </div>
                     {headerEnd}
                 </div>
             </div>

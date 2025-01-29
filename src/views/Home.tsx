@@ -26,6 +26,8 @@ import {
     TbVideo,
 } from 'react-icons/tb'
 import { LuSquareCheckBig } from 'react-icons/lu'
+import { useThemeStore } from '@/store/themeStore'
+import { useEffect, useRef } from 'react'
 
 const Home = () => {
     const areaData = {
@@ -195,6 +197,23 @@ const Home = () => {
             media: <Avatar className="bg-yellow-100" icon={<BsTags />} />,
         },
     ]
+
+    const sideNavCollapse = useThemeStore(
+        (state) => state.layout.sideNavCollapse,
+    )
+
+    const isFirstRender = useRef(true)
+
+    useEffect(() => {
+        if (!sideNavCollapse && isFirstRender.current) {
+            isFirstRender.current = false
+            return
+        }
+
+        if (!isFirstRender.current) {
+            window.dispatchEvent(new Event('resize'))
+        }
+    }, [sideNavCollapse])
 
     return (
         <>
@@ -474,13 +493,17 @@ const Home = () => {
                         <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
                             <div className="flex flex-row w-full justify-between items-center pb-[20px]">
                                 <p className="text-xl font-bold">
-                                    Current tasks
+                                Task overview
                                 </p>
-                                <Segment defaultValue="monthly">
-                                    <Segment.Item value="monthly">
-                                        Monthly
+                                <Segment defaultValue="daily">
+                                    <Segment.Item 
+                                    activeClassName='bg-white text-black shadow'
+                                    value="daily">
+                                        Daily
                                     </Segment.Item>
-                                    <Segment.Item value="weekly">
+                                    <Segment.Item 
+                                    activeClassName='bg-white text-black shadow'
+                                    value="weekly">
                                         Weekly
                                     </Segment.Item>
                                 </Segment>
