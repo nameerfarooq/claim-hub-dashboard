@@ -33,7 +33,7 @@ const _SidePanel = (props: SidePanelProps) => {
     return (
         <>
             <div
-                className={classNames('text-2xl', className)}
+                className={classNames('text-2xl', className || '')}
                 onClick={openPanel}
                 {...rest}
             >

@@ -6,7 +6,7 @@ import { CiFilter } from 'react-icons/ci'
 import { TbSettings, TbUserPlus } from 'react-icons/tb'
 import ClaimBoard from './ClaimBoard'
 
-const main = () => {
+const Main = () => {
     return (
         <Container>
             <Card>
@@ -33,4 +33,4 @@ const main = () => {
     )
 }
 
-export default main
+export default Main

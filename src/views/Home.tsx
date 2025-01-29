@@ -1,4 +1,4 @@
-import { AdaptiveCard, Chart } from '@/components/shared'
+import { AdaptiveCard, Chart, Container } from '@/components/shared'
 import {
     Card,
     Button,
@@ -27,9 +27,10 @@ import {
 } from 'react-icons/tb'
 import { LuSquareCheckBig } from 'react-icons/lu'
 import { useThemeStore } from '@/store/themeStore'
-import { useEffect, useRef, useState } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 import Overview from './HomeViews/Overview'
 import StatisticData from './HomeViews/StatisticData'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
     const doubleBarData = {
@@ -175,38 +176,76 @@ const Home = () => {
         },
     ]
 
+    const data = StatisticData
+
+    // useeffect to resize window everytime sideNavCollapse changes
     const sideNavCollapse = useThemeStore(
         (state) => state.layout.sideNavCollapse,
     )
-    const isFirstRender = useRef(true)
-    const [chartKey, setChartKey] = useState(0)
 
     useEffect(() => {
-        if (!sideNavCollapse && isFirstRender.current) {
-            isFirstRender.current = false
-            return
-        }
+        const resize = () => window.dispatchEvent(new Event('resize'))
+        const debounceResize = setTimeout(resize, 300) // Delay execution
 
-        if (!isFirstRender.current) {
-            // Dispatch a resize event to trigger chart resizing
-            window.dispatchEvent(new Event('resize'))
-
-            // Force re-render charts by updating the key
-            setChartKey((prevKey) => prevKey + 1)
-        }
+        return () => clearTimeout(debounceResize)
     }, [sideNavCollapse])
 
-    const data = StatisticData
+    const [chartComponent, setChartComponent] = useState<ReactNode>(null)
+
+    useEffect(() => {
+        try {
+            if (
+                doubleBarData?.series.length > 0 &&
+                doubleBarData.xAxis.length > 0
+            ) {
+                setChartComponent(
+                    <Chart
+                        customOptions={{
+                            plotOptions: {
+                                bar: {
+                                    columnWidth: '55%',
+                                    borderRadius: 2,
+                                },
+                            },
+                            colors: ['#00A3FF', '#6A2DE3'],
+                            legend: {
+                                show: false,
+                            },
+                        }}
+                        type="bar"
+                        height={230}
+                        series={doubleBarData.series as any}
+                        xAxis={doubleBarData.xAxis as any}
+                    />,
+                )
+            } else {
+                console.warn('Chart data is empty or not ready')
+                setChartComponent(null)
+            }
+        } catch (error) {
+            console.error('Error rendering chart:', error)
+            setChartComponent(null)
+        }
+    }, [])
+
+    const nav = useNavigate()
 
     return (
-        <>
+        <Container>
             <main className="flex flex-col gap-4 max-w-full">
-                <section className="flex flex-col lg:flex-row gap-4 h-full">
-                    <div className="w-full flex flex-col gap-4">
+                <section className="flex flex-col lg:flex-row gap-4 h-full  ">
+                    <div className="flex flex-col gap-4 w-full">
                         <Card>
                             <div className="flex flex-row w-full justify-between items-center mb-[10px]">
                                 <p className="text-2xl font-bold">Overview</p>
-                                <Button variant="default">All Claims</Button>
+                                <Button
+                                    onClick={() => {
+                                        nav('/claims-pipeline')
+                                    }}
+                                    variant="default"
+                                >
+                                    All Claims
+                                </Button>
                             </div>
                             <div className="grid grid-cols-3 gap-4 w-full bg-gray-100 p-[8px] rounded-[20px]">
                                 <Card bordered={false} className="!shadow-none">
@@ -370,7 +409,7 @@ const Home = () => {
                             />
                         </div> */}
                     </div>
-                    <div className="h-full">
+                    <div className="h-full w-auto">
                         <div className="bg-white p-4 rounded-2xl border border-gray-200">
                             <Calendar />
                             <div className="mt-5 flex flex-col gap-[20px]">
@@ -426,7 +465,7 @@ const Home = () => {
                                 </p>
                                 <Button variant="default">All tasks</Button>
                             </div>
-                            <div className="flex flex-col gap-[10px] h-[270px] overflow-auto custom-scrollbar pr-2">
+                            <div className="flex flex-col gap-[10px] min-h-[270px] overflow-auto custom-scrollbar pr-2">
                                 {tasks.map((task) => (
                                     <div
                                         key={task.id}
@@ -526,30 +565,10 @@ const Home = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-full">
-                                {/* <Chart
-                                    key={chartKey}
-                                    customOptions={{
-                                        plotOptions: {
-                                            bar: {
-                                                columnWidth: '55%',
-                                                borderRadius: 2,
-                                            },
-                                        },
-                                        colors: ['#00A3FF', '#6A2DE3'],
-                                        legend: {
-                                            show: false,
-                                        },
-                                    }}
-                                    type="bar"
-                                    height={230}
-                                    series={doubleBarData.series}
-                                    xAxis={doubleBarData.xAxis}
-                                /> */}
-                            </div>
+                            <div>{doubleBarData && chartComponent}</div>
                         </div>
                     </div>
-                    <div className="w-full lg:w-4/12 h-full">
+                    <div className="w-full lg:w-4/12">
                         <div className="bg-white p-4 rounded-2xl border border-gray-200 h-full">
                             <div className="flex flex-row w-full justify-between items-center pb-[20px]">
                                 <p className="text-xl font-bold">
@@ -557,7 +576,7 @@ const Home = () => {
                                 </p>
                                 <Button variant="default">View all</Button>
                             </div>
-                            <div className="h-[270px] overflow-auto custom-scrollbar">
+                            <div className="h-[290px] overflow-auto custom-scrollbar">
                                 <Timeline className="pr-[10px]">
                                     {activities.map((activity) => (
                                         <Timeline.Item
@@ -590,7 +609,7 @@ const Home = () => {
                     </div>
                 </section>
             </main>
-        </>
+        </Container>
     )
 }
 

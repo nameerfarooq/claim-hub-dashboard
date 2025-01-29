@@ -11,6 +11,7 @@ import AddUserIcon from '@/assets/icons/AddUser'
 import EditPencilIcon from '@/assets/icons/EditPencil'
 import ViewEyeIcon from '@/assets/icons/ViewEye'
 import { MdDeleteOutline } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 
 type CheckBoxChangeEvent = ChangeEvent<HTMLInputElement>
 
@@ -290,10 +291,10 @@ const Negotiations = () => {
             enableSorting: false, // Disable sorting for the Actions column
             cell: ({ row }) => (
                 <div className="flex items-center gap-1">
-                    <button onClick={() => handleView(row.original)}>
+                    <button onClick={() => handleEdit(row.original)}>
                         <EditPencilIcon />
                     </button>
-                    <button onClick={() => handleEdit(row.original)}>
+                    <button onClick={() => handleView(row.original)}>
                         <ViewEyeIcon />
                     </button>
                     <button onClick={() => handleDelete(row.original)}>
@@ -304,9 +305,11 @@ const Negotiations = () => {
         },
     ]
 
+    const nav = useNavigate()
+
     const handleView = (rowData: any) => {
+        nav('/overview')
         console.log('View:', rowData)
-        // Add logic
     }
 
     const handleEdit = (rowData: any) => {
