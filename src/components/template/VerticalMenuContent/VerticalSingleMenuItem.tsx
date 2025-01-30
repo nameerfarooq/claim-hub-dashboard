@@ -56,7 +56,6 @@ const CollapsedItem = ({
                 <Tooltip
                     title={t(nav.translateKey, nav.title)}
                     placement={direction === 'rtl' ? 'left' : 'right'}
-                    className="bg-white shadow-xl"
                 >
                     {children}
                 </Tooltip>

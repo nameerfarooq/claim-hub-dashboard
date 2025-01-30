@@ -80,11 +80,11 @@ const ForgotPasswordForm = (props: ForgotPasswordFormProps) => {
                     <Button
                         block
                         loading={isSubmitting}
-                        variant="gradient"
+                        variant="solid"
                         type="submit"
                         className='bg-gradient-to-r from-[#2B84FF] to-[#692FE4]'
                     >
-                        {isSubmitting ? 'Submiting...' : 'Next'}
+                        {isSubmitting ? 'Submiting...' : 'Submit'}
                     </Button>
                 </Form>
             ) : (

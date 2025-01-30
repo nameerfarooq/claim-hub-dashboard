@@ -16,6 +16,7 @@ interface SignUpFormProps extends CommonProps {
 
 type SignUpFormSchema = {
     userName: string
+    companyName: string
     password: string
     email: string
     confirmPassword: string
@@ -25,6 +26,7 @@ const validationSchema: ZodType<SignUpFormSchema> = z
     .object({
         email: z.string({ required_error: 'Please enter your email' }),
         userName: z.string({ required_error: 'Please enter your name' }),
+        companyName: z.string({ required_error: 'Please enter your company name' }),
         password: z.string({ required_error: 'Password Required' }),
         confirmPassword: z.string({
             required_error: 'Confirm Password Required',
@@ -69,6 +71,7 @@ const SignUpForm = (props: SignUpFormProps) => {
         <div className={className}>
             <Form onSubmit={handleSubmit(onSignUp)}>
                 <FormItem
+                    className='text-black'
                     label="User name"
                     invalid={Boolean(errors.userName)}
                     errorMessage={errors.userName?.message}
@@ -87,12 +90,13 @@ const SignUpForm = (props: SignUpFormProps) => {
                     />
                 </FormItem>
                 <FormItem
+                    className='text-black'
                     label="Company Name"
                     invalid={Boolean(errors.userName)}
                     errorMessage={errors.userName?.message}
                 >
                     <Controller
-                        name="userName"
+                        name="companyName"
                         control={control}
                         render={({ field }) => (
                             <Input
@@ -105,6 +109,7 @@ const SignUpForm = (props: SignUpFormProps) => {
                     />
                 </FormItem>
                 <FormItem
+                    className='text-black'
                     label="Email"
                     invalid={Boolean(errors.email)}
                     errorMessage={errors.email?.message}
@@ -123,6 +128,7 @@ const SignUpForm = (props: SignUpFormProps) => {
                     />
                 </FormItem>
                 <FormItem
+                    className='text-black'
                     label="Password"
                     invalid={Boolean(errors.password)}
                     errorMessage={errors.password?.message}
@@ -141,6 +147,7 @@ const SignUpForm = (props: SignUpFormProps) => {
                     />
                 </FormItem>
                 <FormItem
+                    className='text-black'
                     label="Confirm Password"
                     invalid={Boolean(errors.confirmPassword)}
                     errorMessage={errors.confirmPassword?.message}
@@ -161,8 +168,9 @@ const SignUpForm = (props: SignUpFormProps) => {
                 <Button
                     block
                     loading={isSubmitting}
-                    variant="gradient"
+                    variant="solid"
                     type="submit"
+                    className='bg-gradient-to-r from-[#2B84FF] to-[#692FE4]'
                 >
                     {isSubmitting ? 'Creating Account...' : 'Sign Up'}
                 </Button>
