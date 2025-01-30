@@ -12,7 +12,7 @@ import {
     ADD_FILES_TO_TICKET,
     CREATE_TICKET,
 } from '@/components/view/Activity/constants'
-import type { GetActivityLogResponse, Activity } from './types'
+import type { Activity } from './types'
 import user from '@/assets/Images/user.png'
 
 const defaultSelectedType = [
