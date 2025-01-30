@@ -5,7 +5,7 @@ import ScrollBar from '@/components/ui/ScrollBar'
 import ChatSegment from './ChatSegment'
 import NewChat from './NewChat'
 import { useChatStore } from '../store/chatStore'
-import { mockData } from './MockData'
+import { MockData } from './MockData'
 import useChat from '../hooks/useChat'
 import classNames from '@/utils/classNames'
 import useDebounce from '@/utils/hooks/useDebounce'
@@ -15,7 +15,7 @@ import type { ChatType } from '../types'
 import type { ChangeEvent } from 'react'
 
 const ChatList = () => {
-    const chats = mockData
+    const chats = MockData
     const chatsFetched = useChatStore((state) => state.chatsFetched)
     const selectedChat = useChatStore((state) => state.selectedChat)
     const setSelectedChat = useChatStore((state) => state.setSelectedChat)
