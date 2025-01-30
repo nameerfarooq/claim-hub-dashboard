@@ -11,7 +11,7 @@ type ResetPasswordProps = {
 }
 
 export const ResetPasswordBase = ({
-    signInUrl = '/otp-verification',
+    signInUrl = '/sign-in',
 }: ResetPasswordProps) => {
     const [resetComplete, setResetComplete] = useState(false)
 
@@ -35,7 +35,7 @@ export const ResetPasswordBase = ({
                     </>
                 ) : (
                     <>
-                        <h3 className="mb-1 text-primaryBlue">Set new password</h3>
+                        <h3 className="mb-1">Set new password</h3>
                         <p className="font-semibold heading-text">
                             Your new password must different to previos password
                         </p>
@@ -54,7 +54,7 @@ export const ResetPasswordBase = ({
             >
                 <Button
                     block
-                    variant="gradient"
+                    variant="solid"
                     type="button"
                     onClick={handleContinue}
                 >

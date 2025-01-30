@@ -106,7 +106,7 @@ const Home = () => {
         },
     ]
 
-    const [tasks, setTasks] = useState([
+    const tasks = [
         {
             id: 1,
             title: 'Unable to upload file',
@@ -147,17 +147,7 @@ const Home = () => {
             icon: <HiOutlineUser />,
             completed: true,
         },
-    ])
-
-    const handleTaskCompletion = (taskId: number) => {
-        setTasks((prevTasks) =>
-            prevTasks.map((task) =>
-                task.id === taskId
-                    ? { ...task, completed: !task.completed }
-                    : task,
-            ),
-        )
-    }
+    ]
 
     const activities = [
         {
@@ -489,11 +479,6 @@ const Home = () => {
                                             <div className="flex flex-row justify-between items-center gap-[10px]">
                                                 <div className="w-fit">
                                                     <Button
-                                                        onClick={() =>
-                                                            handleTaskCompletion(
-                                                                task.id,
-                                                            )
-                                                        }
                                                         className={`rounded-full size-[24px] p-1 ${task.completed ? 'bg-black text-white' : 'bg-white text-black'}`}
                                                         icon={task.icon}
                                                     ></Button>

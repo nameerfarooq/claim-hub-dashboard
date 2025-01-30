@@ -117,7 +117,7 @@ const SignInForm = (props: SignInFormProps) => {
                 <Button
                     block
                     loading={isSubmitting}
-                    variant="gradient"
+                    variant="solid"
                     type="submit"
                     className='bg-gradient-to-r from-[#2B84FF] to-[#692FE4]'
                 >

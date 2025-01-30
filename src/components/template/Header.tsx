@@ -2,8 +2,11 @@ import classNames from '@/utils/classNames'
 import { HEADER_HEIGHT } from '@/constants/theme.constant'
 import type { ReactNode } from 'react'
 import type { CommonProps } from '@/@types/common'
+import { TbSettings } from 'react-icons/tb'
+import { Avatar, Badge } from '../ui'
+import { PiBellDuotone } from 'react-icons/pi'
+import user from '@/assets/Images/user.png'
 import { useNavigate } from 'react-router-dom'
-import Notification from './Notification'
 
 interface HeaderProps extends CommonProps {
     headerStart?: ReactNode
@@ -44,8 +47,28 @@ const Header = (props: HeaderProps) => {
                     </div>
                 )}
                 <div className="header-action header-action-end">
-                    <Notification />
-                    {headerEnd}
+                    <div className="flex flex-row gap-2">
+                        <div className="relative">
+                            <Badge className="absolute top-0 right-0 z-10" />
+                            <Avatar
+                                size={'sm'}
+                                className="bg-white"
+                                icon={<PiBellDuotone size={24} />}
+                            />
+                        </div>
+                        <button>
+                            <TbSettings size={28} />
+                        </button>
+                        <Avatar
+                            className="cursor-pointer"
+                            onClick={() => {
+                                nav('/profile')
+                            }}
+                            size="sm"
+                            src={user}
+                        />
+                    </div>
+                    {/* {headerEnd} */}
                 </div>
             </div>
         </header>

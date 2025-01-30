@@ -71,7 +71,7 @@ const CollapsedItem = ({
             key={nav.key}
             isActive={parentKeys?.includes(nav.key)}
             eventKey={nav.key}
-            className="mb-2 bg-white"
+            className="mb-2"
         >
             <VerticalMenuIcon icon={nav.icon} />
         </MenuItem>

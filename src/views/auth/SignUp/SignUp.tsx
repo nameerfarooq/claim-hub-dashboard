@@ -21,17 +21,18 @@ export const SignUpBase = ({
     return (
         <>
             <div className="mb-8">
-            <Logo
-                    type="full"
+                {/* <Logo
+                    type="streamline"
                     mode={mode}
                     imgClass="mx-auto"
-                    logoWidth={160}
-                />
+                    logoWidth={60}
+                /> */}
+                <img src="/img/others/auth-side-bg.png" className='w-[250px]' alt="" />
             </div>
             <div className="mb-8">
                 <h3 className="mb-1">Sign Up</h3>
                 <p className="font-semibold heading-text">
-                Create New Account
+                    And lets get started with your free trial
                 </p>
             </div>
             {message && (

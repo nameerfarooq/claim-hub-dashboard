@@ -34,7 +34,7 @@ export const ForgotPasswordBase = ({
                     </>
                 ) : (
                     <>
-                        <h3 className="mb-2 text-primaryBlue">Forgot Password</h3>
+                        <h3 className="mb-2">Forgot Password</h3>
                         <p className="font-semibold heading-text">
                             Please enter your email to receive a verification
                             code
@@ -54,7 +54,7 @@ export const ForgotPasswordBase = ({
             >
                 <Button
                     block
-                    variant="gradient"
+                    variant="solid"
                     type="button"
                     onClick={handleContinue}
                 >

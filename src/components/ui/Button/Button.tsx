@@ -30,7 +30,7 @@ export interface ButtonProps
     ref?: React.Ref<HTMLButtonElement>
     shape?: TypeAttributes.Shape
     size?: TypeAttributes.Size
-    variant?: 'solid' | 'plain' | 'default' | 'gradient'
+    variant?: 'solid' | 'plain' | 'default'
     iconAlignment?: 'start' | 'end'
 }
 
@@ -130,15 +130,6 @@ const Button = (props: ButtonProps) => {
         }
         return getBtnColor(btn)
     }
-    const gradientColor = () => {
-        const btn = {
-            bgColor: active ? `!bg-custom-gradient2` : `!bg-custom-gradient2`,
-            textColor: 'text-neutral',
-            hoverColor: active ? '' : `hover:!bg-custom-gradient2`,
-            activeColor: ``,
-        }
-        return getBtnColor(btn)
-    }
 
     const plainColor = () => {
         const btn = {
@@ -179,8 +170,6 @@ const Button = (props: ButtonProps) => {
         switch (variant) {
             case 'solid':
                 return solidColor()
-            case 'gradient':
-                return gradientColor()
             case 'plain':
                 return plainColor()
             case 'default':

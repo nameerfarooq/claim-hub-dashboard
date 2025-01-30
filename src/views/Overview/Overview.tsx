@@ -396,7 +396,7 @@ const Overview = () => {
                 </div>
                 <div className="w-full mx-auto flex flex-row items-center justify-center mt-2">
                     <button className="py-2 px-3 rounded-lg text-lg font-bold bg-primary-mild text-white">
-                        Submit by “Schedule”
+                        Submit
                     </button>
                 </div>
             </section>
@@ -516,8 +516,8 @@ const Overview = () => {
                     <div className="py-[20px] border-b border-gray-200">
                         <Select
                             options={[
-                                { value: 'C-103', label: 'C-103' },
-                                { value: 'C-302', label: 'C-302' },
+                                { value: 'Option 1', label: 'Option 1' },
+                                { value: 'Option 2', label: 'Option 2' },
                             ]}
                             isSearchable={false}
                             isMulti
