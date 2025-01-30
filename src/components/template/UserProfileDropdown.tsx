@@ -3,9 +3,15 @@ import Dropdown from '@/components/ui/Dropdown'
 import withHeaderItem from '@/utils/hoc/withHeaderItem'
 import { useSessionUser } from '@/store/authStore'
 import { Link } from 'react-router-dom'
-import { PiUserDuotone, PiSignOutDuotone } from 'react-icons/pi'
+import {
+    PiUserDuotone,
+    PiGearDuotone,
+    PiPulseDuotone,
+    PiSignOutDuotone,
+} from 'react-icons/pi'
 import { useAuth } from '@/auth'
 import type { JSX } from 'react'
+import user from '@/assets/Images/user.png'
 
 type DropdownList = {
     label: string
@@ -13,10 +19,27 @@ type DropdownList = {
     icon: JSX.Element
 }
 
-const dropdownItemList: DropdownList[] = []
+const dropdownItemList: DropdownList[] = [
+    {
+        label: 'Profile',
+        path: '/profile',
+        icon: <PiUserDuotone />,
+    },
+    {
+        label: 'Account Setting',
+        path: '/profile',
+        icon: <PiGearDuotone />,
+    },
+    // {
+    //     label: 'Activity Log',
+    //     path: '/concepts/account/activity-log',
+    //     icon: <PiPulseDuotone />,
+    // },
+]
 
 const _UserDropdown = () => {
-    const { avatar, userName, email } = useSessionUser((state) => state.user)
+    const avatar = user
+    const { userName, email } = useSessionUser((state) => state.user)
 
     const { signOut } = useAuth()
 
@@ -67,6 +90,7 @@ const _UserDropdown = () => {
                     </Link>
                 </Dropdown.Item>
             ))}
+            <Dropdown.Item variant="divider" />
             <Dropdown.Item
                 eventKey="Sign Out"
                 className="gap-2"
