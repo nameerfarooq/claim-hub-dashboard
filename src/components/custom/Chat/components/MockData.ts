@@ -1,7 +1,7 @@
 import user from '@/assets/Images/user.png'
 
 // mockData.ts
-export const mockData = [
+export const MockData = [
     {
         id: '1',
         userId: 'user1',
