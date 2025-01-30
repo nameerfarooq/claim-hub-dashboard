@@ -13,7 +13,7 @@ import {
     CREATE_TICKET,
 } from '@/components/view/Activity/constants'
 import type { GetActivityLogResponse, Activity } from './types'
-import user from '@/assets/images/user.png'
+import user from '@/assets/Images/user.png'
 
 const defaultSelectedType = [
     UPDATE_TICKET,
