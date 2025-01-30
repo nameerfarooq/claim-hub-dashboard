@@ -110,10 +110,10 @@ const ResetPasswordForm = (props: ResetPasswordFormProps) => {
                     <Button
                         block
                         loading={isSubmitting}
-                        variant="solid"
+                        variant="gradient"
                         type="submit"
                     >
-                        {isSubmitting ? 'Submiting...' : 'Submit'}
+                        {isSubmitting ? 'Changing...' : 'Change'}
                     </Button>
                 </Form>
             ) : (
