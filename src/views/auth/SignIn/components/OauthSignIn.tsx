@@ -2,7 +2,7 @@ import Button from '@/components/ui/Button'
 import { useAuth } from '@/auth'
 import {
     apiGoogleOauthSignIn,
-    apiGithubOauthSignIn,
+    // apiGithubOauthSignIn,
 } from '@/services/OAuthServices'
 
 type OauthSignInProps = {
@@ -30,22 +30,22 @@ const OauthSignIn = ({ setMessage, disableSubmit }: OauthSignInProps) => {
         }
     }
 
-    const handleGithubSignIn = async () => {
-        if (!disableSubmit) {
-            oAuthSignIn(async ({ redirect, onSignIn }) => {
-                try {
-                    const resp = await apiGithubOauthSignIn()
-                    if (resp) {
-                        const { token, user } = resp
-                        onSignIn({ accessToken: token }, user)
-                        redirect()
-                    }
-                } catch (error) {
-                    setMessage?.((error as string)?.toString() || '')
-                }
-            })
-        }
-    }
+    // const handleGithubSignIn = async () => {
+    //     if (!disableSubmit) {
+    //         oAuthSignIn(async ({ redirect, onSignIn }) => {
+    //             try {
+    //                 const resp = await apiGithubOauthSignIn()
+    //                 if (resp) {
+    //                     const { token, user } = resp
+    //                     onSignIn({ accessToken: token }, user)
+    //                     redirect()
+    //                 }
+    //             } catch (error) {
+    //                 setMessage?.((error as string)?.toString() || '')
+    //             }
+    //         })
+    //     }
+    // }
 
     return (
         <div className="flex items-center gap-2">
@@ -63,7 +63,7 @@ const OauthSignIn = ({ setMessage, disableSubmit }: OauthSignInProps) => {
                     <span>Google</span>
                 </div>
             </Button>
-            <Button
+            {/* <Button
                 className="flex-1"
                 type="button"
                 onClick={handleGithubSignIn}
@@ -76,7 +76,7 @@ const OauthSignIn = ({ setMessage, disableSubmit }: OauthSignInProps) => {
                     />
                     <span>Github</span>
                 </div>
-            </Button>
+            </Button> */}
         </div>
     )
 }

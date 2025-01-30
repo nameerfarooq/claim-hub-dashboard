@@ -41,6 +41,7 @@ interface Option {
 interface RowSelectionProps<TData> {
     data: TData[]
     columns: ColumnDef<TData>[]
+    filter: Boolean
 }
 
 const { Tr, Th, Td, THead, TBody } = Table
@@ -92,8 +93,11 @@ const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
     // Return if the item should be filtered in/out
     return itemRank.passed
 }
-
-function RowSelection<TData>({ data, columns }: RowSelectionProps<TData>) {
+function RowSelection<TData>({
+    data,
+    columns,
+    filter = false,
+}: RowSelectionProps<TData>) {
     const [rowSelection, setRowSelection] = useState({})
     const [sorting, setSorting] = useState<ColumnSort[]>([])
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
@@ -159,9 +163,11 @@ function RowSelection<TData>({ data, columns }: RowSelectionProps<TData>) {
                         onChange={(value) => setGlobalFilter(String(value))}
                     />
                 </div>
-                <div>
-                    <FilterDialog />
-                </div>
+                {filter && (
+                    <div>
+                        <FilterDialog />
+                    </div>
+                )}
             </div>
             <div className="min-h-[60vh]">
                 <Table>

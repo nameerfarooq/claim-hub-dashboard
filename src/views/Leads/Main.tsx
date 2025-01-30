@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui'
+import { Button, Tag } from '@/components/ui'
 import React from 'react'
 import { TbCloudDownload, TbDots } from 'react-icons/tb'
 import user from '@/assets/Images/user.png'
@@ -11,6 +11,7 @@ import AddUserIcon from '@/assets/icons/AddUser'
 import EditPencilIcon from '@/assets/icons/EditPencil'
 import ViewEyeIcon from '@/assets/icons/ViewEye'
 import { MdDeleteOutline } from 'react-icons/md'
+import { CSVLink } from 'react-csv'
 
 type CheckBoxChangeEvent = ChangeEvent<HTMLInputElement>
 
@@ -43,151 +44,91 @@ const Leads = () => {
             id: 1,
             name: {
                 media: user,
-                fullName: 'Angelina Gotelli',
+                fullName: 'John Smith',
             },
-            city: 'New York',
-            phone: '(618) 474-9169',
-            source: 'Lorem',
-            category: 'Residential',
-            type: 'Repair',
-            insurance: 'Lorem',
-            priority: 'High',
-            lastTouched: '12/12/24 - 01:25:49', // Placeholder for action
+            phone: '(305) 555-7890',
+            email: 'john.smith@email.com',
+            source: 'Google Ads',
+            type: 'Water',
+            provider: 'State Farm',
+            policyNum: 'FL-123456',
+            pa: 'None',
+            city: 'Miami',
+            status: 'New',
+            lastTouched: '2024-06-28',
+            createDate: '2024-06-27',
         },
         {
             id: 2,
             name: {
                 media: user,
-                fullName: 'Michael Thompson',
+                fullName: 'Linda Garcia',
             },
-            city: 'Los Angeles',
-            phone: '(310) 555-0123',
-            source: 'Ipsum',
-            category: 'Commercial',
-            type: 'Maintenance',
-            insurance: 'Ipsum',
-            priority: 'Medium',
-            lastTouched: '11/11/24 - 02:15:30',
+            phone: '(786) 555-3456',
+            email: 'linda.garcia@email.com',
+            source: 'Referral',
+            type: 'Fire',
+            provider: 'Allstate',
+            policyNum: 'None',
+            pa: 'Sophia Rivera',
+            city: 'Fort Lauderdale',
+            status: 'In Progress',
+            lastTouched: '2024-06-25',
+            createDate: '2024-06-22',
         },
         {
             id: 3,
             name: {
                 media: user,
-                fullName: 'Sophia Williams',
+                fullName: 'Mark Johnson',
             },
-            city: 'Chicago',
-            phone: '(312) 555-4567',
-            source: 'Dolor',
-            category: 'Residential',
-            type: 'Installation',
-            insurance: 'Dolor',
-            priority: 'Low',
-            lastTouched: '10/10/24 - 03:45:12',
+            phone: '(954) 555-6789',
+            email: 'mark.johnson@email.com',
+            source: 'Website',
+            type: 'Mold',
+            provider: 'Progressive',
+            policyNum: 'None',
+            pa: 'None',
+            city: 'Boca Raton',
+            status: 'Follow-up',
+            lastTouched: '2024-06-29',
+            createDate: '2024-06-20',
         },
         {
             id: 4,
             name: {
                 media: user,
-                fullName: 'David Johnson',
+                fullName: 'Susan Lee',
             },
-            city: 'Houston',
-            phone: '(713) 555-6789',
-            source: 'Sit',
-            category: 'Commercial',
-            type: 'Repair',
-            insurance: 'Sit',
-            priority: 'High',
-            lastTouched: '09/09/24 - 04:30:45',
+            phone: '(407) 555-1234',
+            email: 'susan.lee@email.com',
+            source: 'Insurance',
+            type: 'Storm',
+            provider: 'USAA',
+            policyNum: 'US-765432',
+            pa: 'Sophia Rivera',
+            city: 'Orlando',
+            status: 'Converted',
+            lastTouched: '2024-06-26',
+            createDate: '2024-06-15',
         },
         {
             id: 5,
             name: {
                 media: user,
-                fullName: 'Emily Davis',
+                fullName: 'James Brown',
             },
-            city: 'San Francisco',
-            phone: '(415) 555-0987',
-            source: 'Amet',
-            category: 'Residential',
-            type: 'Maintenance',
-            insurance: 'Amet',
-            priority: 'Medium',
-            lastTouched: '08/08/24 - 05:20:10',
-        },
-        {
-            id: 6,
-            name: {
-                media: user,
-                fullName: 'Ethan Moore',
-            },
-            city: 'Seattle',
-            phone: '(206) 555-2468',
-            source: 'Consectetur',
-            category: 'Commercial',
-            type: 'Installation',
-            insurance: 'Consectetur',
-            priority: 'Low',
-            lastTouched: '07/07/24 - 06:15:25',
-        },
-        {
-            id: 7,
-            name: {
-                media: user,
-                fullName: 'Charlotte Brown',
-            },
-            city: 'Denver',
-            phone: '(303) 555-7891',
-            source: 'Adipiscing',
-            category: 'Residential',
-            type: 'Repair',
-            insurance: 'Adipiscing',
-            priority: 'High',
-            lastTouched: '06/06/24 - 07:45:00',
-        },
-        {
-            id: 8,
-            name: {
-                media: user,
-                fullName: 'Oliver Martinez',
-            },
-            city: 'Miami',
-            phone: '(305) 555-3412',
-            source: 'Elit',
-            category: 'Commercial',
-            type: 'Maintenance',
-            insurance: 'Elit',
-            priority: 'Medium',
-            lastTouched: '05/05/24 - 08:00:18',
-        },
-        {
-            id: 9,
-            name: {
-                media: user,
-                fullName: 'Amelia Harris',
-            },
-            city: 'Austin',
-            phone: '(512) 555-6678',
-            source: 'Sed',
-            category: 'Residential',
-            type: 'Installation',
-            insurance: 'Sed',
-            priority: 'Low',
-            lastTouched: '04/04/24 - 09:25:35',
-        },
-        {
-            id: 10,
-            name: {
-                media: user,
-                fullName: 'James Wilson',
-            },
-            city: 'Dallas',
-            phone: '(972) 555-1234',
-            source: 'Do',
-            category: 'Commercial',
-            type: 'Repair',
-            insurance: 'Do',
-            priority: 'High',
-            lastTouched: '03/03/24 - 10:10:00',
+            phone: '(561) 555-2345',
+            email: 'james.brown@email.com',
+            source: 'Direct Call',
+            type: 'General Inquiry',
+            provider: 'None',
+            policyNum: 'None',
+            pa: 'David Martinez',
+            city: 'West Palm Beach',
+            status: 'Closed',
+            lastTouched: '2024-06-20',
+            createDate: '2024-06-10',
         },
     ]
 
@@ -226,18 +167,23 @@ const Leads = () => {
                         alt={row.original.name.fullName}
                         className="w-8 h-8 rounded-full"
                     />
-                    <span>{row.original.name.fullName}</span>
+                    <button className="w-fit font-semibold text-black">
+                        {row.original.name.fullName}
+                    </button>
                 </div>
             ),
         },
         {
-            header: 'City',
-            accessorKey: 'city',
-            enableSorting: true,
-        },
-        {
             header: 'Phone',
             accessorKey: 'phone',
+            enableSorting: true,
+            cell: ({ row }) => (
+                <p className="text-nowrap">{row.original.phone}</p>
+            ),
+        },
+        {
+            header: 'Email',
+            accessorKey: 'email',
             enableSorting: true,
         },
         {
@@ -246,42 +192,64 @@ const Leads = () => {
             enableSorting: true,
         },
         {
-            header: 'Category',
-            accessorKey: 'category',
-            enableSorting: true,
-        },
-        {
             header: 'Type',
             accessorKey: 'type',
             enableSorting: true,
         },
         {
-            header: 'Insurance',
-            accessorKey: 'insurance',
+            header: 'Insurance Provider',
+            accessorKey: 'provider',
+            enableSorting: true,
+        },
+
+        {
+            header: 'Policy Number',
+            accessorKey: 'policyNum',
+            enableSorting: true,
+        },
+
+        {
+            header: 'PA Associated',
+            accessorKey: 'pa',
+            enableSorting: true,
+            cell: ({ row }) => <button> {row.original.pa} </button>,
+        },
+
+        {
+            header: 'City',
+            accessorKey: 'city',
             enableSorting: true,
         },
         {
-            header: 'Priority',
-            accessorKey: 'priority',
+            header: 'Status',
+            accessorKey: 'status',
             enableSorting: true,
             cell: ({ row }) => (
-                <p
-                    className={`rounded-xl w-fit px-2 py-1 ${
-                        row.original.priority === 'High'
-                            ? 'bg-red-300'
-                            : row.original.priority === 'Medium'
-                              ? 'bg-primary-light'
-                              : 'bg-success-light'
+                <Tag
+                    className={`${
+                        row.original.status === 'Closed'
+                            ? 'bg-red-100'
+                            : row.original.status === 'Converted'
+                              ? 'bg-green-100'
+                              : row.original.status === 'Follow-up'
+                                ? 'bg-purple-100'
+                                : row.original.status === 'In Progress'
+                                  ? 'bg-yellow-100'
+                                  : 'bg-sky-100'
                     }`}
                 >
-                    {' '}
-                    {row.original.priority}{' '}
-                </p>
+                    {row.original.status}
+                </Tag>
             ),
         },
         {
             header: 'Last Touched',
             accessorKey: 'lastTouched',
+            enableSorting: true,
+        },
+        {
+            header: 'Created Date',
+            accessorKey: 'createDate',
             enableSorting: true,
         },
         {
@@ -324,9 +292,15 @@ const Leads = () => {
             <div className="flex flex-row justify-between">
                 <h1 className="text-2xl font-bold">Leads</h1>
                 <div className="flex flex-row gap-[10px]">
-                    <Button variant="default" icon={<TbCloudDownload />}>
-                        Download
-                    </Button>
+                    <CSVLink
+                        className="w-fit"
+                        filename="leadsList.csv"
+                        data={tableData}
+                    >
+                        <Button variant="default" icon={<TbCloudDownload />}>
+                            Download
+                        </Button>
+                    </CSVLink>
                     <button className="flex items-center gap-2 border border-primary rounded-xl px-4 py-2 text-sm font-bold text-white bg-primary hover:bg-primary-deep">
                         <span>
                             <AddUserIcon />

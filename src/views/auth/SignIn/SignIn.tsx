@@ -24,13 +24,12 @@ export const SignInBase = ({
     return (
         <>
             <div className="mb-8">
-                {/* <Logo
-                    type="streamline"
+                <Logo
+                    type="full"
                     mode={mode}
                     imgClass="mx-auto"
-                    logoWidth={60}
-                /> */}
-                <img src="/img/others/auth-side-bg.png" className='w-[250px]' alt="" />
+                    logoWidth={160}
+                />
             </div>
             <div className="mb-10">
                 <h2 className="mb-2">Welcome back!</h2>
@@ -67,6 +66,7 @@ export const SignInBase = ({
                     <div className="border-t border-gray-200 dark:border-gray-800 flex-1 mt-[1px]" />
                 </div>
                 <OauthSignIn
+
                     disableSubmit={disableSubmit}
                     setMessage={setMessage}
                 />

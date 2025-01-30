@@ -110,11 +110,11 @@ const ResetPasswordForm = (props: ResetPasswordFormProps) => {
                     <Button
                         block
                         loading={isSubmitting}
-                        variant="solid"
+                        variant="gradient"
                         type="submit"
                         className='bg-gradient-to-r from-[#2B84FF] to-[#692FE4]'
                     >
-                        {isSubmitting ? 'Submiting...' : 'Submit'}
+                        {isSubmitting ? 'Changing...' : 'Change'}
                     </Button>
                 </Form>
             ) : (
