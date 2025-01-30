@@ -22,7 +22,7 @@ const ChatSegment = () => {
                     inactiveClassName=""
                     value="personal"
                 >
-                    <div className="flex items-center justify-center gap-2">
+                    <div className="flex items-center justify-start gap-2">
                         <TbUserCircle className="text-xl" />
                         <span>Email</span>
                     </div>
@@ -33,7 +33,7 @@ const ChatSegment = () => {
                     inactiveClassName=""
                     value="groups"
                 >
-                    <div className="flex items-center justify-center gap-2">
+                    <div className="flex items-center justify-start gap-2">
                         <TbUsers className="text-xl" />
                         <span>WhatsApp</span>
                     </div>
@@ -50,7 +50,7 @@ const ChatSegment = () => {
                     inactiveClassName=""
                     value="SMS"
                 >
-                    <div className="flex items-center justify-center gap-2">
+                    <div className="flex items-center justify-start gap-2">
                         <TbUserCircle className="text-xl" />
                         <span>SMS</span>
                     </div>

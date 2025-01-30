@@ -38,7 +38,45 @@ const notificationHeight = 'h-[280px]'
 const _Notification = ({ className }: { className?: string }) => {
     const [notificationList, setNotificationList] = useState<
         NotificationList[]
-    >([])
+    >([
+        {
+            id: '1',
+            target: 'Admin',
+            description: 'Your order has been shipped.',
+            date: '2025-01-30T10:15:00Z',
+            image: 'https://example.com/shipped.png',
+            type: 1,
+            location: 'New York, USA',
+            locationLabel: 'Warehouse A',
+            status: 'Delivered',
+            readed: false,
+        },
+        {
+            id: '2',
+            target: 'User123',
+            description: 'Your payment was successful.',
+            date: '2025-01-29T14:30:00Z',
+            image: 'https://example.com/payment.png',
+            type: 2,
+            location: 'Karachi, Pakistan',
+            locationLabel: 'Main Branch',
+            status: 'Confirmed',
+            readed: true,
+        },
+        {
+            id: '3',
+            target: 'Support',
+            description: 'New message from support.',
+            date: '2025-01-28T18:45:00Z',
+            image: 'https://example.com/message.png',
+            type: 3,
+            location: 'London, UK',
+            locationLabel: 'Support Center',
+            status: 'Pending',
+            readed: false,
+        },
+    ])
+
     const [unreadNotification, setUnreadNotification] = useState(false)
     const [noResult, setNoResult] = useState(false)
     const [loading, setLoading] = useState(false)

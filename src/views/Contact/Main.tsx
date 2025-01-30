@@ -1,6 +1,5 @@
 import { Button, Tag } from '@/components/ui'
-import React from 'react'
-import { TbCloudDownload, TbDots } from 'react-icons/tb'
+import { TbCloudDownload } from 'react-icons/tb'
 import user from '@/assets/Images/user.png'
 import RowSelection from '@/components/custom/AdvancedTable'
 import Checkbox from '@/components/ui/Checkbox'
@@ -12,6 +11,7 @@ import EditPencilIcon from '@/assets/icons/EditPencil'
 import ViewEyeIcon from '@/assets/icons/ViewEye'
 import { MdDeleteOutline } from 'react-icons/md'
 import { CSVLink } from 'react-csv'
+import { useNavigate } from 'react-router-dom'
 
 type CheckBoxChangeEvent = ChangeEvent<HTMLInputElement>
 
@@ -38,97 +38,92 @@ function IndeterminateCheckbox({
     return <Checkbox ref={ref} onChange={(_, e) => onChange(e)} {...rest} />
 }
 
-const Leads = () => {
+const Main = () => {
     const tableData = [
         {
             id: 1,
             name: {
                 media: user,
-                fullName: 'John Smith',
+                fullName: 'Michael Torres',
             },
-            phone: '(305) 555-7890',
-            email: 'john.smith@email.com',
-            source: 'Google Ads',
-            type: 'Water',
-            provider: 'State Farm',
-            policyNum: 'FL-123456',
-            pa: 'None',
+            role: 'PA (Project Administrator)',
+            company: 'Rapid Fix Restoration',
+            number: '(305) 555-1234',
+            email: 'michael.t@rapidfix.com',
+            status: 'Active',
+            method: 'Phone',
             city: 'Miami',
-            status: 'New',
-            lastTouched: '2024-06-28',
-            createDate: '2024-06-27',
+            claim: ['P-402', 'P-104'],
+            createDate: '2024-06-15',
+            lastContact: '2024-06-28',
         },
         {
             id: 2,
             name: {
                 media: user,
-                fullName: 'Linda Garcia',
+                fullName: 'Sarah Collins',
             },
-            phone: '(786) 555-3456',
-            email: 'linda.garcia@email.com',
-            source: 'Referral',
-            type: 'Fire',
-            provider: 'Allstate',
-            policyNum: 'None',
-            pa: 'Sophia Rivera',
+            role: 'Worker (Electrician)',
+            company: 'Collins Electrical',
+            number: '(786) 555-5678',
+            email: 'sarah.c@collins.com',
+            status: 'Active',
+            method: 'SMS',
             city: 'Fort Lauderdale',
-            status: 'In Progress',
-            lastTouched: '2024-06-25',
-            createDate: '2024-06-22',
+            claim: ['P-102'],
+            createDate: '2024-06-20',
+            lastContact: '2024-07-01',
         },
         {
             id: 3,
             name: {
                 media: user,
-                fullName: 'Mark Johnson',
+                fullName: 'David Nguyen',
             },
-            phone: '(954) 555-6789',
-            email: 'mark.johnson@email.com',
-            source: 'Website',
-            type: 'Mold',
-            provider: 'Progressive',
-            policyNum: 'None',
-            pa: 'None',
+            role: 'Engineer',
+            company: 'NG Structural',
+            number: '(954) 555-7890',
+            email: 'david.n@ngstructural.com',
+            status: 'Active',
+            method: 'Email',
             city: 'Boca Raton',
-            status: 'Follow-up',
-            lastTouched: '2024-06-29',
-            createDate: '2024-06-20',
+            claim: ['P-103', 'P-105'],
+            createDate: '2024-06-22',
+            lastContact: '2024-06-30',
         },
         {
             id: 4,
             name: {
                 media: user,
-                fullName: 'Susan Lee',
+                fullName: 'Rachel Adams',
             },
-            phone: '(407) 555-1234',
-            email: 'susan.lee@email.com',
-            source: 'Insurance',
-            type: 'Storm',
-            provider: 'USAA',
-            policyNum: 'US-765432',
-            pa: 'Sophia Rivera',
+            role: 'Insurance Rep',
+            company: 'StateSure Insurance',
+            number: '(407) 555-9876',
+            email: 'radams@statesure.com',
+            status: 'Active',
+            method: 'WhatsApp',
             city: 'Orlando',
-            status: 'Converted',
-            lastTouched: '2024-06-26',
-            createDate: '2024-06-15',
+            claim: ['P-104'],
+            createDate: '2024-06-18',
+            lastContact: '2024-06-29',
         },
         {
             id: 5,
             name: {
                 media: user,
-                fullName: 'James Brown',
+                fullName: 'Carlos Ramirez',
             },
-            phone: '(561) 555-2345',
-            email: 'james.brown@email.com',
-            source: 'Direct Call',
-            type: 'General Inquiry',
-            provider: 'None',
-            policyNum: 'None',
-            pa: 'David Martinez',
+            role: 'Worker (Plumber)',
+            company: 'Independent Contractor',
+            number: '(561) 555-6543',
+            email: 'carlos.ramirez@independent.com',
+            status: 'Inactive',
+            method: 'SMS',
             city: 'West Palm Beach',
-            status: 'Closed',
-            lastTouched: '2024-06-20',
-            createDate: '2024-06-10',
+            claim: [],
+            createDate: '2024-06-12',
+            lastContact: '2024-06-20',
         },
     ]
 
@@ -158,7 +153,7 @@ const Leads = () => {
             ),
         },
         {
-            header: 'Name',
+            header: 'Full Name',
             accessorKey: 'name',
             cell: ({ row }) => (
                 <div className="flex items-center gap-2">
@@ -167,57 +162,30 @@ const Leads = () => {
                         alt={row.original.name.fullName}
                         className="w-8 h-8 rounded-full"
                     />
-                    <button className="w-fit font-semibold text-black">
+                    <span className="font-semibold">
                         {row.original.name.fullName}
-                    </button>
+                    </span>
                 </div>
             ),
         },
         {
-            header: 'Phone',
-            accessorKey: 'phone',
+            header: 'Role',
+            accessorKey: 'role',
             enableSorting: true,
-            cell: ({ row }) => (
-                <p className="text-nowrap">{row.original.phone}</p>
-            ),
+        },
+        {
+            header: 'Company',
+            accessorKey: 'company',
+            enableSorting: true,
+        },
+        {
+            header: 'Phone Numer',
+            accessorKey: 'number',
+            enableSorting: true,
         },
         {
             header: 'Email',
             accessorKey: 'email',
-            enableSorting: true,
-        },
-        {
-            header: 'Source',
-            accessorKey: 'source',
-            enableSorting: true,
-        },
-        {
-            header: 'Type',
-            accessorKey: 'type',
-            enableSorting: true,
-        },
-        {
-            header: 'Insurance Provider',
-            accessorKey: 'provider',
-            enableSorting: true,
-        },
-
-        {
-            header: 'Policy Number',
-            accessorKey: 'policyNum',
-            enableSorting: true,
-        },
-
-        {
-            header: 'PA Associated',
-            accessorKey: 'pa',
-            enableSorting: true,
-            cell: ({ row }) => <button> {row.original.pa} </button>,
-        },
-
-        {
-            header: 'City',
-            accessorKey: 'city',
             enableSorting: true,
         },
         {
@@ -226,30 +194,42 @@ const Leads = () => {
             enableSorting: true,
             cell: ({ row }) => (
                 <Tag
-                    className={`${
-                        row.original.status === 'Closed'
-                            ? 'bg-red-100'
-                            : row.original.status === 'Converted'
-                              ? 'bg-green-100'
-                              : row.original.status === 'Follow-up'
-                                ? 'bg-purple-100'
-                                : row.original.status === 'In Progress'
-                                  ? 'bg-yellow-100'
-                                  : 'bg-sky-100'
-                    }`}
+                    className={`${row.original.status === 'Active' ? 'bg-green-200' : 'bg-red-200'}`}
                 >
                     {row.original.status}
                 </Tag>
             ),
         },
         {
-            header: 'Last Touched',
-            accessorKey: 'lastTouched',
+            header: 'Preferred Contact Method',
+            accessorKey: 'method',
             enableSorting: true,
+        },
+        {
+            header: 'Assigned Claim',
+            accessorKey: 'claim',
+            enableSorting: true,
+            cell: ({ row }) => (
+                <div className="flex flex-row gap-2">
+                    {row.original.claim.map((claim: string, index: number) => (
+                        <p
+                            key={index}
+                            className="bg-gray-100 p-1 rounded-lg text-nowrap"
+                        >
+                            {claim}
+                        </p>
+                    ))}
+                </div>
+            ),
         },
         {
             header: 'Created Date',
             accessorKey: 'createDate',
+            enableSorting: true,
+        },
+        {
+            header: 'Last Contacted',
+            accessorKey: 'lastContact',
             enableSorting: true,
         },
         {
@@ -258,10 +238,10 @@ const Leads = () => {
             enableSorting: false, // Disable sorting for the Actions column
             cell: ({ row }) => (
                 <div className="flex items-center gap-1">
-                    <button onClick={() => handleView(row.original)}>
+                    <button onClick={() => handleEdit(row.orignal)}>
                         <EditPencilIcon />
                     </button>
-                    <button onClick={() => handleEdit(row.original)}>
+                    <button onClick={() => handleView(row.original)}>
                         <ViewEyeIcon />
                     </button>
                     <button onClick={() => handleDelete(row.original)}>
@@ -272,9 +252,10 @@ const Leads = () => {
         },
     ]
 
+    const nav = useNavigate()
+
     const handleView = (rowData: any) => {
-        console.log('View:', rowData)
-        // Add logic
+        nav('/contact-details', { state: { item: rowData } })
     }
 
     const handleEdit = (rowData: any) => {
@@ -290,11 +271,11 @@ const Leads = () => {
     return (
         <main className="bg-white p-4 rounded-2xl border border-gray-200 h-full flex flex-col gap-[20px]">
             <div className="flex flex-row justify-between">
-                <h1 className="text-2xl font-bold">Leads</h1>
+                <h1 className="text-2xl font-bold">Contacts</h1>
                 <div className="flex flex-row gap-[10px]">
                     <CSVLink
                         className="w-fit"
-                        filename="leadsList.csv"
+                        filename="contactsList.csv"
                         data={tableData}
                     >
                         <Button variant="default" icon={<TbCloudDownload />}>
@@ -310,10 +291,14 @@ const Leads = () => {
                 </div>
             </div>
             <div>
-                <RowSelection data={tableData} columns={columns} />
+                <RowSelection
+                    filter={false}
+                    data={tableData}
+                    columns={columns}
+                />
             </div>
         </main>
     )
 }
 
-export default Leads
+export default Main

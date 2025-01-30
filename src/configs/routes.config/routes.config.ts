@@ -15,7 +15,13 @@ export const protectedRoutes: Routes = [
     {
         key: 'contacts',
         path: '/contacts',
-        component: lazy(() => import('@/views/Contact')),
+        component: lazy(() => import('@/views/Contact/Main')),
+        authority: [],
+    },
+    {
+        key: 'contactDetails',
+        path: '/contact-details',
+        component: lazy(() => import('@/views/Contact/ContactDetails/Main')),
         authority: [],
     },
     {
@@ -118,6 +124,24 @@ export const protectedRoutes: Routes = [
         key: 'equipment',
         path: '/equipment',
         component: lazy(() => import('@/views/Equipment')),
+        authority: [],
+    },
+    {
+        key: 'activityLog',
+        path: '/activityLog',
+        component: lazy(() => import('@/views/ActivityLog/Main')),
+        authority: [],
+    },
+    {
+        key: 'tasks',
+        path: '/tasks',
+        component: lazy(() => import('@/views/Tasks/Main')),
+        authority: [],
+    },
+    {
+        key: 'calendar',
+        path: '/calendar',
+        component: lazy(() => import('@/views/Calendar/Main')),
         authority: [],
     },
     ...othersRoute,
