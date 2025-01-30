@@ -39,18 +39,18 @@ const Main = () => {
             <div className="min-w-[330px] 2xl:min-w-[400px]">
                 <Card className="w-full">
                     <div className="flex justify-end">
-                        <button
-                            className="close-button button-press-feedback"
-                            type="button"
-                            onClick={() => handleEdit(item)}
+                        <Tooltip
+                            className="bg-white shadow-md"
+                            title="Edit customer"
                         >
-                            <Tooltip
-                                className="bg-white shadow-md"
-                                title="Edit contact"
+                            <button
+                                className="close-button button-press-feedback"
+                                type="button"
+                                onClick={handleEdit(item)}
                             >
                                 <HiPencil />
-                            </Tooltip>
-                        </button>
+                            </button>
+                        </Tooltip>
                     </div>
                     <div className="flex flex-col xl:justify-between h-full 2xl:min-w-[360px] mx-auto">
                         <div className="flex xl:flex-col items-center gap-4 mt-6">
