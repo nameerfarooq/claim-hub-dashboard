@@ -112,6 +112,7 @@ const ResetPasswordForm = (props: ResetPasswordFormProps) => {
                         loading={isSubmitting}
                         variant="gradient"
                         type="submit"
+                        className='bg-gradient-to-r from-[#2B84FF] to-[#692FE4]'
                     >
                         {isSubmitting ? 'Changing...' : 'Change'}
                     </Button>
