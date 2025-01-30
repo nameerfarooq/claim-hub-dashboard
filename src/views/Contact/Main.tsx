@@ -236,19 +236,23 @@ const Main = () => {
             header: 'Actions',
             accessorKey: 'actions',
             enableSorting: false, // Disable sorting for the Actions column
-            cell: ({ row }) => (
-                <div className="flex items-center gap-1">
-                    <button onClick={() => handleEdit(row.orignal)}>
-                        <EditPencilIcon />
-                    </button>
-                    <button onClick={() => handleView(row.original)}>
-                        <ViewEyeIcon />
-                    </button>
-                    <button onClick={() => handleDelete(row.original)}>
-                        <MdDeleteOutline size={20} className="text-black" />
-                    </button>
-                </div>
-            ),
+            cell: ({ row }) => {
+                const rowData = row.original // Extracting original data once
+
+                return (
+                    <div className="flex items-center gap-1">
+                        <button onClick={() => handleEdit(rowData)}>
+                            <EditPencilIcon />
+                        </button>
+                        <button onClick={() => handleView(rowData)}>
+                            <ViewEyeIcon />
+                        </button>
+                        <button onClick={() => handleDelete(rowData)}>
+                            <MdDeleteOutline size={20} className="text-black" />
+                        </button>
+                    </div>
+                )
+            },
         },
     ]
 
@@ -260,7 +264,7 @@ const Main = () => {
 
     const handleEdit = (rowData: any) => {
         console.log('Edit:', rowData)
-        // Add logic
+        nav('/contact-edit', { state: { item: rowData } })
     }
 
     const handleDelete = (rowData: any) => {
@@ -282,7 +286,10 @@ const Main = () => {
                             Download
                         </Button>
                     </CSVLink>
-                    <button className="flex items-center gap-2 border border-primary rounded-xl px-4 py-2 text-sm font-bold text-white bg-primary hover:bg-primary-deep">
+                    <button
+                        onClick={() => nav('/contact-create')}
+                        className="flex items-center gap-2 border border-primary rounded-xl px-4 py-2 text-sm font-bold text-white bg-primary hover:bg-primary-deep"
+                    >
                         <span>
                             <AddUserIcon />
                         </span>

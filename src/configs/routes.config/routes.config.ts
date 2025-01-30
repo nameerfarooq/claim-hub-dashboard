@@ -25,9 +25,21 @@ export const protectedRoutes: Routes = [
         authority: [],
     },
     {
+        key: 'contactEdit',
+        path: '/contact-edit',
+        component: lazy(() => import('@/views/Contact/ContactEdit/Main')),
+        authority: [],
+    },
+    {
+        key: 'contactNew',
+        path: '/contact-create',
+        component: lazy(() => import('@/views/Contact/ContactNew/Main')),
+        authority: [],
+    },
+    {
         key: 'leads',
         path: '/leads',
-        component: lazy(() => import('@/views/Leads')),
+        component: lazy(() => import('@/views/Leads/Main')),
         authority: [],
     },
     {
